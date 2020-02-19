@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bin2Dec Converter</title>
 
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    
+    <form onsubmit="">
+        <label for="binary">Binary:</label>
+        <input id="binary" type="text" maxlength="8" required autofocus>
+        <input type="submit" value="Convert">
+    </form>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
