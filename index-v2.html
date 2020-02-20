@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bin2Dec Converter v1.0</title>
+    <title>Bin2Dec Converter</title>
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,16 +21,27 @@
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
     <div class="container">
-        <h1 class="d-flex justify-content-center">Binary to Decimal Converter v1.0</h1>
+        <h1 class="d-flex justify-content-center">Binary to Decimal Converter</h1>
         <div class="d-flex flex-row justify-content-center">
             <div class="d-flex flex-column m-2">
-                <label for="binaryInput">Binary Number</label>
-                <input id="binaryInput" class="form-control" type="text" maxlength="8" base="2" autofocus>
-                <div class="invalid-feedback">It's a invalid input.</div>
+                <div class="form-group">
+                    <label for="binaryInput">Binary Number</label>
+                    <input id="binaryInput" class="form-control" type="text" maxlength="8" pattern="^[01]{0,8}$" base="2" autofocus>
+                </div>
             </div>
             <div class="d-flex flex-column m-2">
                 <label for="output">Decimal Number</label>
-                <input id="output" class="form-control" type="text" base="10" readonly>
+                <div class="input-group">
+                    <input id="output" class="form-control" type="text" base="10" readonly>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" id="btn-copy" type="button" onclick="copy()" data-toggle="tooltip" data-placement="top" data-trigger="manual">
+                            <svg class="bi bi-documents" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5 4h8a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2zm0 1a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6a1 1 0 00-1-1H5z" clip-rule="evenodd"></path>
+                                <path d="M7 2h8a2 2 0 012 2v10a2 2 0 01-2 2v-1a1 1 0 001-1V4a1 1 0 00-1-1H7a1 1 0 00-1 1H5a2 2 0 012-2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="d-flex flex-row justify-content-center">
