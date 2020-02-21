@@ -1,10 +1,13 @@
 .box {
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
 }
 
 .border-radius {
-    border-radius: 12% 35% 23% 58%;
+    border-top-left-radius: 12%;
+    border-top-right-radius: 35%;
+    border-bottom-left-radius: 23%;
+    border-bottom-right-radius: 58%;
 }
 
 #copy {
