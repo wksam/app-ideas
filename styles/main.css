@@ -1,0 +1,8 @@
+.box {
+    width: 200px;
+    height: 200px;
+}
+
+.border-radius {
+    border-radius: 12% 35% 23% 58%;
+}

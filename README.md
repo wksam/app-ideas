@@ -6,7 +6,7 @@ The border-radius property can have multiple values changed. Preview how the sha
 
 ## User Stories
 
--   [ ] User can see a box which has a `border-radius` property applied to it
+-   [x] ~User can see a box which has a `border-radius` property applied to it~
 -   [ ] User can change the 4 `border-radius` values that are applied to the box (top-left, top-right, bottom-left, bottom-right)
 -   [ ] User can copy the resulting CSS to the clipboard
 
@@ -24,3 +24,5 @@ The border-radius property can have multiple values changed. Preview how the sha
 -   [9elements Fancy Border Radius](https://9elements.github.io/fancy-border-radius/)
 -   [Border Radius](https://border-radius.com/)
 -   [CSS Gradient Border](https://codepen.io/thebabydino/pen/zbqPVd)
+
+by [App Ideas](https://github.com/florinpop17/app-ideas)
