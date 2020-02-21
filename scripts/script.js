@@ -1,25 +1,7 @@
-// Tooltip
-$('[data-toggle="tooltip"]').tooltip()
-
-let btnCopy = $('#btn-copy');
-btnCopy.mouseenter(() => btnCopy.tooltip('dispose').tooltip({ title: 'Copy to clipboard' }).tooltip('show'));
-btnCopy.mouseleave(() => btnCopy.tooltip('hide'));
-
-// Copy text
-function copy() {
-    var copyText = $('#output')[0];
-
-    copyText.select();
-    copyText.setSelectionRange(0, 999999);
-
-    document.execCommand('copy');
-
-    $('#btn-copy').tooltip('dispose').tooltip({ title: 'Copied!' }).tooltip('show');
-}
-
 // Submit
 var input = $('#binaryInput');
-$('#binaryInput').keypress(e => {
+input.keypress(e => {
+    // console.log(e.which);
     if (e.which == '13') {
         input.removeClass('is-invalid');
         convert();
@@ -33,6 +15,25 @@ $('#binaryInput').keypress(e => {
     }
 });
 
+input.on('paste', function(e) {
+    console.log('paste');
+    var pasteData = e.originalEvent.clipboardData.getData('Text');
+    if(!isBinary(pasteData)) {
+        input.addClass('is-invalid');
+        return false;
+    } else {
+        input.removeClass('is-invalid');
+    }
+});
+
+function isBinary(value) {
+    for (var i = 0; i < value.length; i++) {
+        if(value[i] == '1' || value[i] == '0') continue;
+        else return false;
+    }
+    return true;
+}
+
 // Converter
 function convert() {
     var input = $('#binaryInput');
@@ -45,20 +46,24 @@ function convert() {
 
     switch(baseOutput) {
         case 10:
-            var result = 0;
-            var powVal = 0;
-            /* Determining the decimal equivalent of a particular binary digit 
-               in the sequence must be calculated using a single mathematical function, 
-               for example the natural logarithm. It's up to you to figure out 
-               which function to use. */
-            for(var i = value.length - 1; i >= 0; i--) {
-                result += parseInt(value[i]) * Math.pow(baseInput, powVal);
-                powVal++;
-            }
+            result = calculate(value, baseInput);
             break;
     }
     output.val(result);
     input.val('');
 };
 
-// TODO: User must be notified if anything other than a 0 or 1 was entered
+/* Determining the decimal equivalent of a particular binary digit 
+    in the sequence must be calculated using a single mathematical function, 
+    for example the natural logarithm. It's up to you to figure out 
+    which function to use. */
+function calculate(value, base) {
+    var result = 0;
+    var powVal = 0;
+    console.log(value);
+    for(var i = value.length - 1; i >= 0; i--) {
+        result += parseInt(value[i]) * Math.pow(base, powVal);
+        powVal++;
+    }
+    return result;
+}
