@@ -13,26 +13,27 @@
     <h1>Calculator</h1>
     <div class="d-flex justify-content-center">
         <div class="calc-body">
-            <div class="display">12345678</div>
-            <div class="button">C</div><!-- Clear Entry-->
-            <div class="button">AC</div><!-- Clear All-->
-            <div class="button">+/-</div>
-            <div class="button color">÷</div>
-            <div class="button">7</div>
-            <div class="button">8</div>
-            <div class="button">9</div>
-            <div class="button color">×</div>
-            <div class="button">4</div>
-            <div class="button">5</div>
-            <div class="button">6</div>
-            <div class="button color">-</div>
-            <div class="button">1</div>
-            <div class="button">2</div>
-            <div class="button">3</div>
-            <div class="button color">+</div>
-            <div class="button-0">0</div>
-            <div class="button">,</div>
-            <div class="button color">=</div>
+            <div class="s-display">99999999 + 99999999</div>
+            <div class="display">99999999</div>
+            <div class="button" data-func="clearEntry">C</div><!-- Clear Entry-->
+            <div class="button" data-func="clearAll">AC</div><!-- Clear All-->
+            <div class="button" data-func="changeSign">±</div>
+            <div class="button color" data-operation="division">÷</div>
+            <div class="button" data-number="7">7</div>
+            <div class="button" data-number="8">8</div>
+            <div class="button" data-number="9">9</div>
+            <div class="disable"></div>
+            <div class="button" data-number="4">4</div>
+            <div class="button" data-number="5">5</div>
+            <div class="button" data-number="6">6</div>
+            <div class="button color" data-operation="subtraction">-</div>
+            <div class="button" data-number="1">1</div>
+            <div class="button" data-number="2">2</div>
+            <div class="button" data-number="3">3</div>
+            <div class="button color" data-operation="addition">+</div>
+            <div class="button button-0" data-number="0">0</div>
+            <div class="button" data-func="decimalPoint">.</div>
+            <div class="button color" data-operation="result">=</div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
