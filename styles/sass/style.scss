@@ -1,0 +1,82 @@
+@mixin light-color($color) {
+    background-color: $color;
+    box-shadow: 0 0 15px 5px $color;
+}
+
+@mixin user-select($property) {
+    -webkit-touch-callout: $property; /* iOS Safari */
+      -webkit-user-select: $property; /* Safari */
+       -khtml-user-select: $property; /* Konqueror HTML */
+         -moz-user-select: $property; /* Old versions of Firefox */
+          -ms-user-select: $property; /* Internet Explorer/Edge */
+              user-select: $property; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+}
+
+.text-on {
+    color: #F8F9FA;
+    text-shadow: 0 0 5px #F8F9FA;
+}
+
+.text-off {
+    color: transparent;
+    background-color: #0f0f0f;
+    text-shadow: 1px 1px 2px #343a4080;
+    -webkit-background-clip: text;
+       -moz-background-clip: text;
+            background-clip: text;
+}
+
+.row {
+    margin: 50px 0;
+}
+
+.power {
+    font-size: 48px;
+    cursor: pointer;
+    @include user-select(none);
+}
+
+.bulb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.red {
+    @include light-color(#F44336);
+}
+
+.off {
+    background-color: #252525;
+    box-shadow: inset 1px 1px 3px #00000080;
+}
+
+.orange {
+    @include light-color(#FF9800);
+}
+
+.yellow {
+    @include light-color(#FFEB3B);
+}
+
+.green {
+    @include light-color(#4CAF50);
+}
+
+.blue {
+    @include light-color(#2196F3);
+}
+
+.indigo {
+    @include light-color(#3F51B5);
+}
+
+.violet {
+    @include light-color(#9C27B0);
+}

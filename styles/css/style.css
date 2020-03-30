@@ -1,0 +1,88 @@
+h1 {
+  text-align: center;
+  font-size: 48px;
+}
+
+.text-on {
+  color: #F8F9FA;
+  text-shadow: 0 0 5px #F8F9FA;
+}
+
+.text-off {
+  color: transparent;
+  background-color: #0f0f0f;
+  text-shadow: 1px 1px 2px #343a4080;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.row {
+  margin: 50px 0;
+}
+
+.power {
+  font-size: 48px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+.bulb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.red {
+  background-color: #F44336;
+  box-shadow: 0 0 15px 5px #F44336;
+}
+
+.off {
+  background-color: #252525;
+  box-shadow: inset 1px 1px 3px #00000080;
+}
+
+.orange {
+  background-color: #FF9800;
+  box-shadow: 0 0 15px 5px #FF9800;
+}
+
+.yellow {
+  background-color: #FFEB3B;
+  box-shadow: 0 0 15px 5px #FFEB3B;
+}
+
+.green {
+  background-color: #4CAF50;
+  box-shadow: 0 0 15px 5px #4CAF50;
+}
+
+.blue {
+  background-color: #2196F3;
+  box-shadow: 0 0 15px 5px #2196F3;
+}
+
+.indigo {
+  background-color: #3F51B5;
+  box-shadow: 0 0 15px 5px #3F51B5;
+}
+
+.violet {
+  background-color: #9C27B0;
+  box-shadow: 0 0 15px 5px #9C27B0;
+}
+
+/*# sourceMappingURL=style.css.map */
