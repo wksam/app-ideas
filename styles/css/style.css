@@ -38,6 +38,156 @@ h1 {
   /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 
+/* Variables */
+/* Mixins */
+@keyframes twinkle-bulb1 {
+  0% {
+    background-color: #a21309;
+    box-shadow: 0 0 0 0 #a21309;
+  }
+  50% {
+    background-color: #F44336;
+    box-shadow: 0 0 15px 5px #F44336;
+  }
+  100% {
+    background-color: #a21309;
+    box-shadow: 0 0 0 0 #a21309;
+  }
+}
+@keyframes twinkle-bulb2 {
+  0% {
+    background-color: #FF9800;
+    box-shadow: 0 0 15px 5px #FF9800;
+  }
+  50% {
+    background-color: #804c00;
+    box-shadow: 0 0 0 0 #804c00;
+  }
+  100% {
+    background-color: #FF9800;
+    box-shadow: 0 0 15px 5px #FF9800;
+  }
+}
+@keyframes twinkle-bulb3 {
+  0% {
+    background-color: #bba700;
+    box-shadow: 0 0 0 0 #bba700;
+  }
+  50% {
+    background-color: #FFEB3B;
+    box-shadow: 0 0 15px 5px #FFEB3B;
+  }
+  100% {
+    background-color: #bba700;
+    box-shadow: 0 0 0 0 #bba700;
+  }
+}
+@keyframes twinkle-bulb4 {
+  0% {
+    background-color: #4CAF50;
+    box-shadow: 0 0 15px 5px #4CAF50;
+  }
+  50% {
+    background-color: #255627;
+    box-shadow: 0 0 0 0 #255627;
+  }
+  100% {
+    background-color: #4CAF50;
+    box-shadow: 0 0 15px 5px #4CAF50;
+  }
+}
+@keyframes twinkle-bulb5 {
+  0% {
+    background-color: #08528d;
+    box-shadow: 0 0 0 0 #08528d;
+  }
+  50% {
+    background-color: #2196F3;
+    box-shadow: 0 0 15px 5px #2196F3;
+  }
+  100% {
+    background-color: #08528d;
+    box-shadow: 0 0 0 0 #08528d;
+  }
+}
+@keyframes twinkle-bulb6 {
+  0% {
+    background-color: #3F51B5;
+    box-shadow: 0 0 15px 5px #3F51B5;
+  }
+  50% {
+    background-color: #1e2756;
+    box-shadow: 0 0 0 0 #1e2756;
+  }
+  100% {
+    background-color: #3F51B5;
+    box-shadow: 0 0 15px 5px #3F51B5;
+  }
+}
+@keyframes twinkle-bulb7 {
+  0% {
+    background-color: #3f1048;
+    box-shadow: 0 0 0 0 #3f1048;
+  }
+  50% {
+    background-color: #9C27B0;
+    box-shadow: 0 0 15px 5px #9C27B0;
+  }
+  100% {
+    background-color: #3f1048;
+    box-shadow: 0 0 0 0 #3f1048;
+  }
+}
+.bulb1 {
+  animation-name: twinkle-bulb1;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bulb2 {
+  animation-name: twinkle-bulb2;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bulb3 {
+  animation-name: twinkle-bulb3;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bulb4 {
+  animation-name: twinkle-bulb4;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bulb5 {
+  animation-name: twinkle-bulb5;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bulb6 {
+  animation-name: twinkle-bulb6;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bulb7 {
+  animation-name: twinkle-bulb7;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* Styles */
 .bulb {
   width: 30px;
   height: 30px;
@@ -45,44 +195,9 @@ h1 {
   margin: auto;
 }
 
-.red {
-  background-color: #F44336;
-  box-shadow: 0 0 15px 5px #F44336;
-}
-
 .off {
   background-color: #252525;
   box-shadow: inset 1px 1px 3px #00000080;
-}
-
-.orange {
-  background-color: #FF9800;
-  box-shadow: 0 0 15px 5px #FF9800;
-}
-
-.yellow {
-  background-color: #FFEB3B;
-  box-shadow: 0 0 15px 5px #FFEB3B;
-}
-
-.green {
-  background-color: #4CAF50;
-  box-shadow: 0 0 15px 5px #4CAF50;
-}
-
-.blue {
-  background-color: #2196F3;
-  box-shadow: 0 0 15px 5px #2196F3;
-}
-
-.indigo {
-  background-color: #3F51B5;
-  box-shadow: 0 0 15px 5px #3F51B5;
-}
-
-.violet {
-  background-color: #9C27B0;
-  box-shadow: 0 0 15px 5px #9C27B0;
 }
 
 /*# sourceMappingURL=style.css.map */

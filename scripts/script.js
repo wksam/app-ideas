@@ -1,6 +1,6 @@
 const header = $("h1");
 const bulbs  = [$(".bulb-1"), $(".bulb-2"), $(".bulb-3"), $(".bulb-4"), $(".bulb-5"), $(".bulb-6"), $(".bulb-7")];
-const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+const colors = ["bulb1", "bulb2", "bulb3", "bulb4", "bulb5", "bulb6", "bulb7"];
 
 $(".power").click(function() {
     toggleLight($(this));
@@ -8,7 +8,6 @@ $(".power").click(function() {
 
 function toggleLight(e) {
     if(e.hasClass("text-on")) {
-        console.log("Turn off");
         e.addClass("text-off");
         header.addClass("text-off");
         $.each(bulbs, function(index, bulb) {
@@ -21,7 +20,6 @@ function toggleLight(e) {
             bulb.removeClass(colors[index]);
         });
     } else {
-        console.log("Turn on");
         e.addClass("text-on");
         header.addClass("text-on");
         $.each(bulbs, function(index, bulb) {

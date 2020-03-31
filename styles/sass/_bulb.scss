@@ -1,0 +1,65 @@
+/* Variables */
+$color1: #FFF !default;
+$color2: #FFF !default;
+$color3: #FFF !default;
+$color4: #FFF !default;
+$color5: #FFF !default;
+$color6: #FFF !default;
+$color7: #FFF !default;
+$colors: 
+    "bulb1" $color1 true, 
+    "bulb2" $color2 false, 
+    "bulb3" $color3 true, 
+    "bulb4" $color4 false, 
+    "bulb5" $color5 true, 
+    "bulb6" $color6 false, 
+    "bulb7" $color7 true;
+
+/* Mixins */
+
+@mixin twinkle($name, $color, $dark-color, $reverse) {
+    @if $reverse {
+        @keyframes twinkle-#{$name} {
+            0% { background-color: $dark-color; box-shadow: 0 0 0 0 $dark-color; }
+            50% { background-color: $color; box-shadow: 0 0 15px 5px $color; }
+            100% { background-color: $dark-color; box-shadow: 0 0 0 0 $dark-color; }
+        }
+    } @else {
+        @keyframes twinkle-#{$name} {
+            0% { background-color: $color; box-shadow: 0 0 15px 5px $color; }
+            50% { background-color: $dark-color; box-shadow: 0 0 0 0 $dark-color; }
+            100% { background-color: $color; box-shadow: 0 0 15px 5px $color; }
+        }
+    }
+}
+
+@each $name, $color, $reverse in $colors {
+    @include twinkle(#{$name}, $color, darken($color, 25%), $reverse);
+}
+
+@mixin bulb($name) {
+    .#{$name} {
+        animation-name: twinkle-#{$name};
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}
+
+@each $name, $color, $reverse in $colors {
+    @include bulb($name);
+}
+
+/* Styles */
+
+.bulb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.off {
+    background-color: #252525;
+    box-shadow: inset 1px 1px 3px #00000080;
+}

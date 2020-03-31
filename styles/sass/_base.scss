@@ -1,0 +1,22 @@
+h1 {
+    text-align: center;
+    font-size: 48px;
+}
+
+.text-on {
+    color: #F8F9FA;
+    text-shadow: 0 0 5px #F8F9FA;
+}
+
+.text-off {
+    color: transparent;
+    background-color: #0f0f0f;
+    text-shadow: 1px 1px 2px #343a4080;
+    -webkit-background-clip: text;
+       -moz-background-clip: text;
+            background-clip: text;
+}
+
+.row {
+    margin: 50px 0;
+}
