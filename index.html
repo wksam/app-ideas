@@ -4,28 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christmas Lights</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles/css/style.css">
+    <link href="styles/css/style.css" rel="stylesheet">
 </head>
 <body class="bg-dark">
-    <h1 class="text-off">CHRISTMAS LIGHTS</h1>
+    <h1 class="text-on">CHRISTMAS LIGHTS</h1>
+    <div class="row justify-content-md-center">
+        <i class="power text-on material-icons">power_settings_new</i>
+    </div>
     <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="bulb bulb-1 red col-md-auto"></div>
-            <div class="bulb bulb-2 off col-md-auto"></div>
-            <div class="bulb bulb-3 off col-md-auto"></div>
-            <div class="bulb bulb-4 off col-md-auto"></div>
-            <div class="bulb bulb-5 off col-md-auto"></div>
-            <div class="bulb bulb-6 off col-md-auto"></div>
-            <div class="bulb bulb-7 off col-md-autos"></div>
+        <div class="bulbs row justify-content-md-center">
+            <div class="bulb twinkle-1 col-md-auto" data-bulb-id="1"></div>
+            <div class="bulb twinkle-2 col-md-auto" data-bulb-id="2"></div>
+            <div class="bulb twinkle-3 col-md-auto" data-bulb-id="3"></div>
+            <div class="bulb twinkle-4 col-md-auto" data-bulb-id="4"></div>
+            <div class="bulb twinkle-5 col-md-auto" data-bulb-id="5"></div>
+            <div class="bulb twinkle-6 col-md-auto" data-bulb-id="6"></div>
+            <div class="bulb twinkle-7 col-md-auto" data-bulb-id="7"></div>
         </div>
-        <div class="row justify-content-md-center">
-            <i class="power text-off material-icons">power_settings_new</i>
+        <div class="collapse show">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Options</h5>
+                    <div class="container">
+                        <div class="pallete row">
+                            <div class="color red"></div>
+                            <div class="color pink"></div>
+                            <div class="color purple"></div>
+                            <div class="color deep-purple"></div>
+                            <div class="color indigo"></div>
+                            <div class="color blue"></div>
+                            <div class="color light-blue"></div>
+                            <div class="color cyan"></div>
+                            <div class="color teal"></div>
+                            <div class="color green"></div>
+                            <div class="color light-green"></div>
+                            <div class="color lime"></div>
+                            <div class="color yellow"></div>
+                            <div class="color amber"></div>
+                            <div class="color orange"></div>
+                            <div class="color deep-orange"></div>
+                        </div>
+                    </div>
+                    <div class="slidecontainer">
+                        <label for="intensity">Intensity: <span id="demo">10</span></label>
+                        <input type="range" min="1" max="100" value="10" id="intensity">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="scripts/script.js"></script>
 </body>
 </html>

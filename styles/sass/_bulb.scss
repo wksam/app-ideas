@@ -1,65 +1,84 @@
-/* Variables */
-$color1: #FFF !default;
-$color2: #FFF !default;
-$color3: #FFF !default;
-$color4: #FFF !default;
-$color5: #FFF !default;
-$color6: #FFF !default;
-$color7: #FFF !default;
-$colors: 
-    "bulb1" $color1 true, 
-    "bulb2" $color2 false, 
-    "bulb3" $color3 true, 
-    "bulb4" $color4 false, 
-    "bulb5" $color5 true, 
-    "bulb6" $color6 false, 
-    "bulb7" $color7 true;
+:root {
+    --twinkle-color-1     : #F44336;
+    --twinkle-dark-color-1: #7A211B;
+    --blur-1              : 20px;
+    --spread-1            : 10px;
+    --twinkle-duration-1  : 1s;
 
-/* Mixins */
+    --twinkle-color-2     : #FF9800;
+    --twinkle-dark-color-2: #7F4C00;
+    --blur-2              : 20px;
+    --spread-2            : 10px;
+    --twinkle-duration-2  : 1s;
+    
+    --twinkle-color-3     : #FFEB3B;
+    --twinkle-dark-color-3: #7F751D;
+    --blur-3              : 20px;
+    --spread-3            : 10px;
+    --twinkle-duration-3  : 1s;
 
-@mixin twinkle($name, $color, $dark-color, $reverse) {
-    @if $reverse {
-        @keyframes twinkle-#{$name} {
-            0% { background-color: $dark-color; box-shadow: 0 0 0 0 $dark-color; }
-            50% { background-color: $color; box-shadow: 0 0 15px 5px $color; }
-            100% { background-color: $dark-color; box-shadow: 0 0 0 0 $dark-color; }
-        }
-    } @else {
-        @keyframes twinkle-#{$name} {
-            0% { background-color: $color; box-shadow: 0 0 15px 5px $color; }
-            50% { background-color: $dark-color; box-shadow: 0 0 0 0 $dark-color; }
-            100% { background-color: $color; box-shadow: 0 0 15px 5px $color; }
-        }
-    }
+    --twinkle-color-4     : #4CAF50;
+    --twinkle-dark-color-4: #263928;
+    --blur-4              : 20px;
+    --spread-4            : 10px;
+    --twinkle-duration-4  : 1s;
+
+    --twinkle-color-5     : #2196F3;
+    --twinkle-dark-color-5: #104c79;
+    --blur-5              : 20px;
+    --spread-5            : 10px;
+    --twinkle-duration-5  : 1s;
+
+    --twinkle-color-6     : #3F51B5;
+    --twinkle-dark-color-6: #1F285A;
+    --blur-6              : 20px;
+    --spread-6            : 10px;
+    --twinkle-duration-6  : 1s;
+
+    --twinkle-color-7     : #9C27B0;
+    --twinkle-dark-color-7: #4E1358;
+    --blur-7              : 20px;
+    --spread-7            : 10px;
+    --twinkle-duration-7  : 1s;
 }
-
-@each $name, $color, $reverse in $colors {
-    @include twinkle(#{$name}, $color, darken($color, 25%), $reverse);
-}
-
-@mixin bulb($name) {
-    .#{$name} {
-        animation-name: twinkle-#{$name};
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-}
-
-@each $name, $color, $reverse in $colors {
-    @include bulb($name);
-}
-
-/* Styles */
 
 .bulb {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     margin: auto;
-}
-
-.off {
     background-color: #252525;
     box-shadow: inset 1px 1px 3px #00000080;
+    cursor: pointer;
 }
+
+@mixin twinkle {
+    @for $i from 1 to 8 {
+        .twinkle-#{$i} {
+            animation: twinkle-#{$i} var(--twinkle-duration-#{$i}) ease-in-out infinite;
+        }
+    }
+}
+
+@mixin twinkle-animation {
+    @for $i from 1 to 8 {   
+        @keyframes twinkle-#{$i} {
+            @if is-even($i) {
+                0%   { background-color: var(--twinkle-color-#{$i});      box-shadow: 0 0 var(--blur-#{$i}) var(--spread-#{$i}) var(--twinkle-color-#{$i}); }
+                50%  { background-color: var(--twinkle-dark-color-#{$i}); box-shadow: 0 0 0 0 var(--twinkle-dark-color-#{$i}); }
+                100% { background-color: var(--twinkle-color-#{$i});      box-shadow: 0 0 var(--blur-#{$i}) var(--spread-#{$i}) var(--twinkle-color-#{$i}); }
+            } @else {
+                0%   { background-color: var(--twinkle-dark-color-#{$i}); box-shadow: 0 0 0 0 var(--twinkle-dark-color-#{$i}); }
+                50%  { background-color: var(--twinkle-color-#{$i});      box-shadow: 0 0 var(--blur-#{$i}) var(--spread-#{$i}) var(--twinkle-color-#{$i}); }
+                100% { background-color: var(--twinkle-dark-color-#{$i}); box-shadow: 0 0 0 0 var(--twinkle-dark-color-#{$i}); }
+            }
+        }
+    }
+}
+
+@function is-even($number) {
+    @return $number % 2 == 0;
+}
+
+@include twinkle;
+@include twinkle-animation;

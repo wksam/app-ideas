@@ -1,11 +1,5 @@
 @use 'base';
 @use 'switch';
-@use 'bulb' with (
-    $color1: #F44336,
-    $color2: #FF9800,
-    $color3: #FFEB3B,
-    $color4: #4CAF50,
-    $color5: #2196F3,
-    $color6: #3F51B5,
-    $color7: #9C27B0 ,
-);
+@use 'bulb';
+@use 'pallete';
+@use 'intensity';
