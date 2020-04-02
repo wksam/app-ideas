@@ -39,7 +39,7 @@ constraints:
 
 -   [x] User can see the person name in the summary pane highlighted when the
         cursor is hovered over it.
--   [ ] User can see the person name in the summary pane highlighted
+-   [x] User can see the person name in the summary pane highlighted
         using a selection effect (color, size, etc.) when it is clicked. This is a
         different effect from the hover effect
 -   [ ] User can see the selection effect removed from a name in the summary

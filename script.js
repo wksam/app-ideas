@@ -27,20 +27,37 @@ loadSummary();
 
 const elements = document.getElementsByTagName("li");
 [...elements].forEach(function(element) {
-    element.addEventListener("click", function(e) {
-        const index = e.target.getAttribute("data-index");
-        const person = people[index];
-        const nameField = document.getElementsByClassName("name")[0];
-        const streetField = document.getElementsByClassName("street")[0];
-        const telephoneField = document.getElementsByClassName("telephone")[0];
-        const birthdayField = document.getElementsByClassName("birthday")[0];
-
-        nameField.innerHTML = addStrongTag("Name: ") + person.name;
-        streetField.innerHTML = addStrongTag("Address: ") + person.street + ", " + person.state + ", " + person.country;
-        telephoneField.innerHTML = addStrongTag("Telephone: ") + person.telephone;
-        birthdayField.innerHTML = addStrongTag("Birthday: ") + person.birthday;
-    })
+    element.addEventListener("click", clickListEvent);
 })
+
+let selectedElement;
+function clickListEvent(e) {
+    const index = e.target.getAttribute("data-index");
+    const person = people[index];
+    const nameField = document.getElementsByClassName("name")[0];
+    const streetField = document.getElementsByClassName("street")[0];
+    const telephoneField = document.getElementsByClassName("telephone")[0];
+    const birthdayField = document.getElementsByClassName("birthday")[0];
+
+    nameField.innerHTML = addStrongTag("Name: ") + person.name;
+    streetField.innerHTML = addStrongTag("Address: ") + person.street + ", " + person.state + ", " + person.country;
+    telephoneField.innerHTML = addStrongTag("Telephone: ") + person.telephone;
+    birthdayField.innerHTML = addStrongTag("Birthday: ") + person.birthday;
+
+    if(selectedElement != null) removeClass(selectedElement, "selected");
+    selectedElement = e.target;
+
+    addClass(e.target, "selected");
+}
+
+function addClass(element, className) {
+    element.classList.add(className);
+}
+
+function removeClass(element, className) {
+    console.log(element);
+    element.classList.remove(className);
+}
 
 function addStrongTag(text) {
     return "<strong>" + text + "</strong>"
