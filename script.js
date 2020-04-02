@@ -55,7 +55,6 @@ function addClass(element, className) {
 }
 
 function removeClass(element, className) {
-    console.log(element);
     element.classList.remove(className);
 }
 
