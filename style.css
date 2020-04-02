@@ -1,0 +1,15 @@
+.layout {
+    display: grid;
+    column-gap: 8px;
+    grid-template-columns: 25% auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    cursor: pointer;
+    margin: 8px 0;
+}
