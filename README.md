@@ -14,7 +14,7 @@ an RGB color specification (e.g. `#000000` color code).
 
 ## User Stories
 
--   [ ] User can specify a starting fill color as a six hexadecimal standard
+-   [x] User can specify a starting fill color as a six hexadecimal standard
         CSS color code in three individual components of two digits each - red,
         blue, and green
 -   [ ] User can specify an increment value for each color component that will
