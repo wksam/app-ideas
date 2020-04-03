@@ -1,3 +1,7 @@
 body {
     background: #f8f9fa;
 }
+
+.input-group {
+    padding: 0 5px 0;
+}
