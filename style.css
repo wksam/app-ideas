@@ -5,3 +5,7 @@ body {
 .input-group {
     padding: 0 5px 0;
 }
+
+.form-check {
+    padding-left: 0.75rem;
+}
