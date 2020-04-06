@@ -23,7 +23,7 @@ own original implementation.
 
 ## User Stories
 
--   [ ] User can see an event input box containing an event name field, an
+-   [x] User can see an event input box containing an event name field, an
 date field, an optional time, and a 'Start' button.
 -   [ ] User can define the event by entering its name, the date it is
 scheduled to take place, and an optional time of the event. If the time is 
