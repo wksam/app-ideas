@@ -29,8 +29,8 @@ date field, an optional time, and a 'Start' button.
 scheduled to take place, and an optional time of the event. If the time is 
 omitted it is assumed to be at Midnight on the event date in the local time
 zone.
--   [ ] User can see a warning message if the event name is blank.
--   [ ] User can see a warning message if the event date or time are incorrectly
+-   [x] User can see a warning message if the event name is blank.
+-   [x] User can see a warning message if the event date or time are incorrectly
 entered. 
 -   [ ] User can see a warning message if the time until the event data and time
 that has been entered would overflow the precision of the countdown timer.
