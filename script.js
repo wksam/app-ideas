@@ -5,42 +5,47 @@ const DAY    = HOUR * 24;
 
 function createCountdown(name) {
     const html = 
-        '<div class="countdown d-flex flex-row">' +
-            '<div class="d-flex flex-column p-2">' +
-                '<div class="text-center">' + name + '</div>' +
-            '</div>' +
-            '<div class="d-flex flex-column p-2">' +
-                '<div class="text-center days">0</div>' +
-                '<div class="text-center">days</div>' +
-            '</div>' +
-            '<div class="d-flex flex-column p-2">' +
-                '<div class="text-center hours">00</div>' +
-                '<div class="text-center">hours</div>' +
-            '</div>' +
-            '<div class="d-flex flex-column p-2">' +
-                '<div class="text-center">:</div>' +
-            '</div>' +
-            '<div class="d-flex flex-column p-2">' +
-                '<div class="text-center minutes">00</div>' +
-                '<div class="text-center">minutes</div>' +
-            '</div>' +
-            '<div class="d-flex flex-column p-2">' +
-                '<div class="text-center">:</div>' +
-            '</div>' +
-            '<div class="d-flex flex-column p-2">' + 
-                '<div class="text-center seconds">00</div>' +
-                '<div class="text-center">seconds</div>' +
-            '</div>' +
-            '<div class="d-flex flex-column p-2">' +
+        '<tr>' +
+            '<td>' + name + '</td>' + 
+            '<td>' +
+                '<div class="d-flex flex-row">' +
+                    '<div class="d-flex flex-column pr-2">' +
+                        '<div class="text-center days">0</div>' +
+                        '<div class="text-center">days</div>' +
+                    '</div>' +
+                    '<div class="d-flex flex-column pr-2">' +
+                        '<div class="text-center">|</div>' +
+                    '</div>' +
+                    '<div class="d-flex flex-column pr-2">' +
+                        '<div class="text-center hours">00</div>' +
+                        '<div class="text-center">hours</div>' +
+                    '</div>' +
+                    '<div class="d-flex flex-column pr-2">' +
+                        '<div class="text-center">:</div>' +
+                    '</div>' +
+                    '<div class="d-flex flex-column pr-2">' +
+                        '<div class="text-center minutes">00</div>' +
+                        '<div class="text-center">minutes</div>' +
+                    '</div>' +
+                    '<div class="d-flex flex-column pr-2">' +
+                        '<div class="text-center">:</div>' +
+                    '</div>' +
+                    '<div class="d-flex flex-column pr-2">' + 
+                        '<div class="text-center seconds">00</div>' +
+                        '<div class="text-center">seconds</div>' +
+                    '</div>' +
+                '</div>' +
+            '</td>' + 
+            '<td>' +
                 '<button class="btn btn-primary">' +
                     '<svg class="bi bi-trash-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">' +
                         '<path fill-rule="evenodd" d="M2.5 1a1 1 0 00-1 1v1a1 1 0 001 1H3v9a2 2 0 002 2h6a2 2 0 002-2V4h.5a1 1 0 001-1V2a1 1 0 00-1-1H10a1 1 0 00-1-1H7a1 1 0 00-1 1H2.5zm3 4a.5.5 0 01.5.5v7a.5.5 0 01-1 0v-7a.5.5 0 01.5-.5zM8 5a.5.5 0 01.5.5v7a.5.5 0 01-1 0v-7A.5.5 0 018 5zm3 .5a.5.5 0 00-1 0v7a.5.5 0 001 0v-7z" clip-rule="evenodd"/>' +
                     '</svg>' +
                 '</button>' +
-            '</div>' +
-        '</div>';
-    $(".container").append(html);
-    const lastElement = $(".countdown").last();
+            '</td>' +
+        '</tr>';
+    $("tbody").prepend(html);
+    const lastElement = $("tbody").find("tr").first();
     lastElement.find("button").on("click", remove);
     return lastElement.uniqueId().attr("id");
 }
@@ -97,11 +102,11 @@ function remove() {
 }
 
 function getCountdownId(e) {
-    return e.closest(".countdown").attr("id");
+    return e.closest("tr").attr("id");
 }
 
 function getCountdownIntervalId(e) {
-    return e.closest(".countdown").data("intervalId");
+    return e.closest("tr").data("intervalId");
 }
 
 function getData(array, name) {
