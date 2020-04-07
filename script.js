@@ -54,40 +54,28 @@ $("form").submit(function(e) {
     const submit = $(this).serializeArray();
     const eventName = getData(submit, "event");
 
+    $('form :input').val('');
+    if(eventNameExists(eventName)) {
+        alert("Evento já existe!");
+        e.preventDefault();
+        return;
+    }
+
     let inputDate = getData(submit, "date");
     let inputTime = getData(submit, "time");
     inputTime = inputTime != "" ? inputTime : "00:00";
     const date = new Date(formatDate(inputDate, inputTime)).getTime();
     const id = createCountdown(eventName);
 
-    function updateCountdown() {
-        const now = Date.now();
+    Cookies.set(eventName, date);
 
-        const remaining = date - now;
-        let days = parseInt(remaining / DAY);
-        let hours = parseInt(remaining % DAY / HOUR);
-        let minutes = parseInt(remaining % HOUR / MINUTE);
-        let seconds = parseInt(remaining % MINUTE / SECOND);
-        days = days < 0 ? 0 : days;
-        hours = hours < 0 ? "00" : addZero(hours);
-        minutes = minutes < 0 ? "00" : addZero(minutes);
-        seconds = seconds < 0 ? "00" : addZero(seconds);
-    
-        $("#" + id).find(".days").html(days);
-        $("#" + id).find(".hours").html(hours);
-        $("#" + id).find(".minutes").html(minutes);
-        $("#" + id).find(".seconds").html(seconds);
-        
-        if(isFinished(days, hours, minutes, seconds)) { 
-            const eventName = $("#" + id).find(".event").html();
-            spawnNotification(eventName, "Event was reached");
-            stopCountdown(id) 
-        };
+    function startUpdateCountdown() {
+        updateCountdown(id, date);
     }
 
     function startCountdown() {
-        updateCountdown();
-        const intervalId = setInterval(updateCountdown, 1000);
+        updateCountdown(id, date);
+        const intervalId = setInterval(startUpdateCountdown, 1000);
         $("#" + id).data("intervalId", intervalId);
     }
     if(!(date < Date.now())) setTimeout(startCountdown, 1000 - (Date.now() % 1000));
@@ -146,4 +134,51 @@ function spawnNotification(body, title) {
         body: body
     }
     const n = new Notification(title, options);
+}
+
+function eventNameExists(name) {
+    return Cookies.get(name) != null;
+}
+
+function loadDataFromCookies() {
+    $.each(Cookies.get(), function(key, val) {
+        const id = createCountdown(key);
+
+        function startUpdateCountdown() {
+            updateCountdown(id, val);
+        }
+
+        function startCountdown() {
+            updateCountdown(id, val);
+            const intervalId = setInterval(startUpdateCountdown, 1000);
+            $("#" + id).data("intervalId", intervalId);
+        }
+        if(!(val < Date.now())) setTimeout(startCountdown, 1000 - (Date.now() % 1000));
+    });
+}
+loadDataFromCookies();
+
+function updateCountdown(id, date) {
+    const now = Date.now();
+
+    const remaining = date - now;
+    let days = parseInt(remaining / DAY);
+    let hours = parseInt(remaining % DAY / HOUR);
+    let minutes = parseInt(remaining % HOUR / MINUTE);
+    let seconds = parseInt(remaining % MINUTE / SECOND);
+    days = days < 0 ? 0 : days;
+    hours = hours < 0 ? "00" : addZero(hours);
+    minutes = minutes < 0 ? "00" : addZero(minutes);
+    seconds = seconds < 0 ? "00" : addZero(seconds);
+
+    $("#" + id).find(".days").html(days);
+    $("#" + id).find(".hours").html(hours);
+    $("#" + id).find(".minutes").html(minutes);
+    $("#" + id).find(".seconds").html(seconds);
+    
+    if(isFinished(days, hours, minutes, seconds)) { 
+        const eventName = $("#" + id).find(".event").html();
+        spawnNotification(eventName, "Event was reached");
+        stopCountdown(id);
+    };
 }

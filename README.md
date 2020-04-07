@@ -32,7 +32,7 @@ zone.
 -   [x] User can see a warning message if the event name is blank.
 -   [x] User can see a warning message if the event date or time are incorrectly
 entered. 
--   [ ] User can see a warning message if the time until the event data and time
+-   [x] User can see a warning message if the time until the event data and time
 that has been entered would overflow the precision of the countdown timer.
 -   [x] User can click on the 'Start' button to see the countdown timer start
 displaying the days, hours, minutes, and seconds until the event takes place.
@@ -42,8 +42,8 @@ minutes count will decrement by 1 and the seconds will start to countdown from 5
 
 ## Bonus features
 
--   [ ] User can save the event so that it persists across sessions
--   [ ] User can see an alert when the event is reached
+-   [x] User can save the event so that it persists across sessions
+-   [x] User can see an alert when the event is reached
 -   [x] User can specify more than one event. 
 -   [x] User can see a countdown timers for each event that has been defined.
 
