@@ -14,21 +14,21 @@ function createCountdown(name) {
                 '<div class="text-center">days</div>' +
             '</div>' +
             '<div class="d-flex flex-column p-2">' +
-                '<div class="text-center hours">0</div>' +
+                '<div class="text-center hours">00</div>' +
                 '<div class="text-center">hours</div>' +
             '</div>' +
             '<div class="d-flex flex-column p-2">' +
                 '<div class="text-center">:</div>' +
             '</div>' +
             '<div class="d-flex flex-column p-2">' +
-                '<div class="text-center minutes">0</div>' +
+                '<div class="text-center minutes">00</div>' +
                 '<div class="text-center">minutes</div>' +
             '</div>' +
             '<div class="d-flex flex-column p-2">' +
                 '<div class="text-center">:</div>' +
             '</div>' +
             '<div class="d-flex flex-column p-2">' + 
-                '<div class="text-center seconds">0</div>' +
+                '<div class="text-center seconds">00</div>' +
                 '<div class="text-center">seconds</div>' +
             '</div>' +
             '<div class="d-flex flex-column p-2">' +
@@ -53,11 +53,36 @@ $("form").submit(function(e) {
     let inputTime = getData(submit, "time");
     inputTime = inputTime != "" ? inputTime : "00:00";
     const date = new Date(formatDate(inputDate, inputTime)).getTime();
-
     const id = createCountdown(eventName);
-    const intervalId = setInterval(function() { updateTimer(id, date) }, 1000);
-    $("#" + id).data("intervalId", intervalId);
 
+    function updateCountdown() {
+        const now = Date.now();
+
+        const remaining = date - now;
+        let days = parseInt(remaining / DAY);
+        let hours = parseInt(remaining % DAY / HOUR);
+        let minutes = parseInt(remaining % HOUR / MINUTE);
+        let seconds = parseInt(remaining % MINUTE / SECOND);
+        days = days < 0 ? 0 : days;
+        hours = hours < 0 ? "00" : addZero(hours);
+        minutes = minutes < 0 ? "00" : addZero(minutes);
+        seconds = seconds < 0 ? "00" : addZero(seconds);
+    
+        $("#" + id).find(".days").html(days);
+        $("#" + id).find(".hours").html(hours);
+        $("#" + id).find(".minutes").html(minutes);
+        $("#" + id).find(".seconds").html(seconds);
+        
+        if(isFinished(days, hours, minutes, seconds)) stopCountdown(id);
+    }
+
+    function startCountdown() {
+        updateCountdown();
+        const intervalId = setInterval(updateCountdown, 1000);
+        $("#" + id).data("intervalId", intervalId);
+    }
+    setTimeout(startCountdown, 1000 - (Date.now() % 1000));
+    
     e.preventDefault();
 });
 
@@ -65,7 +90,7 @@ function remove() {
     const id = getCountdownId($(this));
     const intervalId = getCountdownIntervalId($(this));
     const countdown = $("#" + id);
-
+    
     clearInterval(intervalId);
     countdown.removeUniqueId();
     countdown.remove();
@@ -90,23 +115,13 @@ function formatDate(date, time) {
     return date + "T" + time;
 }
 
-function updateTimer(id, date) {
-    const now = new Date().getTime();
-    
-    const remaining = date - now;
-    let days = parseInt(remaining / DAY);
-    let hours = parseInt(remaining % DAY / HOUR);
-    let minutes = parseInt(remaining % HOUR / MINUTE);
-    let seconds = parseInt(remaining % MINUTE / SECOND);
-    days = days < 0 ? 0 : days;
-    hours = hours < 0 ? "00" : addZero(hours);
-    minutes = minutes < 0 ? "00" : addZero(minutes);
-    seconds = seconds < 0 ? "00" : addZero(seconds);
+function isFinished(days, hours, minutes, seconds) {
+    return days == 0 && hours == 0 && minutes == 0 && seconds == 0;
+}
 
-    $("#" + id).find(".days").html(days);
-    $("#" + id).find(".hours").html(hours);
-    $("#" + id).find(".minutes").html(minutes);
-    $("#" + id).find(".seconds").html(seconds);
+function stopCountdown(id) {
+    const intervalId = $("#" + id).data("intervalId");
+    clearInterval(intervalId);
 }
 
 function addZero(number) {
