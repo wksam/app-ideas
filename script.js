@@ -6,7 +6,7 @@ const DAY    = HOUR * 24;
 function createCountdown(name) {
     const html = 
         '<tr>' +
-            '<td>' + name + '</td>' + 
+            '<td class="event">' + name + '</td>' + 
             '<td>' +
                 '<div class="d-flex flex-row">' +
                     '<div class="d-flex flex-column pr-2">' +
@@ -78,7 +78,11 @@ $("form").submit(function(e) {
         $("#" + id).find(".minutes").html(minutes);
         $("#" + id).find(".seconds").html(seconds);
         
-        if(isFinished(days, hours, minutes, seconds)) stopCountdown(id);
+        if(isFinished(days, hours, minutes, seconds)) { 
+            const eventName = $("#" + id).find(".event").html();
+            spawnNotification(eventName, "Event was reached");
+            stopCountdown(id) 
+        };
     }
 
     function startCountdown() {
@@ -86,7 +90,7 @@ $("form").submit(function(e) {
         const intervalId = setInterval(updateCountdown, 1000);
         $("#" + id).data("intervalId", intervalId);
     }
-    setTimeout(startCountdown, 1000 - (Date.now() % 1000));
+    if(!(date < Date.now())) setTimeout(startCountdown, 1000 - (Date.now() % 1000));
     
     e.preventDefault();
 });
@@ -134,4 +138,12 @@ function addZero(number) {
         return "0" + number;
     }
     return number;
+}
+
+Notification.requestPermission();
+function spawnNotification(body, title) {
+    const options = {
+        body: body
+    }
+    const n = new Notification(title, options);
 }
