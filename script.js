@@ -86,11 +86,11 @@ $("form").submit(function(e) {
 function remove() {
     const id = getCountdownId($(this));
     const intervalId = getCountdownIntervalId($(this));
-    const countdown = $("#" + id);
+    const eventName = $("#" + id + " > .event").html();
+    Cookies.remove(eventName);
     
     clearInterval(intervalId);
-    countdown.removeUniqueId();
-    countdown.remove();
+    $("#" + id).remove();
 }
 
 function getCountdownId(e) {
