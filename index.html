@@ -5,16 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dollar to Cents</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="text-center my-4">Dollars to Cents</h1>
-        <form>
-            <div class="form-group">
-                <label for="dollar">Dollar</label>
-                <input type="number" class="form-control" id="dollar" name="dollar" step="0.01" min="0">
+        <form class="my-4">
+            <label for="dollar">Dollar</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">US$</span>
+                </div>
+                <input type="number" class="form-control" id="dollar" name="dollar" step="0.01" min="0" required>
             </div>
         </form>
+        <div class="d-flex justify-content-around py-2 text-center">
+            <div class="cent flex-column flex-fill mr-1 py-2 rounded">
+                <div class="title"><h5>Cent</h5></div>
+                <div class="total">Total</div>
+                <div class="amount">Amount</div>
+            </div>
+            <div class="quarter flex-column flex-fill mx-1 py-2 rounded">
+                <div class="title"><h5 class="text-center">Quarter</h5></div>
+                <div class="total">Total</div>
+                <div class="amount">Amount</div>
+            </div>
+            <div class="dime flex-column flex-fill mx-1 py-2 rounded">
+                <div class="title"><h5 class="text-center">Dime</h5></div>
+                <div class="total">Total</div>
+                <div class="amount">Amount</div>
+            </div>
+            <div class="nickel flex-column flex-fill mx-1 py-2 rounded">
+                <div class="title"><h5 class="text-center">Nickel</h5></div>
+                <div class="total">Total</div>
+                <div class="amount">Amount</div>
+            </div>
+            <div class="penny flex-column flex-fill ml-1 py-2 rounded">
+                <div class="title"><h5 class="text-center">Penny</h5></div>
+                <div class="total">Total</div>
+                <div class="amount">Amount</div>
+            </div>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
