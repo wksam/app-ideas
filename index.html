@@ -14,15 +14,18 @@
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="userId">User ID</label>
-                    <input type="text" class="form-control" id="userId">
+                    <input type="text" class="form-control" name="userid" id="userId">
+                    <small class="form-text text-warning warning-userid" hidden>Please provide a user ID with no spaces.</small>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="password">Password</label>
-                    <input type="text" class="form-control" id="password">
+                    <input type="text" class="form-control" name="password" id="password">
+                    <small class="form-text text-warning warning-password" hidden>Please provide a password with no spaces.</small>
                 </div>
             </div>
+            <small class="form-text text-danger invalid-login" hidden>Login failed: Invalid user ID or password.</small>
             <div class="float-right">
-                <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                <button type="reset" class="btn btn-outline-secondary cancel">Cancel</button>
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>

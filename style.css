@@ -1,0 +1,12 @@
+:root {
+    --bg-color-user-id: white;
+    --bg-color-password: white;
+}
+
+#userId {
+    background: var(--bg-color-user-id);
+}
+
+#password {
+    background: var(--bg-color-password);
+}
