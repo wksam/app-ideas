@@ -1,31 +1,37 @@
 const MessageType = Object.freeze({
-    "info": "alert-info",
-    "success": "alert-success",
-    "fail": "alert-danger"
+    'info': 'alert-info',
+    'success': 'alert-success',
+    'fail': 'alert-danger'
 })
 
-$(".load").click(function() {
+$('.load').click(function() {
     clearTable();
     loadDB();
+
+    $(this).prop('disabled', true);
+    $('.clear').prop('disabled', false);
 });
 
-$(".query").click(function() {
+$('.query').click(function() {
     clearTable();
     retrieveDB();
 });
 
-$(".clear").click(function() {
+$('.clear').click(function() {
     clearTable();
     clearDB();
+
+    $(this).prop('disabled', true);
+    $('.load').prop('disabled', false);
 });
 
 function changeNotificationMessage(message, type = MessageType.info) {
-    $(".notification")
+    $('.notification')
         .removeClass(MessageType.info)
         .removeClass(MessageType.success)
         .removeClass(MessageType.fail);
 
-    $(".notification")
+    $('.notification')
         .addClass(type)
         .html(message);
     
@@ -33,11 +39,11 @@ function changeNotificationMessage(message, type = MessageType.info) {
 }
 
 function addLogMessage(message) {
-    $(".log").prepend(paragraph(message));
+    $('.log').prepend(paragraph(message));
 }
 
 function paragraph(text) {
-    return "<p>" + text + "</p>";
+    return '<p>' + text + '</p>';
 }
 
 function fillTableRow(userid, name, email) {

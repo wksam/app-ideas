@@ -167,7 +167,7 @@ operation starts and ends.
 
 ## Bonus features
 
--   [ ] User can see buttons enabled and disabled according to the following
+-   [x] User can see buttons enabled and disabled according to the following
 table.
 
     | State               | Load DB  | Query DB | Clear DB |
