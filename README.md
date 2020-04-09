@@ -145,7 +145,7 @@ buttons - 'Load DB', 'Query DB', and 'Clear DB'.
 the apps operation and interface with the Customer instance will be posted. 
 -   [x] User can see a running history of notification panel messages in the log
 panel.
--   [ ] User can see a scrollable query results area where retrieved customer
+-   [x] User can see a scrollable query results area where retrieved customer
 data will be displayed.
 -   [x] User can click the 'Load DB' button to populate the database with data.
 The 'Load DB' button in your UI should be hooked to the `loadDB` event handler
@@ -177,7 +177,7 @@ table.
     | Query DB clicked    | disabled | enabled  | enabled  |
     | Clear DB clicked    | enabled  | enabled  | disabled |
     
--   [ ] User can see additional Customer data fields added to those included
+-   [x] User can see additional Customer data fields added to those included
 in the code provided. Developer should add date of last order and total sales
 for the year.
 -   [ ] Developer should conduct a retrospection on this project:

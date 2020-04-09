@@ -46,14 +46,17 @@ function paragraph(text) {
     return '<p>' + text + '</p>';
 }
 
-function fillTableRow(userid, name, email) {
-    const html = 
-        '<tr>' +
-            '<td>' + userid + '</td>' +
-            '<td>' + name + '</td>' +
-            '<td>' + email + '</td>' +
-        '</tr>';
+function addTableRow(data) {
+    const html = '<tr>' + addTableData(data) + '</tr>';
     $('tbody').append(html);
+}
+
+function addTableData(data) {
+    let html = '';
+    Object.keys(data).forEach(function(key) {
+        html += '<td>' + data[key] + '</td>'
+    });
+    return html;
 }
 
 function clearTable() {

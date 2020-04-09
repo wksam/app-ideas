@@ -15,12 +15,12 @@ class Customer {
         const request = indexedDB.open(this.dbName, 1);
   
         request.onerror = (event) => {
-            changeNotificationMessage('removeAllRows - Database error: ' + event.target.error.code + 
-                ' - ' + event.target.error.message, MessageType.fail);
+            changeNotificationMessage('Database initialize error', MessageType.fail);
         };
   
         request.onsuccess = (event) => {
-            changeNotificationMessage('Deleting all customers...');
+            changeNotificationMessage('Database initialized.', MessageType.success);
+            changeNotificationMessage('Starting deleting all customers.');
             const db = event.target.result;
             clearData(db);
         }
@@ -28,11 +28,10 @@ class Customer {
         function clearData(db) {
             var transaction = db.transaction(['customers'], 'readwrite');
             transaction.oncomplete = (event) => {
-                changeNotificationMessage('Transaction completed: all rows removed.');
+                changeNotificationMessage('Transaction completed.', MessageType.success);
             };
             transaction.onerror = (event) => {
-                changeNotificationMessage('Transaction not opened due to error: ' + event.target.error.code + 
-                    ' - ' + event.target.error.message, MessageType.fail);
+                changeNotificationMessage('Transaction not opened due to error. Duplicate items not allowed.', MessageType.fail);
             };
 
             const objectStore = transaction.objectStore('customers');
@@ -52,39 +51,46 @@ class Customer {
         const request = indexedDB.open(this.dbName);
 
         request.onerror = (event) => {
-            changeNotificationMessage('initialLoad - Database error: ' + event.target.error.code +
-                ' - ' + event.target.error.message, MessageType.fail);
+            changeNotificationMessage('Database initialize error', MessageType.fail);
         };
 
         request.onsuccess = (event) => {
-            changeNotificationMessage('Database initialised.', MessageType.success);
+            changeNotificationMessage('Database initialized.', MessageType.success);
+            changeNotificationMessage('Starting adding data.');
 
             const db = event.target.result;
             addData(db);
         }
   
         request.onupgradeneeded = (event) => {
-            changeNotificationMessage('Populating customers...');
+            changeNotificationMessage('Creating/updating database.');
 
             const db = event.target.result;
+            db.onerror = (event) => {
+                changeNotificationMessage("Error loading database.", MessageType.fail)
+            };
+
             const objectStore = db.createObjectStore('customers', { keyPath: 'userid' });
             objectStore.onerror = (event) => {
-                changeNotificationMessage('initialLoad - objectStore error: ' + event.target.error.code +
-                    ' - ' + event.target.error.message, MessageType.fail);
+                changeNotificationMessage('Error loading object store.', MessageType.fail);
             };
   
             // Create an index to search customers by name and email
             objectStore.createIndex('name', 'name', { unique: false });
             objectStore.createIndex('email', 'email', { unique: true });
+            objectStore.createIndex('lastorder', 'lastorder', { unique: false });
+            objectStore.createIndex('totalsale', 'totalsale', { unique: false });
+
+            changeNotificationMessage('Object store created.');
         };
 
         function addData(db) {
             const transaction = db.transaction(['customers'], 'readwrite');
             transaction.oncomplete = (event) => {
-                changeNotificationMessage('Transaction completed.');
+                changeNotificationMessage('Transaction completed.', MessageType.success);
             };
             transaction.onerror = (event) => {
-                changeNotificationMessage('Transaction not opened due to error. Duplicate items not allowed.');
+                changeNotificationMessage('Transaction not opened due to error. Duplicate items not allowed.', MessageType.fail);
             };
 
             const objectStore = transaction.objectStore('customers');
@@ -103,12 +109,13 @@ class Customer {
         const request = indexedDB.open(this.dbName, 1);
 
         request.onerror = (event) => {
-            changeNotificationMessage('retrieveAllRows - Database error:' + event.target.error.code +
-                ' - ' + event.target.error.message, MessageType.fail);
+            changeNotificationMessage('Database initialize error', MessageType.fail);
         }
 
         request.onsuccess = (event) => {
-            changeNotificationMessage('Retriving customers...');
+            changeNotificationMessage('Database initialized.', MessageType.success);
+            changeNotificationMessage('Retriving all customers.');
+
             const db = event.target.result;
             getAllData(db);
         }
@@ -116,20 +123,20 @@ class Customer {
         function getAllData(db) {
             const transaction = db.transaction(['customers'], 'readwrite');
             transaction.oncomplete = (event) => {
-                changeNotificationMessage('Transaction completed.');
+                changeNotificationMessage('Transaction completed.', MessageType.success);
             };
             transaction.onerror = (event) => {
-                changeNotificationMessage('Transaction not opened due to error. Duplicate items not allowed.');
+                changeNotificationMessage('Transaction not opened due to error. Duplicate items not allowed.', MessageType.fail);
             };
 
             const objectStore = transaction.objectStore('customers');
             const objectStoreRequest = objectStore.getAll();
 
             objectStoreRequest.onsuccess = (event) => {
-                changeNotificationMessage('Request successful.');
+                changeNotificationMessage('Request successful.', MessageType.success);
                 if(event.target.result.length > 0) {
                     event.target.result.forEach(function(row) {
-                        fillTableRow(row.userid, row.name, row.email);
+                        addTableRow(row);
                     });
                 } else {
                     changeNotificationMessage('No rows to display.');
@@ -146,7 +153,7 @@ const DBNAME = 'customer_db';
  * Clear all customer data from the database
  */
 const clearDB = () => {
-    changeNotificationMessage('Delete all rows from the Customers database');
+    changeNotificationMessage('Starting data removal process.');
     let customer = new Customer(DBNAME);
     customer.removeAllRows();
 }
@@ -155,12 +162,12 @@ const clearDB = () => {
  * Add customer data to the database
  */
 const loadDB = () => {
-    changeNotificationMessage('Load the Customers database');
+    changeNotificationMessage('Starting load database process.');
   
     // Customers to add to initially populate the database with
     const customerData = [
-        { userid: '444', name: 'Bill', email: 'bill@company.com' },
-        { userid: '555', name: 'Donna', email: 'donna@home.org' }
+        { userid: '444', name: 'Bill', email: 'bill@company.com', lastorder: '12/03/2020', totalsale: '1253' },
+        { userid: '555', name: 'Donna', email: 'donna@home.org', lastorder: '09/04/2020', totalsale: '5354' }
     ];
     let customer = new Customer(DBNAME);
     customer.initialLoad(customerData);
@@ -170,7 +177,7 @@ const loadDB = () => {
  * Get all customer data from the database
  */
 const retrieveDB = () => {
-    changeNotificationMessage('Load the Customers database');
+    changeNotificationMessage('Starting data retrieval process.');
 
     let customer = new Customer(DBNAME);
     customer.retrieveAllRows();
