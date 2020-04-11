@@ -24,10 +24,48 @@
     background-size: cover;
 }
 
-.back {
-    transform: rotateY(180dev);
+.control {
+    width: 100%;
 }
 
-.back {
-    transform: rotateY(180dev);
+.control > .btn-flip-top {
+    position: fixed;
+    width: 100%;
+}
+
+.control > .btn-flip-bottom {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.control > .btn-flip-left {
+    position: fixed;
+    height: 20vw;
+}
+
+.control > .btn-flip-right {
+    position: fixed;
+    height: 20vw;
+    right: 0;
+}
+
+/* Vertical */
+.card.rotate-y {
+    transform: rotateY(180deg);
+}
+.card.scale-x {
+    transform: scaleX(-1);
+}
+
+/* Horizontal */
+.card.rotate-x {
+    transform: rotateX(180deg);
+}
+.card.scale-y {
+    transform: scaleY(-1);
+}
+
+.card.scale {
+    transform: scale(-1);
 }
