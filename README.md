@@ -16,8 +16,8 @@ Image packages and libraries are not allowed.
 
 ## User Stories
 
--   [ ] User can see a pane containing a single image repeated in a 2x2 matrix
--   [ ] User can flip any one of the images vertically or horizontally using a set of up, down, left, and right arrows next to the image
+-   [x] User can see a pane containing a single image repeated in a 2x2 matrix
+-   [x] User can flip any one of the images vertically or horizontally using a set of up, down, left, and right arrows next to the image
 
 ## Bonus features
 
