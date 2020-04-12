@@ -2,6 +2,15 @@
     --bg-image: url("https://image.freepik.com/free-photo/decorative-alarm-clock-with-blue-background_23-2147609624.jpg");
 }
 
+.control > .btn {
+    border: 0;
+    border-radius: 0;
+}
+
+.control > .btn:focus {
+    box-shadow: none;
+}
+
 .scene {
     height: 20vw;
     perspective: 1000px;
