@@ -26,7 +26,7 @@ site by clicking a 'Get Status' button.
 
 ## Bonus features
 
--   [ ] User can see any of the GitHub components that are not in 'Operational'
+-   [x] User can see any of the GitHub components that are not in 'Operational'
 status highlighted by a different color, background animation, or any other
 technique to make it stand out. Use your imagination!
 

@@ -5,26 +5,12 @@ $('button').click(function(e) {
     getStatus();
 });
 
-function addHTMLStatus(statusData) {
-    statusData.each(function(index) {
-        const name = $(this).find('.name').html();
-        const status = $(this).find('.component-status').html();
-
-        const rowHTML = 
-            '<div class="p-2 d-flex justify-content-between ' + (index == 0 ? '' : 'border-top') + '">' +
-                '<h4>' + name + '</h4>' +
-                '<h4><span class="badge badge-success">' + status + '</span></h4>' +
-            '</div>'
-        $('.status').append(rowHTML);
-    });
-}
-
 function getStatus() {
     changeButton(true);
 
     $.get('https://www.githubstatus.com/', function(data) {
         clearStatus();
-        
+
         const start = data.indexOf('<body');
         const end = data.indexOf('</body>') + 7;
         const bodyData = $($.parseHTML(data.slice(start, end)));
@@ -36,6 +22,20 @@ function getStatus() {
         changeButton(false);
     }).fail(function() {
         alert("Something is wrong.")
+    });
+}
+
+function addHTMLStatus(statusData) {
+    statusData.each(function(index) {
+        const name = $(this).find('.name').html();
+        const status = $(this).find('.component-status').html();
+
+        const rowHTML = 
+            '<div class="p-2 d-flex justify-content-between ' + (index == 0 ? '' : 'border-top') + '">' +
+                '<h4>' + name + '</h4>' +
+                '<h4><span class="badge ' + (status.trim() == 'Operational' ? 'badge-success' : 'badge-danger') + '">' + status + '</span></h4>' +
+            '</div>'
+        $('.status').append(rowHTML);
     });
 }
 
