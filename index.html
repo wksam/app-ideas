@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Status</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>GitHub Status</h1>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="text-center my-4">GitHub Status</h1>
+        <div class="d-flex flex-column border rounded mb-4">
+            <div class="p-2 d-flex justify-content-between border-bottom">
+                <h4>Git Operations</h4>
+                <h4><span class="badge badge-success">Operational</span></h4>
+            </div>
+            <div class="p-2 d-flex justify-content-between border-bottom">
+                <h4>API Requests</h4>
+                <h4><span class="badge badge-success">Operational</span></h4>
+            </div>
+            <div class="p-2 d-flex justify-content-between border-bottom">
+                <h4>Webhooks</h4>
+                <h4><span class="badge badge-success">Operational</span></h4>
+            </div>
+            <div class="p-2 d-flex justify-content-between border-bottom">
+                <h4>Issues, PRs, Projects</h4>
+                <h4><span class="badge badge-success">Operational</span></h4>
+            </div>
+            <div class="p-2 d-flex justify-content-between border-bottom">
+                <h4>GitHub Actions</h4>
+                <h4><span class="badge badge-success">Operational</span></h4>
+            </div>
+            <div class="p-2 d-flex justify-content-between border-bottom">
+                <h4>GitHub Packages</h4>
+                <h4><span class="badge badge-success">Operational</span></h4>
+            </div>
+            <div class="p-2 d-flex justify-content-between">
+                <h4>GitHub Pages</h4>
+                <h4><span class="badge badge-success">Operational</span></h4>
+            </div>
+        </div>
+        
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-outline-primary">Get Status</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
