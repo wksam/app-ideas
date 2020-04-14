@@ -29,10 +29,10 @@ language.
 
 ## User Stories
 
--   [ ] User can see a mock login panel containing a user name text input field,
+-   [x] User can see a mock login panel containing a user name text input field,
         a password text input field, and 'Login' and 'Logout' buttons.
--   [ ] User can enter a mock login name into the User Name field.
--   [ ] User can enter a mock password into the Password field. Input should
+-   [x] User can enter a mock login name into the User Name field.
+-   [x] User can enter a mock password into the Password field. Input should
         be masked so the user see's asterisks (`*`) for each character that is entered
         rather than the plaintext password.
 -   [ ] User can click the 'Login' button to perform a mock login.
