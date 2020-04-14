@@ -4,6 +4,7 @@ $('.logout').click((e) => {
     disableLogin(false);
     disableInputs(false);
     clearInput();
+    clearTable();
 })
 
 window.addEventListener('load', function() {
@@ -21,10 +22,7 @@ window.addEventListener('load', function() {
                 const ccode = getInputValue(inputs, 'ccode');
                 
                 $('form').data('username', username);
-                if(ccode == '')
-                    getCoutryCode(username);
-                else
-                    getHello(ccode, username);
+                getCoutryCode(username, ccode);
             }
             event.preventDefault();
             form.classList.add('was-validated');
@@ -38,13 +36,14 @@ function getInputValue(inputs, name) {
     }
 }
 
-function getCoutryCode(username) {
+function getCoutryCode(username, ccode) {
     disableButtons(true);
     disableInputs(true);
 
     const url = 'http://ip-api.com/json/';
     jQuery.get(url, (data) => {
-        getHello(data.countryCode, username);
+        getHello((ccode == '' ? data.countryCode : ccode), username);
+        fillTable(data);
     }).fail(() => {
         disableButtons(false);
         disableInputs(false);
@@ -103,4 +102,28 @@ function changeLogoutMessage(username) {
 function clearInput() {
     $('form').removeClass('was-validated');
     $('form :input').val('');
+}
+
+function fillTable(data) {
+    addRowTable('IP Address', data.query);
+    addRowTable('City', data.city);
+    addRowTable('Region', data.regionName);
+    addRowTable('Country', data.country);
+    addRowTable('Zip Code', data.zip);
+    addRowTable('Longitude', data.lon);
+    addRowTable('Latitude', data.lat);
+    addRowTable('Timezone', data.timezone);
+}
+
+function addRowTable(key, value) {
+    const html = 
+        '<tr>' +
+            '<td>' + key + '</td>' +
+            '<td>' + value + '</td>' +
+        '</tr>'
+    $('tbody').append(html);
+}
+
+function clearTable() {
+    $('tbody').html('');
 }
