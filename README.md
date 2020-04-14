@@ -82,20 +82,20 @@ class IOTMailbox {
 
 -   [x] User can see a web page containing a control panel containing three
 buttons - 'Start Monitoring', 'Stop Monitoring', and 'Reset'.
--   [ ] User can see a notification panel where the mailbox status will be posted.
--   [ ] User can see a scrollable log panel where execution details describing 
+-   [x] User can see a notification panel where the mailbox status will be posted.
+-   [x] User can see a scrollable log panel where execution details describing 
 the apps operation and interface with the IOTMailbox instance will be posted.
--   [ ] User can click the 'Start Monitoring' button to begin receiving state
+-   [x] User can click the 'Start Monitoring' button to begin receiving state
 notifications from the mailbox.
--   [ ] User can see a message added to the log panel when monitoring starts.
--   [ ] User can see a message added to the log panel for light level passed
+-   [x] User can see a message added to the log panel when monitoring starts.
+-   [x] User can see a message added to the log panel for light level passed
 through the callback function. This should include the numerical light level
 and whether the door is open or closed.
--   [ ] User can see a message added to the notification panel when the door has
+-   [x] User can see a message added to the notification panel when the door has
 been opened.
--   [ ] User can click the 'Stop Monitoring' button to stop receiving state
+-   [x] User can click the 'Stop Monitoring' button to stop receiving state
 notifications from the mailbox. 
--   [ ] User can see a message added to the log panel when monitoring stops.
+-   [x] User can see a message added to the log panel when monitoring stops.
 
 ## Bonus features
 
