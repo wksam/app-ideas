@@ -99,9 +99,9 @@ notifications from the mailbox.
 
 ## Bonus features
 
--   [ ] User can see the 'Start Monitoring' button disabled until monitoring is
+-   [x] User can see the 'Start Monitoring' button disabled until monitoring is
 stopped.
--   [ ] User can see the 'Stop Monitoring' button disabled until monitoring is
+-   [x] User can see the 'Stop Monitoring' button disabled until monitoring is
 started.
 -   [ ] User can see an field in the control panel allowing the length of the
 monitoring interval to be specified. 
