@@ -80,7 +80,7 @@ class IOTMailbox {
 
 ## User Stories
 
--   [ ] User can see a web page containing a control panel containing three
+-   [x] User can see a web page containing a control panel containing three
 buttons - 'Start Monitoring', 'Stop Monitoring', and 'Reset'.
 -   [ ] User can see a notification panel where the mailbox status will be posted.
 -   [ ] User can see a scrollable log panel where execution details describing 
