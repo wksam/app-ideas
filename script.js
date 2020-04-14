@@ -18,8 +18,13 @@ window.addEventListener('load', function() {
             } else {
                 const inputs = $(this).serializeArray();
                 const username = getInputValue(inputs, 'username');
+                const ccode = getInputValue(inputs, 'ccode');
+                
                 $('form').data('username', username);
-                getCoutryCode(username);
+                if(ccode == '')
+                    getCoutryCode(username);
+                else
+                    getHello(ccode, username);
             }
             event.preventDefault();
             form.classList.add('was-validated');
@@ -36,6 +41,7 @@ function getInputValue(inputs, name) {
 function getCoutryCode(username) {
     disableButtons(true);
     disableInputs(true);
+
     const url = 'http://ip-api.com/json/';
     jQuery.get(url, (data) => {
         getHello(data.countryCode, username);
@@ -47,6 +53,9 @@ function getCoutryCode(username) {
 }
 
 function getHello(countryCode, username) {
+    disableButtons(true);
+    disableInputs(true);
+
     const url = 'https://fourtonfish.com/hellosalut/?cc=' + countryCode;
     jQuery.get(url, (data) => {
         changeHelloMessage(data.hello, username);

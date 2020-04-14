@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="text-center my-4">Hello</h1>
         <form class="needs-validation my-2" novalidate>
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" name="username" id="username" required>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" name="password" id="password" required>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="ccode">Country Code</label>
+                    <input type="text" class="form-control" name="ccode" id="ccode">
                 </div>
             </div>
             <button class="login btn btn-primary" type="submit">Login</button>

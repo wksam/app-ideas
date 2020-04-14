@@ -47,7 +47,7 @@ language.
 
 ## Bonus features
 
--   [ ] User can see an additional text input field for a country code which
+-   [x] User can see an additional text input field for a country code which
         will be used to override the country code obtained through geolocation. Hint:
         this is a great feature for testing your app.
 -   [ ] User can see additional geolocation information after logging on that
