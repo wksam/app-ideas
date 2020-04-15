@@ -18,3 +18,7 @@ form > div {
 button {
     float: right;
 }
+
+.invalid {
+    border-color: red;
+}

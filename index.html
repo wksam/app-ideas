@@ -8,7 +8,11 @@
 </head>
 <body>
     <h1>Javascript Validation with Regex</h1>
-    <form>
+    <form name="login">
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+        </div>
         <div>
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
@@ -17,7 +21,7 @@
             <label for="password">Password</label>
             <input type="text" name="password" id="password">
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled>Submit</button>
     </form>
     <script src="script.js"></script>
 </body>
