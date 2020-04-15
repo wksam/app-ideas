@@ -1,0 +1,20 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+form > div {
+    margin-bottom: 0.5rem;
+}
+
+button {
+    float: right;
+}
