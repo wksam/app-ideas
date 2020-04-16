@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSON to CSV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h1 class="text-center m-4">JSON to CSV</h1>
+        <form>
+            <div class="form-row mb-2">
+                <div class="form-group col-sm-6">
+                    <label for="input">JSON</label>
+                    <textarea class="form-control" name="input" id="input" rows="10"></textarea>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="output">CSV</label>
+                    <textarea class="form-control" name="output" id="output" rows="10" readonly></textarea>
+                </div>
+            </div>
+            <div class="alert alert-warning" role="alert">
+                A simple warning alert—check it out!
+            </div>
+            <button type="submit" class="btn btn-primary">Convert</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
