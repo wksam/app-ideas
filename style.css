@@ -1,0 +1,7 @@
+.form-control:disabled {
+    background-color: white;
+}
+
+.btn:disabled {
+    opacity: 1;
+}

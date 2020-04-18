@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Value</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="text-center">Key Value</h1>
+
+        <div class="form-row">
+            <div class="form-group col-sm-6">
+                <label for="key-panel">Key</label>
+                <textarea class="form-control" name="key-panel" id="key-panel" rows="10" disabled></textarea>
+            </div>
+            
+            <div class="form-group col-sm-6">
+                <label for="value-panel">Value</label>
+                <textarea class="form-control" name="value-panel" id="value-panel" rows="10" disabled></textarea>
+            </div>
+        </div>
+        
+        <div class="float-left">
+            <button type="button" id="shift" class="btn btn-outline-secondary active" data-toggle="button" aria-pressed="true">Shift</button>
+            <button type="button" id="ctrl" class="btn btn-outline-secondary" disabled>Ctrl</button>
+            <button type="button" id="alt" class="btn btn-outline-secondary" disabled>Alt</button>
+            <button type="button" id="meta" class="btn btn-outline-secondary" disabled>Meta</button>
+        </div>
+    </div>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="script.js"></script>
 </body>
 </html>
