@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Previewer</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="bg-dark text-white">
+    <div class="container">
+        <h1 class="d-flex justify-content-center">Border Radius Previewer</h1>
+        <div class="row d-flex justify-content-center">
+            <div class="box border-radius bg-info m-4"></div>
+        </div>
+        <form class="mb-2">
+            <div class="form-row">
+                <div class="col">
+                    <label for="tl-range">border-top-left-radius: 12%</label>
+                    <input id="tl-range" class="form-control-range" type="range" min="0" max="100" value="12">
+                </div>
+                <div class="col" hidden>
+                    <label for="v-tl-range">vertical border-top-left-radius: 12%</label>
+                    <input id="v-tl-range" class="form-control-range" type="range" min="0" max="100" value="12">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="tr-range">border-top-right-radius: 35%</label>
+                    <input id="tr-range" class="form-control-range" type="range" min="0" max="100" value="35">
+                </div>
+                <div class="col" hidden>
+                    <label for="v-tr-range">vertical border-top-right-radius: 35%</label>
+                    <input id="v-tr-range" class="form-control-range" type="range" min="0" max="100" value="35">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="bl-range">border-bottom-left-radius: 23%</label>
+                    <input id="bl-range" class="form-control-range" type="range" min="0" max="100" value="23">
+                </div>
+                <div class="col" hidden>
+                    <label for="v-bl-range">vertical border-bottom-left-radius: 23%</label>
+                    <input id="v-bl-range" class="form-control-range" type="range" min="0" max="100" value="23">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <label for="br-range">border-bottom-right-radius: 58%</label>
+                    <input id="br-range" class="form-control-range" type="range" min="0" max="100" value="58">
+                </div>
+                <div class="col" hidden>
+                    <label for="v-br-range">vertical border-bottom-right-radius: 58%</label>
+                    <input id="v-br-range" class="form-control-range" type="range" min="0" max="100" value="58">
+                </div>
+            </div>
+        </form>
+        <div class="d-flex justify-content-between">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="outputBorder">border-radius:</label>
+                    <input id="outputBorder" class="form-control ml-4" type="text" value="12% 35% 23% 58%" readonly>
+                </div>
+            </div>
+            <input type="button" id="copy" class="btn btn-info" value="Copy to clipboard" onclick="copy(this)">
+            <div class="form-check">
+                <input class="form-check-input" id="params" type="checkbox">
+                <label class="form-check-label" for="params">Advanced Control</label>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
