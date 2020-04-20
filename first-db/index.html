@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First DB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">First DB</h1>
+        <div class="d-flex flex-row my-2">
+            <button class="load btn btn-primary mr-2">Load DB</button>
+            <button class="query btn btn-primary mr-2">Query DB</button>
+            <button class="clear btn btn-primary" disabled>Clear DB</button>
+        </div>
+        <div class="notification alert alert-info my-2" role="alert">
+            Nothing is happening here...
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Last Order</th>
+                        <th>Total Sales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="log overflow-auto border rounded">
+            <p>Log panel started.</p>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="scripts/customer.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
