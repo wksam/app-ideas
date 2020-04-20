@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT Mailbox</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">IOT Mailbox</h1>
+        <div class="d-flex justify-content-center mb-2">
+            <button class="start btn btn-primary">Start Monitoring</button>
+            <button class="stop btn btn-primary mx-2" disabled>Stop Monitoring</button>
+            <button class="reset btn btn-primary">Reset</button>
+        </div>
+        <div class="notification alert alert-info" role="alert">
+            Nothing is happening
+        </div>
+        <div class="log overflow-auto border rounded">
+            <p>Log panel started.</p>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="scripts/IOTMailbox.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
