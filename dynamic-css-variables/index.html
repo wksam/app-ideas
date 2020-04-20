@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic CSS Variables</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Dynamic CSS Variables</h1>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="userId">User ID</label>
+                    <input type="text" class="form-control" name="userid" id="userId">
+                    <small class="form-text text-warning warning-userid" hidden>Please provide a user ID with no spaces.</small>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" name="password" id="password">
+                    <small class="form-text text-warning warning-password" hidden>Please provide a password with no spaces.</small>
+                </div>
+            </div>
+            <small class="form-text text-danger invalid-login" hidden>Login failed: Invalid user ID or password.</small>
+            <div class="float-right">
+                <button type="reset" class="btn btn-outline-secondary cancel">Cancel</button>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
