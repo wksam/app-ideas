@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Cycle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Color Cycle</h1>
+        <form>
+            <div class="form-row">
+                <div class="input-group mb-3 col">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Interval</span>
+                    </div>
+                    <input type="number" class="form-control" name="interval" value="0.25" step="0.01" min="0" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">seconds</span>
+                    </div>
+                </div>
+
+                <div class="form-check form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="rgb" value="rgb" checked>
+                    <label class="form-check-label" for="rgb">
+                        RGB
+                    </label>
+                </div>
+                <div class="form-check form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="hsl" value="hsl">
+                    <label class="form-check-label" for="hsl">
+                        HSL
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row rgb">
+                <div class="form-group col">
+                    <label for="red">Red</label>
+                    <input type="text" class="form-control" id="red" name="red" value="f8" minlength="1" maxlength="2" pattern="[a-fA-F\d]+" required>
+                </div>
+                <div class="form-group col">
+                    <label for="green">Green</label>
+                    <input type="text" class="form-control" id="green" name="green" value="f9" minlength="1" maxlength="2" pattern="[a-fA-F\d]+" required>
+                </div>
+                <div class="form-group col">
+                    <label for="blue">Blue</label>
+                    <input type="text" class="form-control" id="blue" name="blue" value="fa" minlength="1" maxlength="2" pattern="[a-fA-F\d]+" required>
+                </div>
+            </div>
+            <div class="form-row rgb">
+                <div class="form-group col">
+                    <label for="add-red">Add Red</label>
+                    <input type="text" class="form-control" id="add-red" name="add-red" value="00" minlength="1" maxlength="2" pattern="[a-fA-F\d]+" required>
+                </div>
+                <div class="form-group col">
+                    <label for="add-green">Add Green</label>
+                    <input type="text" class="form-control" id="add-green" name="add-green" value="00" minlength="1" maxlength="2" pattern="[a-fA-F\d]+" required>
+                </div>
+                <div class="form-group col">
+                    <label for="add-blue">Add Blue</label>
+                    <input type="text" class="form-control" id="add-blue" name="add-blue" value="00" minlength="1" maxlength="2" pattern="[a-fA-F\d]+" required>
+                </div>
+            </div>
+
+            <div class="form-row hsl" hidden>
+                <div class="form-group col">
+                    <label for="hue">Hue</label>
+                    <input type="number" class="form-control" id="hue" name="hue" value="210" min="0" max="359" required>
+                </div>
+                <div class="form-group col">
+                    <label for="saturation">Saturation</label>
+                    <input type="number" class="form-control" id="saturation" name="saturation" value="17" min="0" max="100" required>
+                </div>
+                <div class="form-group col">
+                    <label for="lightness">Lightness</label>
+                    <input type="number" class="form-control" id="lightness" name="lightness" value="98" min="0" max="100" required>
+                </div>
+            </div>
+            <div class="form-row hsl" hidden>
+                <div class="form-group col">
+                    <label for="add-hue">Add Hue</label>
+                    <input type="number" class="form-control" id="add-hue" name="add-hue" value="0" min="0" max="359" required>
+                </div>
+                <div class="form-group col">
+                    <label for="add-saturation">Add Saturation</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="add-saturation" name="add-saturation" value="0" min="0" max="100" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label for="add-lightness">Add Lightness</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="add-lightness" name="add-lightness" value="0" min="0" max="100" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             
+            <button type="submit" class="btn btn-primary submit">Change</button>
+
+            <button type="button" class="btn btn-primary play" onclick="play()" disabled>
+                <svg class="bi bi-play-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"/>
+                </svg>
+            </button>
+    
+            <button type="button" class="btn btn-primary stop" onclick="stop()" disabled>
+                <svg class="bi bi-stop-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 3.5h6A1.5 1.5 0 0112.5 5v6a1.5 1.5 0 01-1.5 1.5H5A1.5 1.5 0 013.5 11V5A1.5 1.5 0 015 3.5z"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
