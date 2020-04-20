@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSON to CSV</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="text-center m-4">JSON to CSV</h1>
         <form>
-            <input type="file" class="form-control-file mb-2" name="file" id="file">
+            <div class="mb-2">
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="type" id="json2csv" value="json2csv">
+                    <label class="form-check-label" for="json2csv">JSON to CSV</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="type" id="csv2json" value="csv2json" checked>
+                    <label class="form-check-label" for="csv2json">CSV to JSON</label>
+                </div>
+            </div>
+            <div class="mb-2">
+                <input type="file" class="form-control-file" name="file" id="file">
+            </div>
             <div class="form-row mb-2">
                 <div class="form-group col-sm-6">
                     <label for="input">JSON</label>
@@ -31,6 +42,10 @@
         </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="scripts/csv2json.js"></script>
+    <script src="scripts/file.js"></script>
+    <script src="scripts/hud.js"></script>
+    <script src="scripts/json2csv.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
