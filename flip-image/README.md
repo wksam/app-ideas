@@ -33,5 +33,3 @@ Image packages and libraries are not allowed.
 ## Example projects
 
 [Image Effects by @bennettfeely](https://codepen.io/seyedi/pen/gvqYQv)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)

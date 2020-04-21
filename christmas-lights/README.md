@@ -31,5 +31,3 @@ displayed during the Christmas Holidays.
 ## Example projects
 
 [PureCSSChristmasLights](https://codepen.io/tobyj/pen/QjvEex)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)

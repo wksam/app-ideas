@@ -47,5 +47,3 @@ when an error is detected.
 ## Example projects
 
 [Dynamic CSS Variables](https://codepen.io/gordawn/pen/oOWBXX)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)

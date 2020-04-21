@@ -64,5 +64,3 @@ language.
 ## Example projects
 
 [Fourtonfish Hello World](https://fourtonfish.com/hellosalut/helloworld/)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)

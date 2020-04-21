@@ -38,5 +38,3 @@ a key is pressed.
 ## Example projects
 
 [Javascript Keyevent Test Script](https://unixpapa.com/js/testkey.html)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)

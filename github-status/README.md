@@ -52,5 +52,3 @@ request('https://www.githubstatus.com/',  { json: true }, (err, res, body) => {
 ## Example projects
 
 [Peter Luczynski's example](https://peterluczynski.github.io/github-status/)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)

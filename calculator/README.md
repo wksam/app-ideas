@@ -55,5 +55,3 @@ number.
 
 - [Javascript Calculator](https://codepen.io/giana/pen/GJMBEv)
 - [React Calculator](https://codepen.io/mjijackson/pen/xOzyGX)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas/blob/master/README.md)

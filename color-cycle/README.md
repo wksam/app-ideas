@@ -39,5 +39,3 @@ an RGB color specification (e.g. `#000000` color code).
 ## Example projects
 
 [CSS Color Changing Background](https://codepen.io/SoumyajitChand/pen/wjKVed)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)

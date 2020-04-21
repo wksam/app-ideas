@@ -24,5 +24,3 @@ For this project, there'd be three required inputs for validation:
 ## Example project
 
 - [Native HTML5 validation with CSS & Regex](https://codepen.io/helgesverre/pen/vWRevp)
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)

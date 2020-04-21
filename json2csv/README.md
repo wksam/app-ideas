@@ -114,5 +114,3 @@ conversion.
 
 - [CSV to JSON Converter](https://codepen.io/JFarrow/pen/CAwyo)
 - [JSV Converter](https://gpaiva00.github.io/json-csv)
-
-by [App Ideas](https://github.com/florinpop17)

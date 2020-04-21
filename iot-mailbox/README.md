@@ -120,5 +120,3 @@ left open.
 ## Example projects
 
 N/a
-
-by [App Ideas](https://github.com/florinpop17/app-ideas)
