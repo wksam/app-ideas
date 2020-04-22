@@ -11,4 +11,15 @@ document.querySelector('form').addEventListener('submit', (e) => {
     e.target.querySelector('input').value = '';
 
     e.preventDefault();
-})
+});
+
+document.querySelector('.copy').addEventListener('click', copy);
+
+function copy() {
+    const copyText = document.querySelector('textarea');
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+
+    document.execCommand('copy');
+}
