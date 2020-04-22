@@ -1,3 +1,7 @@
 .form-control:read-only {
     background-color: white;
 }
+
+textarea {
+    white-space: pre-line;
+}
