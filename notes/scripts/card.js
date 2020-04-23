@@ -1,5 +1,8 @@
 class Card {
-    constructor(content, date) {
+    constructor(content, date, id=null) {
+        if(id == null) this.id = this.createID();
+        else this.id = id;
+
         this.content = content;
         this.date = date;
 
@@ -8,6 +11,10 @@ class Card {
 
     get getCard() {
         return this.htmlCard;
+    }
+
+    createID() {
+        return '_' + Math.random().toString(36).substr(2, 9);
     }
 
     formattedDate() {
@@ -36,6 +43,7 @@ class Card {
     createCard() {
         let card = this.createDiv('card mb-2');
         card.append(this.createCardBody());
+        card.dataset.id = this.id;
         return card;
     }
 
@@ -80,10 +88,10 @@ class Card {
 
         if(type != 'delete') {
             button.append(this.createSVG(type, 'bi bi-pencil', '1em', '1em', '0 0 16 16', 'currentColor', 'http://www.w3.org/2000/svg'));
-            button.addEventListener('click', this.editCard);
+            button.addEventListener('click', editCard);
         } else {
             button.append(this.createSVG(type, 'bi bi-trash', '1em', '1em', '0 0 16 16', 'currentColor', 'http://www.w3.org/2000/svg'));
-            button.addEventListener('click', this.deleteCard);
+            button.addEventListener('click', deleteCard);
         }
         
         return button;
@@ -113,13 +121,5 @@ class Card {
         if(d != '') this.setAttr(path, 'd', d);
         if(clipRule != '') this.setAttr(path, 'clip-rule', clipRule);
         return path;
-    }
-
-    editCard() {
-        const text = this.closest('.card-body').firstElementChild.textContent;
-    }
-
-    deleteCard() {
-        this.closest('.card').remove();
     }
 }
