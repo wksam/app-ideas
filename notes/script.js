@@ -4,7 +4,7 @@ const cardHTML =
             'contentText' +
         '</div>' +
         '<div class="card-footer d-flex justify-content-between align-items-center">' +
-            '<small class="text-muted">Last updated 3 mins ago</small>' +
+            '<small class="text-muted">contentDate</small>' +
             '<div>' +
                 '<button class="edit btn btn-primary mr-2">' +
                     '<svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">' +
@@ -26,16 +26,18 @@ $('form').submit(function(e) {
 
     const input = $(this).serializeArray();
     const text = input[0].value;
+    const date = new Date();
 
     if(cardToUpdate != null) {
         cardToUpdate.find('.card-body').html(text);
+        cardToUpdate.find('.text-muted').html('Updated ' + formattedDate(date));
 
         $('button[type=submit]').text('Create');
         $('button.edit').prop('disabled', false);
         $('button.delete').prop('disabled', false);
         cardToUpdate = null;
     } else {
-        $('.cards').prepend(cardHTML.replace('contentText', text));
+        $('.cards').prepend(cardHTML.replace('contentText', text).replace('contentDate', 'Created ' + formattedDate(date)));
     }
 
     $('textarea').val('');
@@ -57,3 +59,14 @@ $('body').on('click', '.edit', function() {
 $('body').on('click', '.delete', function() {
     $(this).parents('.card').remove();
 })
+
+function formattedDate(date){
+    let day  = date.getDate().toString();
+    day = (day.length == 1) ? '0' + day : day;
+    
+    let month = (date.getMonth() + 1).toString();
+    month = (month.length == 1) ? '0' + month : month;
+
+    let year = date.getFullYear();
+    return day + "/" + month + "/" + year;
+}
