@@ -21,6 +21,8 @@ const cardHTML =
         '</div>' +
     '</div>';
 
+loadCards();
+
 $('form').submit(function(e) {
     e.preventDefault();
 
@@ -32,12 +34,16 @@ $('form').submit(function(e) {
         cardToUpdate.find('.card-body').html(text);
         cardToUpdate.find('.text-muted').html('Updated ' + formattedDate(date));
 
+        const pos = ($('.card').length - $('.card').index(cardToUpdate)) - 1;
+        updateLocalStorage(pos, text, 'Updated ' + formattedDate(date));
+
         $('button[type=submit]').text('Create');
         $('button.edit').prop('disabled', false);
         $('button.delete').prop('disabled', false);
         cardToUpdate = null;
     } else {
         $('.cards').prepend(cardHTML.replace('contentText', text).replace('contentDate', 'Created ' + formattedDate(date)));
+        addLocalStorage(text, 'Created ' + formattedDate(date));
     }
 
     $('textarea').val('');
@@ -57,7 +63,12 @@ $('body').on('click', '.edit', function() {
 })
 
 $('body').on('click', '.delete', function() {
-    $(this).parents('.card').remove();
+    const card = $(this).parents('.card');
+
+    const pos = ($('.card').length - $('.card').index(card)) - 1;
+    deleteLocalStorage(pos);
+
+    card.remove();
 })
 
 function formattedDate(date){
@@ -69,4 +80,56 @@ function formattedDate(date){
 
     let year = date.getFullYear();
     return day + "/" + month + "/" + year;
+}
+
+function addLocalStorage(text, date) {
+    const data = { 'content': text, 'date': date };
+    const localStorageData = localStorage.getItem('cards');
+    if(localStorageData != null) {
+        const arrayData = JSON.parse(localStorageData);
+        arrayData.push(data);
+        localStorage.setItem('cards', JSON.stringify(arrayData));
+    } else {
+        const arrayData = [data];
+        localStorage.setItem('cards', JSON.stringify(arrayData));
+    }
+}
+
+function updateLocalStorage(pos, text, date) {
+    const data = { 'content': text, 'date': date };
+    const localStorageData = localStorage.getItem('cards');
+
+    if(localStorageData != null) {
+        const arrayData = JSON.parse(localStorageData);
+        arrayData[pos] = data;
+        localStorage.setItem('cards', JSON.stringify(arrayData));
+    } else {
+        console.log('No data');
+    }
+}
+
+function deleteLocalStorage(pos) {
+    const localStorageData = localStorage.getItem('cards');
+
+    if(localStorageData != null) {
+        const arrayData = JSON.parse(localStorageData);
+        arrayData.splice(pos, 1);
+        localStorage.setItem('cards', JSON.stringify(arrayData));
+    } else {
+        console.log('No data');
+    }
+}
+
+function loadCards() {
+    const localStorageData = localStorage.getItem('cards');
+
+    if(localStorageData != null) {
+        const arrayData = JSON.parse(localStorageData);
+        const cardContainer = $('.cards');
+        for (const data of arrayData) {
+            cardContainer.prepend(cardHTML.replace('contentText', data.content).replace('contentDate', data.date));
+        }
+    } else {
+        console.log('No data');
+    }
 }
