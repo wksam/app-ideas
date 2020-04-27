@@ -32,13 +32,13 @@ and `y` coordinates, and 'Add' and 'Calculate' buttons.
 from the two data sets.
 -   [x] User can click the 'Add' button to add the `x` and `y` to a tabular
 output area listing the pairs of observations.
--   [ ] User can see and error message if either of the two input fields are
+-   [x] User can see and error message if either of the two input fields are
 empty or do not contain valid real numbers.
--   [ ] User can see the 'Calculate' button is disabled until errors have been
+-   [x] User can see the 'Calculate' button is disabled until errors have been
 corrected.
--   [ ] User can click the 'Calculate' button to perform the regression analysis
+-   [x] User can click the 'Calculate' button to perform the regression analysis
 and to display its results.
--   [ ] User can see results of the calculation which include:
+-   [x] User can see results of the calculation which include:
     - Arithmetic means for both the `x` and `y` observations
     - Standard deviations for both the `x` and `y` observations
     - Pearson correlation coefficient with one of the following interpretations:

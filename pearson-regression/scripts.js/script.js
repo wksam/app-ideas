@@ -1,6 +1,6 @@
 document.querySelector('form').addEventListener('submit', submit);
 
-let values = [];
+let sample = [];
 
 function submit(e) {
     e.preventDefault();
@@ -14,19 +14,22 @@ function submit(e) {
             alert('Invalid values. Try again.'); return;
         }
         
-        const value = { 'x': xValue, 'y': yValue };
-        values.push(value);
+        const value = { 'x': parseInt(xValue), 'y': parseInt(yValue) };
+        sample.push(value);
 
-        addRow(values);
-
-        if(values.length > 2)
+        addRowSample(sample);
+        resetInput();
+        
+        if(sample.length > 2)
             document.querySelector('button[name=calculate]').disabled = false;
     } else {
-
+        const results = calculatePearsonRegression(sample);
+        const container = document.querySelector('.container')
+        container.appendChild(createTableResult(results));
     }
 }
 
-function addRow(values) {
+function addRowSample(values) {
     const tRow = document.createElement('tr');
 
     const tHeader = document.createElement('th');
@@ -47,4 +50,81 @@ function addRow(values) {
     tRow.appendChild(tDataY);
     
     document.querySelector('tbody').append(tRow);
+}
+
+function resetInput() {
+    document.querySelectorAll('input').forEach(function(e) {
+        e.value = '';
+        if(e.name == 'x') e.focus();
+    });
+}
+
+function createTableResult(result) {
+    const div = createElement('div', [{ 'name': 'class', 'value': 'table-responsive' }]);
+    const table = createElement('table', [{ 'name': 'class', 'value': 'table table-sm' }]);
+    const tbody = createElement('tbody');
+    
+    const trPearson = createElement('tr');
+    const thPearson = createElement('th', [{ 'name': 'scope', 'value': 'row' }]);
+    const tdPearson = createElement('td', [{ 'name': 'colspan', 'value': '2' }]);
+    const thTxtPearson = createTextNode('Pearson Correlation Coefficient');
+    const tdTxtPearson = createTextNode(result.r);
+
+    const trMean = createElement('tr');
+    const thMean = createElement('th', [{ 'name': 'scope', 'value': 'row' }]);
+    const tdMean1 = createElement('td');
+    const tdMean2 = createElement('td');
+    const thTxtMean = createTextNode('Arithmetic means');
+    const tdTxtMean1 = createTextNode('x: ' + result.mean.x);
+    const tdTxtMean2 = createTextNode('y: ' + result.mean.y);
+
+    const trDeviation = createElement('tr');
+    const thDeviation = createElement('th', [{ 'name': 'scope', 'value': 'row' }]);
+    const tdDeviation1 = createElement('td');
+    const tdDeviation2 = createElement('td');
+    const thTxtDeviation = createTextNode('Standard deviations');
+    const tdTxtDeviation1 = createTextNode('x: ' + result.deviation.x);
+    const tdTxtDeviation2 = createTextNode('y: ' + result.deviation.y);
+
+    div.appendChild(table)
+    table.appendChild(tbody);
+
+    tbody.appendChild(trPearson);
+    tbody.appendChild(trMean);
+    tbody.appendChild(trDeviation);
+
+    trPearson.appendChild(thPearson);
+    trPearson.appendChild(tdPearson);
+    thPearson.appendChild(thTxtPearson);
+    tdPearson.appendChild(tdTxtPearson);
+
+    trMean.appendChild(thMean);
+    trMean.appendChild(tdMean1);
+    trMean.appendChild(tdMean2);
+    thMean.appendChild(thTxtMean);
+    tdMean1.appendChild(tdTxtMean1);
+    tdMean2.appendChild(tdTxtMean2);
+
+    trDeviation.appendChild(thDeviation);
+    trDeviation.appendChild(tdDeviation1);
+    trDeviation.appendChild(tdDeviation2);
+    thDeviation.appendChild(thTxtDeviation);
+    tdDeviation1.appendChild(tdTxtDeviation1);
+    tdDeviation2.appendChild(tdTxtDeviation2);
+
+    return div;
+}
+
+function createElement(name, attrs = null) {
+    const element = document.createElement(name);
+    if(attrs != null && attrs.length != 0) {
+        for (const attr of attrs) {
+            element.setAttribute(attr.name, attr.value);
+        }
+    }
+    return element;
+}
+
+function createTextNode(text) {
+    return document.createTextNode(text);
 }
