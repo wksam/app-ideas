@@ -26,11 +26,11 @@ set of car prices this would let the user test whether or not they are related
 
 ## User Stories
 
--   [ ] User can see an input panel with two input fields allowing entry of `x` 
+-   [x] User can see an input panel with two input fields allowing entry of `x` 
 and `y` coordinates, and 'Add' and 'Calculate' buttons.
--   [ ] User can enter numbers into these boxes where `x` and `y` are observations
+-   [x] User can enter numbers into these boxes where `x` and `y` are observations
 from the two data sets.
--   [ ] User can click the 'Add' button to add the `x` and `y` to a tabular
+-   [x] User can click the 'Add' button to add the `x` and `y` to a tabular
 output area listing the pairs of observations.
 -   [ ] User can see and error message if either of the two input fields are
 empty or do not contain valid real numbers.
