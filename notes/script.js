@@ -27,7 +27,7 @@ $('form').submit(function(e) {
     e.preventDefault();
 
     const input = $(this).serializeArray();
-    const text = input[0].value;
+    const text = markdown(input[0].value);
     const date = new Date();
 
     if(cardToUpdate != null) {
