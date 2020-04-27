@@ -50,7 +50,7 @@ and to display its results.
 
 -   [x] User can see a scatter plot of the observations
 -   [ ] User can upload observations from a file on the local machine.
--   [ ] User can see a regression line overlaying the scatter plot
+-   [x] User can see a regression line overlaying the scatter plot
 
 ## Useful links and resources
 

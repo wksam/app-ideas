@@ -18,6 +18,20 @@ let sample = [];
 //     { x:168, y: 112, r: 10 },
 //     { x:174, y: 101, r: 10 }
 // ]
+// let sample = [
+//     { x: 71, y: 73, r: 10 },
+//     { x: 62, y: 63, r: 10 },
+//     { x: 72, y: 70, r: 10 },
+//     { x: 64, y: 64, r: 10 },
+//     { x: 67, y: 70, r: 10 }
+// ]
+// let sample = [
+//     { x: 1, y: 2, r: 10 },
+//     { x: 2, y: 4, r: 10 },
+//     { x: 3, y: 5, r: 10 },
+//     { x: 4, y: 4, r: 10 },
+//     { x: 5, y: 5, r: 10 }
+// ]
 
 function submit(e) {
     e.preventDefault();
@@ -40,11 +54,18 @@ function submit(e) {
         if(sample.length > 2)
             document.querySelector('button[name=calculate]').disabled = false;
     } else {
-        const results = calculatePearsonRegression(sample);
+        const results = calculateCorrelation(sample);
+
+        const min = Math.min.apply(null, sample.map((v) => v.x));
+        const max = Math.max.apply(null, sample.map((v) => v.x));
+        const lineData = calculateRegression(results, min, max);
+        
         const container = document.querySelector('.result')
         container.prepend(createTableResult(results));
+
         const chart = document.querySelector('#scatterplot');
-        scatterplot(sample);
+        scatterplot(sample, lineData);
+
         chart.hidden = false;
     }
 }

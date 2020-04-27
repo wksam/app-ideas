@@ -1,4 +1,4 @@
-function calculatePearsonRegression(sample) {
+function calculateCorrelation(sample) {
     const xValues = [];
     const yValues = [];
     for (const element of sample) {
@@ -35,15 +35,28 @@ function calculatePearsonRegression(sample) {
         combineXY.push(xDeviation[i] * yDeviation[i]);
     }
     const r = combineXY.reduce(sum) / Math.sqrt(xDeviationSum * yDeviationSum);
-
+    
     let interpretation;
     if(r > 0.7 || r < -0.7)      interpretation = 'Some correlation';
     else if(r > 0.3 || r < -0.3) interpretation = 'Neutral';
     else                         interpretation = 'No correlation';
 
     return { 
-        'r': interpretation, 
-        'mean': { 'x': mX, 'y': mY },
-        'deviation': { 'x': xDeviationSum, 'y': yDeviationSum }
+        r: interpretation, 
+        mean: { x: mX, y: mY },
+        deviation: { x: xDeviationSum, y: yDeviationSum }
     };
+}
+
+function calculateRegression(data, minX, maxX) {
+    const b = data.deviation.y / data.deviation.x;
+    const a = data.mean.y - (b * data.mean.x);
+
+    const minY = a + (b * minX);
+    const maxY = a + (b * maxX);
+
+    return [
+        { x: minX, y: minY },
+        { x: maxX, y: maxY }
+    ]
 }

@@ -1,8 +1,12 @@
-function scatterplot(sample) {    
+function scatterplot(bubbleData, lineData) {    
     let data = {
         label: 'Height',
         datasets: [{
-            data: sample
+            data: bubbleData
+        }, {
+            data: lineData,
+            type: 'line',
+            fill: false
         }]
     }
 
