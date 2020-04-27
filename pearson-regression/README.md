@@ -48,7 +48,7 @@ and to display its results.
 
 ## Bonus features
 
--   [ ] User can see a scatter plot of the observations
+-   [x] User can see a scatter plot of the observations
 -   [ ] User can upload observations from a file on the local machine.
 -   [ ] User can see a regression line overlaying the scatter plot
 

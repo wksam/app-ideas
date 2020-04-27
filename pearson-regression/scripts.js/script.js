@@ -1,6 +1,23 @@
 document.querySelector('form').addEventListener('submit', submit);
 
 let sample = [];
+// let sample = [
+//     { x:110, y: 44, r: 10 },
+//     { x:116, y: 31, r: 10 },
+//     { x:124, y: 43, r: 10 },
+//     { x:129, y: 45, r: 10 },
+//     { x:131, y: 56, r: 10 },
+//     { x:138, y: 79, r: 10 },
+//     { x:142, y: 57, r: 10 },
+//     { x:150, y: 56, r: 10 },
+//     { x:153, y: 58, r: 10 },
+//     { x:155, y: 92, r: 10 },
+//     { x:156, y: 78, r: 10 },
+//     { x:159, y: 64, r: 10 },
+//     { x:164, y: 88, r: 10 },
+//     { x:168, y: 112, r: 10 },
+//     { x:174, y: 101, r: 10 }
+// ]
 
 function submit(e) {
     e.preventDefault();
@@ -14,7 +31,7 @@ function submit(e) {
             alert('Invalid values. Try again.'); return;
         }
         
-        const value = { 'x': parseInt(xValue), 'y': parseInt(yValue) };
+        const value = { x: parseInt(xValue), y: parseInt(yValue), r: 10 };
         sample.push(value);
 
         addRowSample(sample);
@@ -24,8 +41,11 @@ function submit(e) {
             document.querySelector('button[name=calculate]').disabled = false;
     } else {
         const results = calculatePearsonRegression(sample);
-        const container = document.querySelector('.container')
-        container.appendChild(createTableResult(results));
+        const container = document.querySelector('.result')
+        container.prepend(createTableResult(results));
+        const chart = document.querySelector('#scatterplot');
+        scatterplot(sample);
+        chart.hidden = false;
     }
 }
 
