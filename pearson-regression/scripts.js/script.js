@@ -9,6 +9,11 @@ function submit(e) {
         const formData = new FormData(e.target);
         const xValue = formData.get('x');
         const yValue = formData.get('y');
+
+        if(xValue == '' || yValue == '') {
+            alert('Invalid values. Try again.'); return;
+        }
+        
         const value = { 'x': xValue, 'y': yValue };
         values.push(value);
 
