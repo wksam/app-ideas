@@ -15,11 +15,9 @@
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="input">Roman or Decimal Number</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="input" name="input" aria-describedby="input-addon">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" id="input-addon">Convert</button>
-                        </div>
+                    <input type="text" class="form-control" id="input" name="input">
+                    <div class="invalid-feedback">
+                        Please choose a username.
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
@@ -27,6 +25,8 @@
                     <input type="text" class="form-control" id="output" name="output" disabled>
                 </div>
             </div>
+            <button class="btn btn-primary" id="input-addon">Convert</button>
+            <button class="btn btn-secondary" type="reset">Clear</button>
         </form>
     </div>
     <script src="script.js"></script>
