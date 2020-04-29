@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roman to Decimal Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="text-center mt-4">Roman to Decimal Converter</h1>
+        <p class="text-muted text-center">The largest number that can be represented in this notation is 3,999 (MMMCMXCIX)</p>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="input">Roman or Decimal Number</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="input" name="input" aria-describedby="input-addon">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="input-addon">Convert</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="output">Result</label>
+                    <input type="text" class="form-control" id="output" name="output" disabled>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
