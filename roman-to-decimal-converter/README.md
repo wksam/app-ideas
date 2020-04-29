@@ -18,9 +18,9 @@ See the below table the _Symbol - Value_ pairs:
 
 ## User Stories
 
--   [ ] User should be able to enter one Roman number in an input field
--   [ ] User could see the results in a single output field containing the decimal (base 10) equivalent of the roman number that was entered by pressing a button
--   [ ] If a wrong symbol is entered, the User should see an error
+-   [x] User should be able to enter one Roman number in an input field
+-   [x] User could see the results in a single output field containing the decimal (base 10) equivalent of the roman number that was entered by pressing a button
+-   [x] If a wrong symbol is entered, the User should see an error
 
 ## Bonus features
 
