@@ -1,3 +1,9 @@
 .clock {
     font-size: 5rem;
 }
+
+svg {
+    vertical-align: baseline;
+    top: .125rem;
+    position: relative;
+}
