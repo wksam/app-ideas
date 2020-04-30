@@ -25,7 +25,7 @@ See the below table the _Symbol - Value_ pairs:
 ## Bonus features
 
 -   [ ] User could see the conversion to be made automatically as I type
--   [ ] User should be able to convert from decimal to Roman (vice-versa)
+-   [x] User should be able to convert from decimal to Roman (vice-versa)
 
 ## Useful links and resources
 
