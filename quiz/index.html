@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="text-center my-4">Quiz</h1>
+        <form>
+            <div class="form-group">
+                <label for="questions">Number of Questions</label>
+                <input type="number" class="form-control" name="questions" id="questions" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Select Category</label>
+                <select class="form-control" name="category" id="category">
+                    <option value="" selected>Any Category</option>
+                    <option value="">...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="difficulty">Select Category</label>
+                <select class="form-control" name="difficulty" id="difficulty">
+                    <option value="" selected>Any Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Select Category</label>
+                <select class="form-control" name="type" id="type">
+                    <option value="" selected>Any Type</option>
+                    <option value="multiple">Multiple Choice</option>
+                    <option value="boolean">True / False</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Start</button>
+        </form>
+        <div class="quiz-container" hidden>
+            <h4 class="text-center mb-4">In South Park, what is Stan&#039;s surname?</h4>
+            <div class="d-flex flex-column">
+                <button class="btn btn-outline-secondary mb-2">Marsh</button>
+                <button class="btn btn-outline-secondary mb-2">Stotch</button>
+                <button class="btn btn-outline-secondary mb-2">Broflovski</button>
+                <button class="btn btn-outline-secondary mb-2">Tweak</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
