@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="text-center my-4">Quiz</h1>
+        <form class="config mb-4">
+            <div class="form-group">
+                <label for="n">Number of Questions</label>
+                <input type="number" class="form-control" name="n" min="1" max="50" value="10">
+            </div>
+            <div class="form-group">
+                <label for="category">Select Category</label>
+                <select class="custom-select" name="category" id="category">
+                    <option value="">Any Category</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="difficulty">Select Difficulty</label>
+                <select class="custom-select" name="difficulty" id="difficulty">
+                    <option value="">Any Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Select Type</label>
+                <select class="custom-select" name="type" id="type">
+                    <option value="">Any Type</option>
+                    <option value="multiple">Multiple Choice</option>
+                    <option value="boolean">True / False</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Start</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
