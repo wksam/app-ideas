@@ -104,7 +104,7 @@ function createResultDataRows() {
     for (const index in quiz.questions) {
         dataRows += 
             '<tr class="table-' + ((quiz.questions[index].answer == quiz.questions[index].correct_answer) ? 'success' : 'danger') + '">' +
-                '<th scope="row">' + (index + 1) + '</th>' +
+                '<th scope="row">' + (parseInt(index) + 1) + '</th>' +
                 '<td>' + quiz.questions[index].question + '</td>' +
                 '<td>' + quiz.questions[index].correct_answer + '</td>' +
                 '<td>' + quiz.questions[index].answer + '</td>' +

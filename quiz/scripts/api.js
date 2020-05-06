@@ -28,7 +28,7 @@ class OpenTriviaDatabase {
         const parameters = '?command=request';
         const url = this.domain + this.paths.token + parameters;
         fetch(url).then(response => response.json())
-            .then(function(data) {
+            .then((data) => {
                 $('.alert').hide();
                 setCookie('token', data.token);
                 this.getCategories();
@@ -61,7 +61,6 @@ class OpenTriviaDatabase {
                 $('.config').hide();
                 $('.results').remove();
 
-                const quiz = new Quiz();
                 quiz.current = 0;
                 quiz.correct_answers = 0;
                 quiz.start = Date.now();
@@ -73,6 +72,8 @@ class OpenTriviaDatabase {
             });
     }
 }
+
+const api = new OpenTriviaDatabase();
 
 function fetchCategories(data) {
     const categories = data.trivia_categories;
@@ -113,5 +114,3 @@ function fetchFail(err) {
             break;
     }
 }
-
-const api = new OpenTriviaDatabase();
