@@ -18,6 +18,7 @@ class OpenTriviaDatabase {
         fetch(url).then(response => response.json())
             .then(function(data) {
                 $('.alert').hide();
+                changeButtonToReady($('button[type=submit]'), 'Start Quiz', false);
                 fetchCategories(data);
             }).catch(function(err) {
                 fetchFail(err);
@@ -87,9 +88,7 @@ function fetchCategories(data) {
 function fetchFail(err) {
     $('.alert').show();
 
-    $('button[type=submit]').prop('disabled', true);
     changeButtonToReady($('button[type=submit]'), 'Start Quiz', true);
-    
     changeButtonToReady($('.retry'), 'Retry', false);
 
     switch (err) {

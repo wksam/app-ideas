@@ -17,6 +17,7 @@ $('form').on('reset', function(e) {
 });
 
 function init() {
+    changeButtonToLoading($('button[type=submit]'));
     if(hasCookie('token')) {
         if($('#category>option').length > 1) {
             $('.alert').hide();
