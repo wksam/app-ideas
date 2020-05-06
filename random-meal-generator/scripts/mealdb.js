@@ -32,13 +32,24 @@ function fillMeal(meal) {
     
     const title = document.querySelector('.title');
     const image = document.querySelector('img');
+    const video = document.querySelector('.video');
     const ingredients = document.querySelector('.ingredients');
     const instructions = document.querySelector('.instructions');
 
     title.textContent = mealName;
+    
     image.hidden = true;
     document.querySelector('.spinner-border').hidden = false;
-    image.src = mealImage;
+    image.src = (mealImage == '' || mealImage == undefined) ? 'image/no-image.png' : mealImage;
+
+    if(!(mealVideo == undefined || mealVideo == '')) {
+        video.hidden = false;
+        console.log(mealVideo.replace('watch?v=', 'embed/'));
+        video.querySelector('iframe').src = mealVideo.replace('watch?v=', 'embed/');
+    } else {
+        video.hidden = true;
+    }
+
     ingredients.textContent = '';
     instructions.textContent = '';
 

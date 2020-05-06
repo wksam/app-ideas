@@ -1,5 +1,6 @@
 document.querySelector('button').addEventListener('click', generateRandomMeal);
 document.querySelector('img').addEventListener('load', imageLoaded);
+document.querySelector('button').click();
 
 function generateRandomMeal() {
     changeButton(' Loading...', true);
