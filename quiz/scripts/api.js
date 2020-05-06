@@ -19,9 +19,9 @@ class OpenTriviaDatabase {
             .then(function(data) {
                 $('.alert').hide();
                 changeButtonToReady($('button[type=submit]'), 'Start Quiz', false);
-                fetchCategories(data);
+                populateCategories(data);
             }).catch(function(err) {
-                fetchFail(err);
+                showError(err);
             });
     }
 
@@ -34,7 +34,7 @@ class OpenTriviaDatabase {
                 setCookie('token', data.token);
                 this.getCategories();
             }).catch(function(err) {
-                fetchFail(err);
+                showError(err);
             });
     }
 
@@ -47,7 +47,7 @@ class OpenTriviaDatabase {
                 setCookie('token', data.token);
                 $('button[type=reset]').hide();
             }).catch(function(err) {
-                fetchFail(err);
+                showError(err);
             });
     }
 
@@ -69,14 +69,14 @@ class OpenTriviaDatabase {
 
                 nextQuestion();
             }).catch(function(err) {
-                fetchFail(err);
+                showError(err);
             });
     }
 }
 
 const api = new OpenTriviaDatabase();
 
-function fetchCategories(data) {
+function populateCategories(data) {
     const categories = data.trivia_categories;
     let option = '<option value="">Any Category</option>';
     for (const category of categories) {
@@ -85,7 +85,7 @@ function fetchCategories(data) {
     $('#category').empty().append(option);
 }
 
-function fetchFail(err) {
+function showError(err) {
     $('.alert').show();
 
     changeButtonToReady($('button[type=submit]'), 'Start Quiz', true);
