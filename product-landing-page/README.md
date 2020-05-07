@@ -14,10 +14,10 @@ skills by expanding it to incorporate the features specified in the
 
 These will cover the visual part of the project.
 
--   [ ] User can see on the page one or more images with the product
--   [ ] User can see a list with all the features of the product
--   [ ] User can see how this product will improve the buyers life. Why should he buy it?
--   [ ] User can see a contact section (a text with the email)
+-   [x] User can see on the page one or more images with the product
+-   [x] User can see a list with all the features of the product
+-   [x] User can see how this product will improve the buyers life. Why should he buy it?
+-   [x] User can see a contact section (a text with the email)
 
 ## Bonus features
 
