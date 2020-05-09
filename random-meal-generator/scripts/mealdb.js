@@ -12,6 +12,7 @@ class MealDB {
         fetch(url).then(response => response.json())
             .then(data => data.meals[0])
             .then(meal => {
+                history.pushState(meal, "", null);
                 document.querySelector('.meal').style.display = 'block';
                 fillMeal(meal);
             }).catch(err => showError(err));
@@ -26,13 +27,13 @@ function fillMeal(meal) {
 
     const mealName = meal.strMeal;
     const mealImage = meal.strMealThumb;
-    const mealVideo = meal.strYoutube;
+    // const mealVideo = meal.strYoutube;
     const mealIngredients = extractIngredients(meal);
     const mealInstructions = extractInstructions(meal.strInstructions);
     
     const title = document.querySelector('.title');
     const image = document.querySelector('img');
-    const video = document.querySelector('.video');
+    // const video = document.querySelector('.video');
     const ingredients = document.querySelector('.ingredients');
     const instructions = document.querySelector('.instructions');
 
@@ -42,13 +43,12 @@ function fillMeal(meal) {
     document.querySelector('.spinner-border').hidden = false;
     image.src = (mealImage == '' || mealImage == undefined) ? 'image/no-image.png' : mealImage;
 
-    if(!(mealVideo == undefined || mealVideo == '')) {
-        video.hidden = false;
-        console.log(mealVideo.replace('watch?v=', 'embed/'));
-        video.querySelector('iframe').src = mealVideo.replace('watch?v=', 'embed/');
-    } else {
-        video.hidden = true;
-    }
+    // if(!(mealVideo == undefined || mealVideo == '')) {
+    //     video.hidden = false;
+    //     video.querySelector('iframe').src = mealVideo.replace('watch?v=', 'embed/');
+    // } else {
+    //     video.hidden = true;
+    // }
 
     ingredients.textContent = '';
     instructions.textContent = '';

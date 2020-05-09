@@ -21,3 +21,8 @@ function changeButton(text, disabled) {
     button.textContent = text;
     button.prepend(spinner);
 }
+
+window.addEventListener('popstate', function(e) {
+    if(e.state != null)
+        fillMeal(e.state);
+});
