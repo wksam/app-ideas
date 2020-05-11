@@ -4,6 +4,14 @@
     font-size: 0;
 }
 
+.item {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
 .btn {
     position: absolute;
     cursor: pointer;
@@ -11,6 +19,7 @@
     width: 10%;
     transition: opacity 0.3s ease-out;
     opacity: 0;
+    z-index: 1;
 }
 
 .previous {
