@@ -11,6 +11,12 @@ img {
     height: auto;
 }
 
+button {
+    border: none;
+    background-color: none;
+    outline: none;
+}
+
 .container {
     margin: auto;
 }

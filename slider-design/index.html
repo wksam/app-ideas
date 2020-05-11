@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/carousel.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <div class="container">
         <h1>Slider Design</h1>
-        <img src="images/bg-1.jpg" alt="Image">
+        <div class="carousel">
+            <button class="btn previous"><img src="svg/arrow-left.svg" alt="Previous" class="control"></button>
+            <button class="btn next"><img src="svg/arrow-right.svg" alt="Next" class="control"></button>
+            
+            <div class="slider">
+                <img src="images/bg-1.jpg" alt="Image">
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
