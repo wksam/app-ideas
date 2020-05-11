@@ -111,8 +111,7 @@ function extractInstructions(instructions) {
 
 function showError(message) {
     ready();
-    $('.container').empty();
-    $('.container').append('<h1 class="text-center my-4">' + message + '</h1>')
+    $('.container').html('<h1 class="text-center my-4">' + message + '</h1>');
 }
 
 function loading() {

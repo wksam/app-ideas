@@ -16,9 +16,10 @@ $('form').submit(function(e) {
 
 window.addEventListener('popstate', function(e) {
     if(e.state != null) {
-        if(e.state.func != 'showCards')
-            showRecipe(e.state.data);
-        else
+        if(e.state.func == 'showCards')
             showCards(e.state.data, e.state.title)
-    }
+        else
+            showRecipe(e.state.data);
+    } else 
+        $('.container').html('<h1 class="text-center my-4">Recipe</h1>')
 });
