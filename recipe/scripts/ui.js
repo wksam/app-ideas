@@ -24,7 +24,7 @@ function showCards(meals, title) {
     $('.container').empty();
     
     if(meals == null) {
-        title = 'No results found';
+        title = '<h1 class="text-center my-4">No results found</h1>';
         $('.container').append(title);
         return;
     }
@@ -56,7 +56,7 @@ function showCards(meals, title) {
 
 function showRecipe(meal) {
     $('.container').empty();
-    
+
     const mealIngredients = extractIngredients(meal);
     const mealInstructions = extractInstructions(meal.strInstructions);
     
