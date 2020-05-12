@@ -44,6 +44,28 @@
     opacity: 0.65;
 }
 
+.caption {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 25px;
+    color: white;
+    left: 10%;
+    right: 10%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.caption h5 {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+}
+
+.caption p {
+    font-size: 1rem;
+    margin: 0;
+}
+
 @keyframes fade-in {
     from { opacity: 0.67; }
     to { opacity: 1; }

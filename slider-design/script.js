@@ -1,6 +1,8 @@
 document.querySelector('.previous').addEventListener('click', previous);
 document.querySelector('.next').addEventListener('click', next);
 
+const duration = 5000;
+
 function next() {
     clearTimeout(timeoutId);
     try {
@@ -13,7 +15,7 @@ function next() {
             }
         });
     } catch(e) { }
-    timeoutId = setTimeout(next, 3000);
+    timeoutId = setTimeout(next, duration);
 }
 
 function previous() {
@@ -28,11 +30,11 @@ function previous() {
             }
         });
     } catch(e) { }
-    timeoutId = setTimeout(next, 3000);
+    timeoutId = setTimeout(next, duration);
 }
 
 let timeoutId;
 function init() {
-    timeoutId = setTimeout(next, 3000);
+    timeoutId = setTimeout(next, duration);
 }
 init();
