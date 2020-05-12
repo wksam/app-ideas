@@ -13,7 +13,7 @@ Display multiple images using a slider / carousel.
 
 -   [x] Add animation to the slides
 -   [x] Add text over the slides
--   [ ] Create a 3D effect
+-   [x] Create a 3D effect
 
 ## Useful links and resources
 

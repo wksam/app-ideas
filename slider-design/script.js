@@ -34,7 +34,42 @@ function previous() {
 }
 
 let timeoutId;
+let timeout3dId;
 function init() {
     timeoutId = setTimeout(next, duration);
+    timeout3dId = setTimeout(next3d, duration);
 }
 init();
+
+
+
+// Carousel 3D
+
+let canvas = document.querySelector('.image-container-3d');
+let images = document.querySelectorAll('.item-3d');
+let canvasWidth = canvas.offsetWidth;
+let selectedIndex = 0;
+const radius = Math.round((canvasWidth / 2) / Math.tan(Math.PI / 5));
+
+document.querySelector('.previous-3d').addEventListener('click', previous3d);
+
+document.querySelector('.next-3d').addEventListener('click', next3d);
+
+function next3d() {
+    clearTimeout(timeout3dId);
+    selectedIndex++;
+    rotate3d();
+    timeout3dId = setTimeout(next3d, duration);
+}
+
+function previous3d() {
+    clearTimeout(timeout3dId);
+    selectedIndex--;
+    rotate3d();
+    timeout3dId = setTimeout(next3d, duration);
+}
+
+function rotate3d() {
+    const angle = (360 / 5) * selectedIndex * -1;
+    canvas.style.transform = 'translateZ(' + -radius + 'px) rotateY(' + angle + 'deg)';
+}
