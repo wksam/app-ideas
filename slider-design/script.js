@@ -35,3 +35,4 @@ let timeoutId;
 function init() {
     timeoutId = setTimeout(next, 3000);
 }
+init();
