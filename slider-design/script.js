@@ -52,7 +52,6 @@ let selectedIndex = 0;
 const radius = Math.round((canvasWidth / 2) / Math.tan(Math.PI / 5));
 
 document.querySelector('.previous-3d').addEventListener('click', previous3d);
-
 document.querySelector('.next-3d').addEventListener('click', next3d);
 
 function next3d() {
