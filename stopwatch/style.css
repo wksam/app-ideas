@@ -1,0 +1,9 @@
+.stopwatch {
+    font-family: 'Roboto Mono', monospace;
+}
+
+@media (max-width: 575.98px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+}

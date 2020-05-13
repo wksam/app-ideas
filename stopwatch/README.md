@@ -6,10 +6,10 @@ A stopwatch helps you track the time you spent on activities.
 
 ## User Stories
 
--   [ ] User can `start` a clock
--   [ ] User can `stop` the clock
--   [ ] When the clock is `stopped` the user can click `start` again and the clock will continue counting up
--   [ ] User can `restart` the clock
+-   [x] User can `start` a clock
+-   [x] User can `stop` the clock
+-   [x] When the clock is `stopped` the user can click `start` again and the clock will continue counting up
+-   [x] User can `restart` the clock
 
 ## Bonus features
 

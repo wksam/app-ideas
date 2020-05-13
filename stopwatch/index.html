@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stopwatch</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="text-center my-4">Stopwatch</h1>
-        <p class="text-center display-1">
+        <h2 class="text-center display-4 stopwatch">
             <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>.<span class="milliseconds">000</span>
-        </p>
+        </h2>
         <div class="d-flex justify-content-center mb-5">
-            <button class="btn btn-primary">Start</button>
-            <button class="btn btn-info mx-2">Laps</button>
-            <button class="btn btn-secondary">Reset</button>
+            <button class="btn btn-primary start">Start</button>
+            <button class="btn btn-info mx-2 laps">Laps</button>
+            <button class="btn btn-secondary reset">Reset</button>
         </div>
         <table class="table">
             <tbody></tbody>
