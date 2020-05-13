@@ -23,15 +23,36 @@ function start() {
     changeButton();
 }
 
+let count = 0;
 function laps() {
-    console.log('laps');
+    count++;
+
+    const lapTime = stripHTML(document.querySelector('.stopwatch').textContent);
+    
+    const tr = document.createElement('tr');
+    const th = document.createElement('th');
+    th.setAttribute('scope', 'row');
+    const td = document.createElement('td');
+
+    const thText = document.createTextNode(count);
+    const tdText = document.createTextNode(lapTime);
+
+    th.appendChild(thText);
+    td.appendChild(tdText);
+
+    tr.appendChild(th);
+    tr.appendChild(td);
+
+    document.querySelector('tbody').appendChild(tr);
 }
 
 function reset() {
     clearInterval(intervalId);
     startTime = undefined;
     isPause = true;
-    updateStopwatch({ hours: 0, minutes: 0, seconds: 0, milliseconds: 0 })
+    updateStopwatch({ hours: 0, minutes: 0, seconds: 0, milliseconds: 0 });
+    document.querySelector('tbody').textContent = '';
+    count = 0;
     changeButton();
 }
 
@@ -68,4 +89,8 @@ function changeButton() {
         startButton.textContent = 'Start';
     else
         startButton.textContent = 'Pause';
+}
+
+function stripHTML(text) {
+    return text.replace(/<[^>]+>/g, '').trim();
 }

@@ -13,8 +13,8 @@ A stopwatch helps you track the time you spent on activities.
 
 ## Bonus features
 
--   [ ] User can create `laps` - these will be displayed on the screen
--   [ ] User can clear all the laps
+-   [x] User can create `laps` - these will be displayed on the screen
+-   [x] User can clear all the laps
 
 ## Useful links and resources
 
