@@ -11,8 +11,7 @@ let isPause = true;
 let intervalId;
 
 function start() {
-    if(isNaN(startTime)) startTime = Date.now();
-    
+    if(!startTime) startTime = Date.now();
     if(isPause) {
         intervalId = setInterval(updateStopwatch, 4);
         isPause = false;
@@ -57,7 +56,7 @@ function reset() {
 }
 
 function updateStopwatch(time) {
-    if(time === undefined) time = getTime();
+    if(!time) time = getTime();
     document.querySelector('.hours').textContent        = formatNumber(time.hours);
     document.querySelector('.minutes').textContent      = formatNumber(time.minutes);
     document.querySelector('.seconds').textContent      = formatNumber(time.seconds);
