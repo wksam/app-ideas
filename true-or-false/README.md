@@ -16,14 +16,14 @@ the `eval()` function to generate the result of the conditional.
 
 ## User Stories
 
--   [ ] User can enter two strings to be compared
--   [ ] User can enter a valid Javascript conditional operator to be used to compare the two strings
--   [ ] User can see the result of the conditional as TRUE or FALSE
--   [ ] User can see a warning if the input strings or conditional operator that has been entered is not valid
+-   [x] User can enter two strings to be compared
+-   [x] User can enter a valid Javascript conditional operator to be used to compare the two strings
+-   [x] User can see the result of the conditional as TRUE or FALSE
+-   [x] User can see a warning if the input strings or conditional operator that has been entered is not valid
 
 ## Bonus features
 
--   [ ] User can specify the type of each of the two strings so numbers can be compared to strings, strings to booleans, etc
+-   [x] User can specify the type of each of the two strings so numbers can be compared to strings, strings to booleans, etc
 
 ## Useful links and resources
 

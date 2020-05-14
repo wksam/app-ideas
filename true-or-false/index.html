@@ -10,14 +10,18 @@
     <div class="container">
         <h1 class="text-center my-4">True or False</h1>
         <form>
-            <div class="form-row">
+            <div class="row">
                 <div class="col-sm-5 mt-2">
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Variable" id="first-var" name="first-var">
+                            <input type="text" class="form-control first-var" placeholder="Variable" name="first-var" required>
+                            <select name="first-var" class="form-control first-var" hidden>
+                                <option value="true">true</option>
+                                <option value="false">false</option>
+                            </select>
                         </div>
-                        <div class="col-auto">
-                            <select name="first-type" id="first-type" class="form-control">
+                        <div class="col-auto type">
+                            <select class="form-control" id="first-type" name="first-type">
                                 <option value="string">string</option>
                                 <option value="number">number</option>
                                 <option value="boolean">boolean</option>
@@ -28,15 +32,19 @@
                     </div>
                 </div>
                 <div class="col-sm-2 mt-2">
-                    <input type="text" class="form-control" placeholder="Comparison" id="comparison" name="comparison">
+                    <input type="text" class="form-control" placeholder="Comparison" class="comparison" name="comparison" pattern="^(==|===|!=|!==|>|<|>=|<=)$" required>
                 </div>
                 <div class="col-sm-5 mt-2">
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Variable" id="second-var" name="second-var">
+                            <input type="text" class="form-control second-var" placeholder="Variable" name="second-var" required>
+                            <select name="first-var" class="form-control second-var" hidden>
+                                <option value="true">true</option>
+                                <option value="false">false</option>
+                            </select>
                         </div>
-                        <div class="col-auto">
-                            <select name="second-type" id="second-type" class="form-control">
+                        <div class="col-auto type">
+                            <select class="form-control" id="second-type" name="second-type">
                                 <option value="string">string</option>
                                 <option value="number">number</option>
                                 <option value="boolean">boolean</option>
@@ -47,7 +55,12 @@
                     </div>
                 </div>
             </div>
+            <div class="clearfix">
+                <button type="submit" class="btn btn-primary mt-2 float-right">Compare</button>
+            </div>
         </form>
+        <div class="alert alert-success mt-2" role="alert" hidden></div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
