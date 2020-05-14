@@ -9,6 +9,7 @@ function typeOnChange(e) {
 
     field.value = ''
     field.hidden = false;
+    field.required = true;
     fieldSelect.hidden = true;
 
     if(e.target.value == 'null' || e.target.value == 'undefined') {
@@ -19,6 +20,7 @@ function typeOnChange(e) {
             field.type = 'number'
         } else if(e.target.value == 'boolean') {
             field.hidden = true;
+            field.required = false;
             fieldSelect.hidden = false;
         } else {
             field.type = 'text';
