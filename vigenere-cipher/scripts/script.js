@@ -86,3 +86,22 @@ cipherInput.addEventListener('paste', onPaste);
 function onPaste(e) {
     e.preventDefault();
 }
+
+encryptButton.addEventListener('click', startEncrypt);
+decryptButton.addEventListener('click', startDecrypt);
+
+function startEncrypt() {
+    const keyText = generateKey(plainInput.value, keyInput.value);
+    cipherInput.value = encryptText(plainInput.value, keyText);
+    plainInput.value = '';
+    encryptButton.disabled = true;
+    decryptButton.disabled = false;
+}
+
+function startDecrypt() {
+    const keyText = generateKey(cipherInput.value, keyInput.value);
+    plainInput.value = decryptText(cipherInput.value, keyText);
+    cipherInput.value = '';
+    decryptButton.disabled = true;
+    encryptButton.disabled = false;
+}

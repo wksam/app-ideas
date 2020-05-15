@@ -38,17 +38,17 @@ themselves these questions:
     - Encryption key input field
     - Action buttons - 'Encrypt' and 'Decrypt'
     - Resulting encrypted or decrypted message
--   [ ] User can enter the text to be encrypted in the plain text message input
+-   [x] User can enter the text to be encrypted in the plain text message input
 field
--   [ ] User can enter the Encryption key the Vigenere algorithm will use to
+-   [x] User can enter the Encryption key the Vigenere algorithm will use to
 encrypt the plain text message.
--   [ ] User can click see see the 'Decrypt' button disabled until the plain
+-   [x] User can click see see the 'Decrypt' button disabled until the plain
 text has been encrypted.
--   [ ] User can click the 'Encrypt' button to encrypt the plain text message
--   [ ] User can see the encrypted message displayed in the result field.
--   [ ] User can see the 'Decrypt' button enabled after the encrypted message
+-   [x] User can click the 'Encrypt' button to encrypt the plain text message
+-   [x] User can see the encrypted message displayed in the result field.
+-   [x] User can see the 'Decrypt' button enabled after the encrypted message
 has been displayed.
--   [ ] User can click the 'Decrypt' button to decrypt the encrypted message
+-   [x] User can click the 'Decrypt' button to decrypt the encrypted message
 and to display its contents in the result field.
 
 ## Bonus features
