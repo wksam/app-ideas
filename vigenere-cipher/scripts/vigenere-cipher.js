@@ -10,7 +10,7 @@ function generateKey(plainText, keyText) {
     }
 }
 
-function encryptText(plainText, keyText) {
+function encrypt(plainText, keyText) {
     const codeChars = []
     for (let i = 0; i < plainText.length; i++) {
         codeChars.push(((plainText.charCodeAt(i) + keyText.charCodeAt(i)) % 26) + 65);
@@ -18,7 +18,7 @@ function encryptText(plainText, keyText) {
     return String.fromCharCode(...codeChars);
 }
 
-function decryptText(plainText, keyText) {
+function decrypt(plainText, keyText) {
     const codeChars = []
     for (let i = 0; i < plainText.length; i++) {
         codeChars.push(((plainText.charCodeAt(i) - keyText.charCodeAt(i) + 26) % 26) + 65);

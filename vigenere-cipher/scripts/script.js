@@ -12,7 +12,8 @@ keyInput.addEventListener('keypress', onTyping)
 
 function onTyping(e) {
     e.preventDefault();
-    if(e.key.match(/[a-zA-Z]/g)) {
+    hideAlert();
+    if((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
         this.value += e.key.toUpperCase();
 
         if(this.id == 'plain') {
@@ -89,19 +90,49 @@ function onPaste(e) {
 
 encryptButton.addEventListener('click', startEncrypt);
 decryptButton.addEventListener('click', startDecrypt);
+compareButton.addEventListener('click', startCompare);
 
 function startEncrypt() {
     const keyText = generateKey(plainInput.value, keyInput.value);
-    cipherInput.value = encryptText(plainInput.value, keyText);
+    cipherInput.value = encrypt(plainInput.value, keyText);
     plainInput.value = '';
     encryptButton.disabled = true;
     decryptButton.disabled = false;
+    hideAlert();
 }
 
 function startDecrypt() {
     const keyText = generateKey(cipherInput.value, keyInput.value);
-    plainInput.value = decryptText(cipherInput.value, keyText);
+    plainInput.value = decrypt(cipherInput.value, keyText);
     cipherInput.value = '';
     decryptButton.disabled = true;
     encryptButton.disabled = false;
+    hideAlert();
+}
+
+function startCompare() {
+    const keyText = generateKey(cipherInput.value, keyInput.value);
+    const decryptText = decrypt(cipherInput.value, keyText);
+
+    showAlert(plainInput.value, decryptText, cipherInput.value);
+}
+
+function showAlert(plainText, decryptText, encryptText) {
+    const alert = document.querySelector('.alert');
+    if(plainText == decryptText) {
+        alert.classList.add('alert-success');
+        alert.classList.remove('alert-danger');
+        alert.textContent = plainText + ' == ' + encryptText;
+    } else {
+        alert.classList.add('alert-danger');
+        alert.classList.remove('alert-success');
+        alert.textContent = plainText + ' != ' + encryptText;
+    }
+}
+
+function hideAlert() {
+    const alert = document.querySelector('.alert');
+    alert.classList.remove('alert-danger');
+    alert.classList.remove('alert-success');
+    alert.textContent = '';
 }

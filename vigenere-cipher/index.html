@@ -10,15 +10,15 @@
     <div class="container">
         <h1 class="text-center my-4">Vigenère Cipher</h1>
         <div class="form-row">
-            <div class="form-group col">
+            <div class="form-group col-sm">
                 <label for="plain">Plaintext</label>
                 <input type="text" class="form-control" id="plain">
             </div>
-            <div class="form-group col">
+            <div class="form-group col-sm">
                 <label for="key">Key</label>
                 <input type="text" class="form-control" id="key">
             </div>
-            <div class="form-group col">
+            <div class="form-group col-sm">
                 <label for="cipher">Ciphertext</label>
                 <input type="text" class="form-control" id="cipher">
             </div>
@@ -28,6 +28,7 @@
             <button class="btn btn-primary mx-2" id="compare" disabled>Compare</button>
             <button class="btn btn-primary" id="decrypt" disabled>Decrypt</button>
         </div>
+        <div class="alert mt-4" role="alert"></div>
     </div>
     <script src="scripts/vigenere-cipher.js"></script>
     <script src="scripts/script.js"></script>
