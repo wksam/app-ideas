@@ -8,10 +8,10 @@ temperature.
 
 ## User Stories
 
--   [ ] User can select the measurement system calculations will be performed in - Metric or English
--   [ ] User can enter the actual temperature and the wind speed
+-   [x] User can select the measurement system calculations will be performed in - Metric or English
+-   [x] User can enter the actual temperature and the wind speed
 -   [ ] User can press the `Calculate` button to display the wind chill
--   [ ] User will receive an error message when `Calculate` is clicked if data values are not entered
+-   [x] User will receive an error message when `Calculate` is clicked if data values are not entered
 
 ## Bonus features
 
@@ -26,5 +26,5 @@ temperature.
 
 ## Example projects
 
-[Wind Chill Calculator](http://www.jsmadeeasy.com/javascripts/Calculators/Wind%20Chill%20Calculator/index.htm)
-[Svelte Wind Chill Index by Gabriele Corti](https://codepen.io/borntofrappe/pen/WNNrrJg)
+-   [Wind Chill Calculator](http://www.jsmadeeasy.com/javascripts/Calculators/Wind%20Chill%20Calculator/index.htm)
+-   [Svelte Wind Chill Index by Gabriele Corti](https://codepen.io/borntofrappe/pen/WNNrrJg)

@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windchill</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="text-center my-4">Windchill</h1>
+        <form>
+            <div class="form-row mt-2">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="temperature">Temperature</label>
+                        <input type="text" class="form-control" name="temperature" id="temperature" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="speed">Wind Speed</label>
+                        <input type="text" class="form-control" name="speed" id="speed" required>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="form-group">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="metric" name="system" class="custom-control-input" checked>
+                        <label class="custom-control-label" for="metric">Metric</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="imperial" name="system" class="custom-control-input">
+                        <label class="custom-control-label" for="imperial">Imperial</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Calculate</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
