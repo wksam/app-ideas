@@ -11,27 +11,31 @@
         <h1 class="text-center my-4">Windchill</h1>
         <form>
             <div class="form-row mt-2">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="temperature">Temperature</label>
-                        <input type="text" class="form-control" name="temperature" id="temperature" required>
+                <div class="col-sm">
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="temperature" id="temperature" placeholder="Actual Temperature" step="0.01" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="temperature-addon">°C</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="speed">Wind Speed</label>
-                        <input type="text" class="form-control" name="speed" id="speed" required>
+                <div class="col-sm">
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="speed" id="speed" placeholder="Wind Speed" step="0.01" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="speed-addon">m/s</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between mt-2">
                 <div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="metric" name="system" class="custom-control-input" checked>
+                        <input type="radio" id="metric" name="system" class="custom-control-input" value="metric" checked>
                         <label class="custom-control-label" for="metric">Metric</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="imperial" name="system" class="custom-control-input">
+                        <input type="radio" id="imperial" name="system" class="custom-control-input" value="imperial">
                         <label class="custom-control-label" for="imperial">Imperial</label>
                     </div>
                 </div>
@@ -39,5 +43,6 @@
             </div>
         </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
