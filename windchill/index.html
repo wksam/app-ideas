@@ -13,7 +13,7 @@
             <div class="form-row mt-2">
                 <div class="col-sm">
                     <div class="input-group">
-                        <input type="number" class="form-control" name="temperature" id="temperature" placeholder="Actual Temperature" step="0.01" required>
+                        <input type="number" class="form-control" name="temperature" id="temperature" placeholder="Actual Temperature" step="0.01" max="10" required>
                         <div class="input-group-append">
                             <span class="input-group-text" id="temperature-addon">°C</span>
                         </div>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="input-group">
-                        <input type="number" class="form-control" name="speed" id="speed" placeholder="Wind Speed" step="0.01" required>
+                        <input type="number" class="form-control" name="speed" id="speed" placeholder="Wind Speed" step="0.01" min="4.8" required>
                         <div class="input-group-append">
                             <span class="input-group-text" id="speed-addon">km/h</span>
                         </div>

@@ -5,13 +5,26 @@ document.querySelectorAll('input[type=radio]').forEach(function(elem) {
 function onChangeTypeSystem() {
     const temperatureAddon = document.querySelector('#temperature-addon');
     const windSpeedAddon = document.querySelector('#speed-addon');
+
+    const temperatureInput = document.querySelector('#temperature');
+    const windSpeedInput = document.querySelector('#speed');
+
     if(this.value != 'imperial') {
         temperatureAddon.textContent = '°C';
         windSpeedAddon.textContent = 'km/h';
+
+        temperatureInput.max = 10;
+        windSpeedInput.min = 4.8;
     } else {
         temperatureAddon.textContent = '°F';
         windSpeedAddon.textContent = 'mph';
+
+        temperatureInput.max = 50;
+        windSpeedInput.min = 3;
     }
+
+    temperatureInput.value = '';
+    windSpeedInput.value = '';
 }
 
 document.querySelector('form').addEventListener('submit', startCalculation);
