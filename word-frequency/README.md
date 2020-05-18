@@ -10,7 +10,7 @@ along with its frequency, in descending order by frequency.
 
 ## User Stories
 
--   [ ] User can see a text input box, a 'Translate' button, and a word
+-   [x] User can see a text input box, a 'Translate' button, and a word
         frequency table.
 -   [ ] User can enter text (or cut and paste) into the input box. This input
         box must allow the entry of large blocks of text (maximum of 2048 characters).
