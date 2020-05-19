@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    <script src="config.js"></script>
-    <script src="script.js"></script>
+    <div class="container">
+        <h1 class="text-center my-4">Weather</h1>
+        <form class="form-inline justify-content-center mb-4">
+            <input type="text" class="form-control mr-2" placeholder="City Name" name="city">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <div class="alert" role="alert" hidden></div>
+
+        <div class="city-list list-group" hidden></div>
+
+        <div class="mx-auto mt-4 w-25">
+            <div class="card" hidden>
+                <div class="card-body">
+                    <div class="d-flex flex-row justify-content-center align-items-center mb-2">
+                        <img src="" alt="Weather Icon" class="icon">
+                        <h1 class="display-4 temperature"></h1>
+                    </div>
+                    <div class="text-center">
+                        <h5 class="card-title localized"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted phrase"></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
