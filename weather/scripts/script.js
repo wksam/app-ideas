@@ -5,7 +5,6 @@ function search(e) {
     hideAll();
 
     const formData = new FormData(e.target);
-    // GET Location
     api.fetchCity(formData.get('city'));
 }
 

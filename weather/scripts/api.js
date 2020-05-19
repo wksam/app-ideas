@@ -18,6 +18,7 @@ class AccuWeatherAPI {
     }
 
     fetchCity(cityName) {
+        if(this.apikey == '') { showAlert(['alert', 'alert-danger'], 'No API Key provided.'); return; }
         const params = '?apikey=' + this.apikey + '&q=' + cityName;
         const url = this.domain + this.paths.search + params;
         fetch(url).then(response => response.json()).then(data => {
