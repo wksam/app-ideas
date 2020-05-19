@@ -13,7 +13,7 @@ class AccuWeatherAPI {
         return AccuWeatherAPI.instance;
     }
 
-    set apikey(apikey) { this.apikey = apikey; }
+    set setApikey(apikey) { this.apikey = apikey; }
 
     fetchCity(cityName) {
         if(this.apikey == '') { showAlert(['alert', 'alert-danger'], 'No API Key provided.'); return; }

@@ -5,7 +5,7 @@ function search(e) {
     hideAll();
 
     const formData = new FormData(e.target);
-    if(formData.get('key') != '') api.apikey = formData.get('key');
+    if(formData.get('key') != '') api.setApikey = formData.get('key');
     api.fetchCity(formData.get('city'));
 }
 
