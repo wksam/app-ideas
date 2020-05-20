@@ -74,10 +74,12 @@
             <label for="mumbai" class="form-check-label">Mumbai: GMT +5</label>
         </div>
         <form class="form-inline mt-4">
-            <input type="number" class="form-control w-25 mr-2" min="-12" max="12" placeholder="GMT Search">
+            <input type="number" class="form-control w-25 mr-2" name="gmt" min="-12" max="12" placeholder="GMT Search" required>
             <button type="submit" class="btn btn-primary">Find Cities</button>
         </form>
+        <div class="alert alert-info mt-2" role="alert" hidden></div>
     </div>
-    <script src="script.js"></script>
+    <script src="scripts/constants.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
