@@ -4,8 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bit Masks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="text-center my-4">Bit Masks</h1>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="3" id="moscow" name="moscow">
+            <label for="moscow" class="form-check-label">Moscow: GMT +3</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="2" id="paris" name="paris">
+            <label for="paris" class="form-check-label">Paris: GMT +2</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="2" id="berlin" name="berlin">
+            <label for="berlin" class="form-check-label">Berlin: GMT +2</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="2" id="brussels" name="brussels">
+            <label for="brussels" class="form-check-label">Brussels: GMT +2</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="2" id="amsterdam" name="amsterdam">
+            <label for="amsterdam" class="form-check-label">Amsterdam: GMT +2</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="2" id="rome" name="rome">
+            <label for="rome" class="form-check-label">Rome: GMT +2</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="1" id="london" name="london">
+            <label for="london" class="form-check-label">London: GMT +1</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="1" id="dublin" name="dublin">
+            <label for="dublin" class="form-check-label">Dublin: GMT +1</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="-4" id="new-york" name="new-york">
+            <label for="new-york" class="form-check-label">New York: GMT -4</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="-4" id="washington" name="washington">
+            <label for="washington" class="form-check-label">Washington: GMT -4</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="-5" id="st-louis" name="st-louis">
+            <label for="st-louis" class="form-check-label">St. Louis: GMT -5</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="-7" id="los-angeles" name="los-angeles">
+            <label for="los-angeles" class="form-check-label">Los Angeles: GMT -7</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="9" id="tokyo" name="tokyo">
+            <label for="tokyo" class="form-check-label">Tokyo: GMT +9</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="8" id="beijing" name="beijing">
+            <label for="beijing" class="form-check-label">Beijing: GMT +8</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="7" id="ho-chi-mihn-city" name="ho-chi-mihn-city">
+            <label for="ho-chi-mihn-city" class="form-check-label">Ho Chi Mihn City: GMT +7</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="5" id="mumbai" name="mumbai">
+            <label for="mumbai" class="form-check-label">Mumbai: GMT +5</label>
+        </div>
+        <form class="form-inline mt-4">
+            <input type="number" class="form-control w-25 mr-2" min="-12" max="12" placeholder="GMT Search">
+            <button type="submit" class="btn btn-primary">Find Cities</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
