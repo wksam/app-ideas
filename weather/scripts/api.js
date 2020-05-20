@@ -5,7 +5,7 @@ class AccuWeatherAPI {
         }
         this.apikey = typeof config !== 'undefined' ? config.API_KEY : '';
         this.urlIcon = 'https://developer.accuweather.com/sites/default/files/ICONNUMBER-s.png';
-        this.domain = 'http://dataservice.accuweather.com';
+        this.domain = 'https://dataservice.accuweather.com';
         this.paths = {
             search: '/locations/v1/cities/search',
             forecast: '/forecasts/v1/hourly/1hour/'
