@@ -40,7 +40,7 @@ and their timezones:
     - Mumbai: GMT +5
 -   [x] User can see a GMT search box where an integer representing a GMT offset
 can be entered into and a 'Find Cities' button.
--   [ ] User can click the 'Find Cities' button to display the names of the
+-   [x] User can click the 'Find Cities' button to display the names of the
 cities in that GMT offset in an output area.
 
 ### Developer Notes
