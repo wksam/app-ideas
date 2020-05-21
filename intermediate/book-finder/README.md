@@ -14,7 +14,7 @@ Create an application that will allow users to search for books by entering a qu
 
 -   [x] For each item in the list add a link that will send the User to an external site which has more information about the book
 -   [x] Implement a Responsive Design
--   [x] Add loading animations
+-   [ ] Add loading animations
 
 ## Useful links and resources
 
