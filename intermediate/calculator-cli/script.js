@@ -13,7 +13,7 @@ function execute() {
     result.appendChild(cloneCommand(input.value));
 
     try {
-        const paragraph = command(input.value.split(' '));
+        const paragraph = command(input.value.trim().split(/\s+/));
         if(Array.isArray(paragraph)) {
             paragraph.forEach(p => {
                 result.appendChild(p);
@@ -54,6 +54,13 @@ function command(commands) {
             return commands.length > 0 ? createCommandLine('> Result: ' + commands.join(' * ') + ' = ' + commands.reduce(commandList.multiplication)) : createCommandLine('> Result: 0');
         case 'div':
             return commands.length > 0 ? createCommandLine('> Result: ' + commands.join(' / ') + ' = ' + commands.reduce(commandList.division)) : createCommandLine('> Result: 0');
+        case 'pow':
+            return commands.length > 0 ? createCommandLine('> Result: ' + commands.reduce(commandList.pow)) : createCommandLine('> Result: 0');
+        case 'sqrt':
+            const n = commands.shift();
+            const commandLine = [createCommandLine(n !== undefined ? '> Result: ' + commandList.sqrt(n) : '> Result: 0')];
+            if(commands.length > 0) commandLine.push(createCommandLine('\xa0\xa0Ignored: ' + commands.join(', ')));
+            return commandLine;
         case 'help':
             return [
                 createCommandLine('> usage: [command] [sub-command | flag] [...numbers]'),
@@ -63,6 +70,8 @@ function command(commands) {
                 createCommandLine('\xa0\xa0\xa0 sub  \xa0\xa0 Perform subtraction operation'),
                 createCommandLine('\xa0\xa0\xa0 mult \xa0     Perform multiplication operation'),
                 createCommandLine('\xa0\xa0\xa0 div  \xa0\xa0 Perform division operation'),
+                createCommandLine('\xa0\xa0\xa0 pow  \xa0\xa0 Perform exponentiation operation'),
+                createCommandLine('\xa0\xa0\xa0 sqrt \xa0     Perform square root operation, accept only one number'),
                 createCommandLine('\xa0'),
                 createCommandLine('\xa0\xa0Possible sub-commands:'),
                 createCommandLine('\xa0\xa0\xa0 even \xa0     Perform operation with only even numbers'),
@@ -119,8 +128,9 @@ const commandList = {
     subtraction: (a, b) => a - b,
     multiplication: (a, b) => a * b,
     division: (a, b) => a / b,
+    pow: (a, b) => Math.pow(a, b),
+    sqrt: (a) => Math.sqrt(a),
     float: (a) => parseFloat(a),
-    help: () => 'help',
     even: (a) => a % 2 === 0,
     odd: (a) => a % 2 === 1
 }
