@@ -8,10 +8,14 @@ document.querySelector('input').addEventListener('keyup', function(e) {
 
 function execute() {
     const input = document.querySelector('input');
-    const commands = document.querySelector('.commands');
+    const result = document.querySelector('.result');
     
-    commands.appendChild(cloneCommand(input.value));
-    commands.appendChild(resultCommand(input.value));
+    result.appendChild(cloneCommand(input.value));
+
+    const textResults = command(input.value);
+    for (const textResult of textResults) {
+        result.appendChild(textResult);
+    }
 
     input.value = '';
 }
@@ -25,9 +29,41 @@ function cloneCommand(command) {
     return p;
 }
 
-function resultCommand(command) {
+function command(command) {
+    const commands = command.split(' ');
+    
+    switch (commands[0]) {
+        case 'add':
+            commands.shift();
+            if(isNaN(commands[0]))
+                return subCommand(commands)
+            const result = commands.map(Number).reduce(commandList.addition);
+            return [createCommandLine('Result: ' + result)];
+        default:
+            return [createCommandLine('> ' + command.split(' ')[0] + ': command not found')];
+    }
+}
+
+function subCommand(commands) {
+
+}
+
+function flag(commands) {
+    
+}
+
+function createCommandLine(text) {
     const p = document.createElement('p');
     p.setAttribute('class', 'm-0');
-    p.textContent = '> ' + command + ': command not found';
+    p.textContent = text;
     return p;
+}
+
+const commandList = {
+    addition: (a, b) => a + b,
+    subtraction: (a, b) => a - b,
+    multiplication: (a, b) => a * b,
+    division: (a, b) => a / b,
+    float: (a) => parseFloat(a),
+    help: () => 'help'
 }
