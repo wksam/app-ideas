@@ -55,7 +55,22 @@ function command(commands) {
         case 'div':
             return commands.length > 0 ? createCommandLine('> Result: ' + commands.join(' / ') + ' = ' + commands.reduce(commandList.division)) : createCommandLine('> Result: 0');
         case 'help':
-            return;
+            return [
+                createCommandLine('> usage: [command] [sub-command | flag] [...numbers]'),
+                createCommandLine('\xa0'),
+                createCommandLine('\xa0\xa0Possible commands:'),
+                createCommandLine('\xa0\xa0\xa0 add  \xa0\xa0 Perform addition operation'),
+                createCommandLine('\xa0\xa0\xa0 sub  \xa0\xa0 Perform subtraction operation'),
+                createCommandLine('\xa0\xa0\xa0 mult \xa0     Perform multiplication operation'),
+                createCommandLine('\xa0\xa0\xa0 div  \xa0\xa0 Perform division operation'),
+                createCommandLine('\xa0'),
+                createCommandLine('\xa0\xa0Possible sub-commands:'),
+                createCommandLine('\xa0\xa0\xa0 even \xa0     Perform operation with only even numbers'),
+                createCommandLine('\xa0\xa0\xa0 odd  \xa0\xa0 Perform operation with only odd numbers'),
+                createCommandLine('\xa0'),
+                createCommandLine('\xa0\xa0Possible flags:'),
+                createCommandLine('\xa0\xa0\xa0 -f \xa0\xa0\xa0 Floating numbers')
+            ];
         default:
             throw new CommandError('> ' + command.split(' ')[0] + ': command \n not found');
     }
