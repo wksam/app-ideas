@@ -12,9 +12,17 @@ function execute() {
     
     result.appendChild(cloneCommand(input.value));
 
-    const textResults = command(input.value);
-    for (const textResult of textResults) {
-        result.appendChild(textResult);
+    try {
+        const paragraph = command(input.value.split(' '));
+        if(Array.isArray(paragraph)) {
+            paragraph.forEach(p => {
+                result.appendChild(p);
+            });
+        } else {
+            result.appendChild(paragraph);
+        }
+    } catch (error) {
+        result.appendChild(createCommandLine(error.message));
     }
 
     input.value = '';
@@ -29,27 +37,59 @@ function cloneCommand(command) {
     return p;
 }
 
-function command(command) {
-    const commands = command.split(' ');
-    
-    switch (commands[0]) {
+function command(commands) {
+    const command = commands.shift();
+    if(commands.length > 0) {
+        if(isFlag(commands[0])) commands = flag(commands);
+        else if(isNaN(commands[0])) commands = subCommand(commands);
+        else commands = commands.map((n) => parseInt(n));
+    }
+
+    switch (command) {
         case 'add':
-            commands.shift();
-            if(isNaN(commands[0]))
-                return subCommand(commands)
-            const result = commands.map(Number).reduce(commandList.addition);
-            return [createCommandLine('Result: ' + result)];
+            return commands.length > 0 ? createCommandLine('> Result: ' + commands.join(' + ') + ' = ' + commands.reduce(commandList.addition)) : createCommandLine('> Result: 0');
+        case 'sub':
+            return commands.length > 0 ? createCommandLine('> Result: ' + commands.join(' - ') + ' = ' + commands.reduce(commandList.subtraction)) : createCommandLine('> Result: 0');
+        case 'mult':
+            return commands.length > 0 ? createCommandLine('> Result: ' + commands.join(' * ') + ' = ' + commands.reduce(commandList.multiplication)) : createCommandLine('> Result: 0');
+        case 'div':
+            return commands.length > 0 ? createCommandLine('> Result: ' + commands.join(' / ') + ' = ' + commands.reduce(commandList.division)) : createCommandLine('> Result: 0');
+        case 'help':
+            return;
         default:
-            return [createCommandLine('> ' + command.split(' ')[0] + ': command not found')];
+            throw new CommandError('> ' + command.split(' ')[0] + ': command \n not found');
     }
 }
 
 function subCommand(commands) {
+    const command = commands.shift();
+    if(commands.length > 0)
+        if(isNaN(commands[0])) throw new CommandError('unknown option: ' + commands[0]);
 
+    switch (command) {
+        case 'even':
+            return commands.filter(commandList.even);
+        case 'odd':
+            return commands.filter(commandList.odd);
+        default:
+            throw new CommandError('> ' + commands[0] + ': sub-command not found');
+    }
 }
 
 function flag(commands) {
-    
+    const command = commands.shift();
+    if(isNaN(commands[0])) throw new CommandError('unknown option: ' + commands[0]);
+
+    switch (command) {
+        case '-f':
+            return commands.map((n) => parseFloat(n));
+        default:
+            throw new CommandError('> ' + commands[0] + ': flag not found');
+    }
+}
+
+function isFlag(command) {
+    return isNaN(command) && command.charAt(0) === '-';
 }
 
 function createCommandLine(text) {
@@ -65,5 +105,13 @@ const commandList = {
     multiplication: (a, b) => a * b,
     division: (a, b) => a / b,
     float: (a) => parseFloat(a),
-    help: () => 'help'
+    help: () => 'help',
+    even: (a) => a % 2 === 0,
+    odd: (a) => a % 2 === 1
+}
+
+class CommandError {
+    constructor(message) {
+        this.message = message;
+    }
 }
