@@ -48,17 +48,18 @@ const svgImg = [
     "svg/swift.svg",
     "svg/typescript.svg",
     "svg/vue.svg",
-    "svg/wolfram.svg",
+    "svg/wolfram.svg"
 ];
 
-shuffle(svgImg);
+const cardImg = [...svgImg, ...svgImg];
+shuffle(cardImg);
 for (let i = 0; i < 100; i++) {
     const cards = document.querySelector('.cards');
 
     const card = document.createElement('div');
     card.setAttribute('class', 'card');
     const img = document.createElement('img');
-    img.setAttribute('src', svgImg[i % 50]);
+    img.setAttribute('src', cardImg[i]);
 
     card.append(img);
     cards.append(card);
