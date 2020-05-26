@@ -5,14 +5,25 @@ function init(array, difficult) {
     for (let i = 0; i < cardImg.length; i++) {
         const cards = document.querySelector('.cards');
 
-        const card = document.createElement('div');
-        card.setAttribute('class', 'card card-' + difficult);
-        const img = document.createElement('img');
-        img.setAttribute('class', 'img-' + difficult);
-        img.setAttribute('src', cardImg[i]);
+        const cardScene = document.createElement('div');
+        cardScene.setAttribute('class', 'card-scene');
 
-        card.append(img);
-        cards.append(card);
+        const card = document.createElement('div');
+        card.setAttribute('class', 'card');
+
+        const front = document.createElement('div');
+        front.setAttribute('class', 'face front');
+        const frontImg = document.createElement('img');
+        frontImg.setAttribute('src', cardImg[i]);
+
+        const back = document.createElement('div');
+        back.setAttribute('class', 'face back bg-light');
+
+        front.append(frontImg);
+        card.append(front);
+        card.append(back);
+        cardScene.append(card)
+        cards.append(cardScene);
     }
 }
 
