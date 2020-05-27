@@ -10,7 +10,6 @@ function showRestartMenu() {
         const currentTime = game.endTime - game.startTime;
         const recordedTime = game.getTimer()[game.difficult.name];
         game.setTimer(currentTime);
-        console.log(recordedTime, currentTime < recordedTime);
         const best = recordedTime == -1 || currentTime < recordedTime ? '(Best) ' : '';
         document.querySelector('.timer').textContent = best + 'Your time: ' + formatTime(currentTime);
     }

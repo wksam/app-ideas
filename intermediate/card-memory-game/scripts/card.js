@@ -16,17 +16,17 @@ function init(array, difficult) {
         refCards.push({ cardRef: card });
 
         const front = document.createElement('div');
-        front.setAttribute('class', 'face front');
-        const frontImg = document.createElement('img');
-        frontImg.setAttribute('src', cardImg[i].path);
-        frontImg.setAttribute('class', 'img-' + difficult);
+        front.setAttribute('class', 'face front bg-light');
 
         const back = document.createElement('div');
-        back.setAttribute('class', 'face back bg-light');
+        back.setAttribute('class', 'face back');
+        const backImg = document.createElement('img');
+        backImg.setAttribute('src', cardImg[i].path);
+        backImg.setAttribute('class', 'img-' + difficult);
 
-        front.append(frontImg);
-        card.append(front);
+        back.append(backImg);
         card.append(back);
+        card.append(front);
         cardScene.append(card)
         cards.append(cardScene);
     }

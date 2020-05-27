@@ -3,30 +3,30 @@
 }
 
 .card-scene-hard {
-  perspective: 500px;
+  perspective: 1000px;
+  margin: 4px;
   width: 100px;
   height: 100px;
-  margin: 4px;
 }
 
 .card-scene-medium {
-  perspective: 500px;
+  perspective: 1000px;
+  margin: 4px;
   width: 130px;
   height: 130px;
-  margin: 4px;
 }
 
 .card-scene-easy {
-  perspective: 500px;
+  perspective: 1000px;
+  margin: 4px;
   width: 175px;
   height: 175px;
-  margin: 4px;
 }
 
 .card {
   width: 100%;
   height: 100%;
-  transition: transform 1s;
+  transition: transform 1s ease;
   transform-style: preserve-3d;
 }
 
@@ -38,10 +38,10 @@
 }
 
 img {
+  position: absolute;
   max-width: 100%;
   max-height: 100%;
   margin: auto;
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -60,8 +60,10 @@ img {
   padding: 12px;
 }
 
-.front, .flip {
-  transform: rotateY(-180deg);
+.back, .flip {
+  -webkit-transform: rotateY(-180deg) translate(1px);
+  -ms-transform: rotateY(-180deg) translate(1px);
+  transform: rotateY(-180deg) translate(1px);
 }
 
 @media (max-width: 767px) {

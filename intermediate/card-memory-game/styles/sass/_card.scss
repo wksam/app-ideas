@@ -1,32 +1,29 @@
+$img-paddings: ("hard": 4px, "medium": 8px, "easy": 12px);
+$card-scene-sizes: ("hard": 100px, "medium": 130px, "easy": 175px);
+
+@mixin transform($property) {
+    -webkit-transform: $property translate(1px);
+        -ms-transform: $property translate(1px);
+            transform: $property translate(1px);
+}
+
 .cards {
     margin: auto;
 }
 
-.card-scene-hard {
-    perspective: 500px;
-    width: 100px;
-    height: 100px;
-    margin: 4px;
-}
-
-.card-scene-medium {
-    perspective: 500px;
-    width: 130px;
-    height: 130px;
-    margin: 4px;
-}
-
-.card-scene-easy {
-    perspective: 500px;
-    width: 175px;
-    height: 175px;
-    margin: 4px;
+@each $difficult, $size in $card-scene-sizes {
+    .card-scene-#{$difficult} {
+        perspective: 1000px;
+        margin: 4px;
+        width: $size;
+        height: $size;
+    }
 }
 
 .card {
     width: 100%;
     height: 100%;
-    transition: transform 1s;
+    transition: transform 1s ease;
     transform-style: preserve-3d;
 }
 
@@ -38,30 +35,24 @@
 }
 
 img {
+    position: absolute;
     max-width: 100%;
     max-height: 100%;
     margin: auto;
-    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 }
 
-.img-hard {
-    padding: 4px;
+@each $difficult, $padding in $img-paddings {
+    .img-#{$difficult} {
+        padding: $padding;
+    }
 }
 
-.img-medium {
-    padding: 8px;
-}
-
-.img-easy {
-    padding: 12px;
-}
-
-.front, .flip {
-    transform: rotateY(-180deg);
+.back, .flip {
+    @include transform(rotateY(-180deg));
 }
 
 
