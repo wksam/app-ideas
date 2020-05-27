@@ -1,3 +1,6 @@
+const SECOND = 1000;
+const MINUTE = 60 * SECOND;
+
 const easySvg = [
     { id: '\uFD40', path: "svg/easy/android.svg" },
     { id: '\uFD41', path: "svg/easy/apple.svg" },

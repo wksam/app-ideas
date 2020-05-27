@@ -4,14 +4,11 @@ class Game {
             this._won = 0;
             this._lost = 0;
             
-            this._easyBestTime = -1;
-            this._mediumBestTime = -1;
-            this._hardBestTime = -1;
-
             this._startTime = -1;
             this._endTime = -1;
 
             this._faceUp = [];
+            this._timers = { 'easy': -1, 'medium': -1, 'hard': -1 };
             
             Game.instance = this;
         }
@@ -24,17 +21,8 @@ class Game {
     set lost(lost) { this._lost = lost; }
     get lost() { return this._lost; }
     
-    set easyBestTime(easyBestTime) { this._easyBestTime = easyBestTime; }
-    get easyBestTime() { return this._easyBestTime; }
-    
-    set mediumBestTime(mediumBestTime) { this._mediumBestTime = mediumBestTime; }
-    get mediumBestTime() { return this._mediumBestTime; }
-    
-    set hardBestTime(hardBestTime) { this._hardBestTime = hardBestTime; }
-    get hardBestTime() { return this._hardBestTime; }
-
-    set startTimee(startTime) { this._startTime = startTime; }
-    get startTimee() { return this._startTime; }
+    set startTime(startTime) { this._startTime = startTime; }
+    get startTime() { return this._startTime; }
 
     set endTime(endTime) { this._endTime = endTime; }
     get endTime() { return this._endTime; }
@@ -44,6 +32,12 @@ class Game {
 
     set difficult(difficult) { this._difficult = difficult; }
     get difficult() { return this._difficult; }
+
+    setTimer(time) {
+        this._timers[this.difficult.name] = time;
+    }
+
+    getTimer() { return this._timers; }
 
     queueFaceUpSize() {
         return this._faceUp.length;
@@ -60,7 +54,7 @@ class Game {
     checkEquality() {
         const first = this.dequeueFaceUp();
         const second = this.dequeueFaceUp();
-        
+
         if(first.dataset.id != second.dataset.id) {
             first.classList.remove('flip');
             second.classList.remove('flip');
@@ -69,7 +63,11 @@ class Game {
         } else {
             this._cards.find((el) => el.cardRef === first).matched = true;
             this._cards.find((el) => el.cardRef === second).matched = true;
-            if(this.isGameOver()) showRestartMenu();
+            if(this.isGameOver()) {
+                this._endTime = Date.now();
+                this._won++;
+                showRestartMenu();
+            }
         }
         this.faceUp = null;
     }

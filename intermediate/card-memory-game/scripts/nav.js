@@ -20,7 +20,6 @@ function onStart(e) {
 function onStats(e) {
     e.target.parentNode.parentNode.hidden = true;
     document.querySelector('.menu-stats').hidden = false;
-
     fillStats();
 }
 
@@ -31,23 +30,35 @@ function onBack(e) {
 
 function onStartEasy(e) {
     e.target.parentNode.parentNode.hidden = true;
+    document.querySelector('.title').hidden = true;
+    document.querySelector('.progress').hidden = false;
     game.difficult = { name: 'easy', imgs: easySvg };
+    game.startTime = Date.now();
     init(easySvg, 'easy');
 }
 
 function onStartMedium(e) {
     e.target.parentNode.parentNode.hidden = true;
+    document.querySelector('.title').hidden = true;
+    document.querySelector('.progress').hidden = false;
     game.difficult = { name: 'medium', imgs: mediumSvg };
+    game.startTime = Date.now();
     init(mediumSvg, 'medium');
 }
 
 function onStartHard(e) {
     e.target.parentNode.parentNode.hidden = true;
+    document.querySelector('.title').hidden = true;
+    document.querySelector('.progress').hidden = false;
     game.difficult = { name: 'hard', imgs: hardSvg };
+    game.startTime = Date.now();
     init(hardSvg, 'hard');
 }
 
 function onRestart(e) {
     e.target.parentNode.parentNode.hidden = true;
+    document.querySelector('.title').hidden = true;
+    document.querySelector('.progress').hidden = false;
+    game.startTime = Date.now();
     init(game.difficult.imgs, game.difficult.name);
 }

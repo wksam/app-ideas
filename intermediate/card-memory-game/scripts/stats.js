@@ -25,7 +25,7 @@ function fillStats() {
     const tdEasyBestTimeName = document.createElement('td');
     tdEasyBestTimeName.textContent = 'Best Time (Easy):'
     const tdEasyBestTimeValue = document.createElement('td');
-    tdEasyBestTimeValue.textContent = game.easyBestTime < 0 ? 'None' : game.easyBestTime;
+    tdEasyBestTimeValue.textContent = game.getTimer()['easy'] < 0 ? 'None' : formatTime(game.getTimer()['easy']);
     trEasyBestTime.append(tdEasyBestTimeName);
     trEasyBestTime.append(tdEasyBestTimeValue);
     tbody.append(trEasyBestTime);
@@ -34,7 +34,7 @@ function fillStats() {
     const tdMediumBestTimeName = document.createElement('td');
     tdMediumBestTimeName.textContent = 'Best Time (Medium):'
     const tdMediumBestTimeValue = document.createElement('td');
-    tdMediumBestTimeValue.textContent = game.mediumBestTime < 0 ? 'None' : game.mediumBestTime;
+    tdMediumBestTimeValue.textContent = game.getTimer()['medium'] < 0 ? 'None' : formatTime(game.getTimer()['medium']);
     trMediumBestTime.append(tdMediumBestTimeName);
     trMediumBestTime.append(tdMediumBestTimeValue);
     tbody.append(trMediumBestTime);
@@ -43,7 +43,7 @@ function fillStats() {
     const tdHardBestTimeName = document.createElement('td');
     tdHardBestTimeName.textContent = 'Best Time (Hard):'
     const tdHardBestTimeValue = document.createElement('td');
-    tdHardBestTimeValue.textContent = game.hardBestTime < 0 ? 'None' : game.hardBestTime;
+    tdHardBestTimeValue.textContent = game.getTimer()['hard'] < 0 ? 'None' : formatTime(game.getTimer()['hard']);
     trHardBestTime.append(tdHardBestTimeName);
     trHardBestTime.append(tdHardBestTimeValue);
     tbody.append(trHardBestTime);

@@ -51,7 +51,7 @@ function registerCard(card) {
     game.queueFaceUp(card);
 
     if (game.queueFaceUpSize() % 2 === 0) {
-        setTimeout(function() { game.checkEquality() }, 1500);
+        setTimeout(function() { game.checkEquality() }, 1300);
     }
 }
 

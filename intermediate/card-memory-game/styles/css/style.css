@@ -136,5 +136,8 @@ img {
     height: 240px;
   }
 }
+.progress {
+  height: 2px;
+}
 
 /*# sourceMappingURL=style.css.map */
