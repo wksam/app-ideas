@@ -1,11 +1,36 @@
+// Variables
+
 $img-paddings: ("hard": 4px, "medium": 8px, "easy": 12px);
 $card-scene-sizes: ("hard": 100px, "medium": 130px, "easy": 175px);
+
+$bp-xs: 575px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+
+$bp-xs-sizes: ("hard": 55px, "medium": 65px, "easy": 65px);
+$bp-sm-sizes: ("hard": 50px, "medium": 75px, "easy": 115px);
+$bp-md-sizes: ("hard": 65px, "medium": 90px, "easy": 135px);
+$bp-lg-sizes: ("hard": 75px, "medium": 100px, "easy": 150px);
+$bp-xl-sizes: ("hard": 100px, "medium": 135px, "easy": 205px);
+
+
+// Mixins
 
 @mixin transform($property) {
     -webkit-transform: $property translate(1px);
         -ms-transform: $property translate(1px);
             transform: $property translate(1px);
 }
+
+@mixin size($property) {
+    width: $property;
+    height: $property;
+}
+
+
+// Code
 
 .cards {
     margin: auto;
@@ -15,22 +40,19 @@ $card-scene-sizes: ("hard": 100px, "medium": 130px, "easy": 175px);
     .card-scene-#{$difficult} {
         perspective: 1000px;
         margin: 4px;
-        width: $size;
-        height: $size;
+        @include size($size);
     }
 }
 
 .card {
-    width: 100%;
-    height: 100%;
-    transition: transform 1s ease;
+    @include size(100%);
+    transition: transform 1s ease-in-out;
     transform-style: preserve-3d;
 }
 
 .face {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    @include size(100%);
     backface-visibility: hidden;
 }
 
@@ -56,78 +78,57 @@ img {
 }
 
 
-@media (max-width: 767px) {
-    .card-scene-hard {
-        width: 40px;
-        height: 40px;
+@media (max-width: $bp-xs) {
+    .cards {
+        width: 300px;
     }
-    
-    .card-scene-medium {
-        width: 55px;
-        height: 55px;
-    }
-    
-    .card-scene-easy {
-        width: 75px;
-        height: 75px;
+    @each $difficult, $size in $bp-xs-sizes {
+        .card-scene-#{$difficult} {
+            @include size($size);
+        }
     }
 }
 
-@media (min-width: 768px) {
-    .card-scene-hard {
-        width: 75px;
-        height: 75px;
+@media (min-width: $bp-sm) {
+    .cards {
+        width: 500px;
     }
-    
-    .card-scene-medium {
-        width: 105px;
-        height: 105px;
-    }
-    
-    .card-scene-easy {
-        width: 150px;
-        height: 150px;
+    @each $difficult, $size in $bp-sm-sizes {
+        .card-scene-#{$difficult} {
+            @include size($size);
+        }
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: $bp-md) {
     .cards {
         width: 600px;
     }
-
-    .card-scene-hard {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .card-scene-medium {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .card-scene-easy {
-        width: 125px;
-        height: 125px;
+    @each $difficult, $size in $bp-md-sizes {
+        .card-scene-#{$difficult} {
+            @include size($size);
+        }
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: $bp-lg) {
     .cards {
-        width: 1000px;
+        width: 670px;
     }
+    @each $difficult, $size in $bp-lg-sizes {
+        .card-scene-#{$difficult} {
+            @include size($size);
+        }
+    }
+}
 
-    .card-scene-hard {
-        width: 115px;
-        height: 115px;
+@media (min-width: $bp-xl) {
+    .cards {
+        width: 867px;
     }
-    
-    .card-scene-medium {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .card-scene-easy {
-        width: 240px;
-        height: 240px;
+    @each $difficult, $size in $bp-xl-sizes {
+        .card-scene-#{$difficult} {
+            @include size($size);
+        }
     }
 }

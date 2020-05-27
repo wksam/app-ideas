@@ -26,14 +26,14 @@
 .card {
   width: 100%;
   height: 100%;
-  transition: transform 1s ease;
+  transition: transform 1s ease-in-out;
   transform-style: preserve-3d;
 }
 
 .face {
   position: absolute;
-  height: 100%;
   width: 100%;
+  height: 100%;
   backface-visibility: hidden;
 }
 
@@ -66,39 +66,47 @@ img {
   transform: rotateY(-180deg) translate(1px);
 }
 
-@media (max-width: 767px) {
-  .card-scene-hard {
-    width: 40px;
-    height: 40px;
+@media (max-width: 575px) {
+  .cards {
+    width: 300px;
   }
 
-  .card-scene-medium {
+  .card-scene-hard {
     width: 55px;
     height: 55px;
   }
 
+  .card-scene-medium {
+    width: 65px;
+    height: 65px;
+  }
+
   .card-scene-easy {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 576px) {
+  .cards {
+    width: 500px;
+  }
+
   .card-scene-hard {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
   }
 
   .card-scene-medium {
-    width: 105px;
-    height: 105px;
+    width: 75px;
+    height: 75px;
   }
 
   .card-scene-easy {
-    width: 150px;
-    height: 150px;
+    width: 115px;
+    height: 115px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .cards {
     width: 600px;
   }
@@ -114,28 +122,48 @@ img {
   }
 
   .card-scene-easy {
-    width: 125px;
-    height: 125px;
+    width: 135px;
+    height: 135px;
+  }
+}
+@media (min-width: 992px) {
+  .cards {
+    width: 670px;
+  }
+
+  .card-scene-hard {
+    width: 75px;
+    height: 75px;
+  }
+
+  .card-scene-medium {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card-scene-easy {
+    width: 150px;
+    height: 150px;
   }
 }
 @media (min-width: 1200px) {
   .cards {
-    width: 1000px;
+    width: 867px;
   }
 
   .card-scene-hard {
-    width: 115px;
-    height: 115px;
+    width: 100px;
+    height: 100px;
   }
 
   .card-scene-medium {
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 135px;
   }
 
   .card-scene-easy {
-    width: 240px;
-    height: 240px;
+    width: 205px;
+    height: 205px;
   }
 }
 .progress {
