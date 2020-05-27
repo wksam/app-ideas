@@ -33,7 +33,7 @@ function onStartEasy(e) {
     document.querySelector('.title').hidden = true;
     document.querySelector('.progress').hidden = false;
     game.difficult = { name: 'easy', imgs: easySvg };
-    game.startTime = Date.now();
+    game.startTimer();
     init(easySvg, 'easy');
 }
 
@@ -42,7 +42,7 @@ function onStartMedium(e) {
     document.querySelector('.title').hidden = true;
     document.querySelector('.progress').hidden = false;
     game.difficult = { name: 'medium', imgs: mediumSvg };
-    game.startTime = Date.now();
+    game.startTimer();
     init(mediumSvg, 'medium');
 }
 
@@ -51,7 +51,7 @@ function onStartHard(e) {
     document.querySelector('.title').hidden = true;
     document.querySelector('.progress').hidden = false;
     game.difficult = { name: 'hard', imgs: hardSvg };
-    game.startTime = Date.now();
+    game.startTimer();
     init(hardSvg, 'hard');
 }
 
@@ -59,6 +59,6 @@ function onRestart(e) {
     e.target.parentNode.parentNode.hidden = true;
     document.querySelector('.title').hidden = true;
     document.querySelector('.progress').hidden = false;
-    game.startTime = Date.now();
+    game.startTimer();
     init(game.difficult.imgs, game.difficult.name);
 }

@@ -9,6 +9,7 @@ class Game {
 
             this._faceUp = [];
             this._timers = { 'easy': -1, 'medium': -1, 'hard': -1 };
+            this._timeLimit = { 'easy': 60000, 'medium': 180000, 'hard': 300000 };
             
             Game.instance = this;
         }
@@ -66,6 +67,7 @@ class Game {
             if(this.isGameOver()) {
                 this._endTime = Date.now();
                 this._won++;
+                this.stopTimer();
                 showRestartMenu();
             }
         }
@@ -75,6 +77,20 @@ class Game {
     isGameOver() {
         const left = this._cards.filter((el) => !el.matched);
         return left.length === 0;
+    }
+
+    startTimer() {
+        this.startTime = Date.now();
+        this.endTime = -1;
+        this._intervalId = setInterval(updateTimer, 100);
+    }
+
+    percentGone() {
+        return (Date.now() - this.startTime) / this._timeLimit[this.difficult.name];
+    }
+
+    stopTimer() {
+        clearInterval(this._intervalId);
     }
 }
 
