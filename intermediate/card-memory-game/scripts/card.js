@@ -47,23 +47,18 @@ function flip(e) {
 }
 
 function registerCard(card) {
-    if (game.faceUp != null) {
-        disableCards();
-        setTimeout(function() { game.checkEquality(card) }, 1500);
-    } else {
-        game.faceUp = card;
+    disableCard(card);
+    game.queueFaceUp(card);
+
+    if (game.queueFaceUpSize() % 2 === 0) {
+        setTimeout(function() { game.checkEquality() }, 1500);
     }
 }
 
-function disableCards() {
-    for (const card of game.cards) {
-        card.cardRef.removeEventListener('click', flip);
-    }
+function disableCard(card) {
+    card.removeEventListener('click', flip);
 }
 
-function enableCards() {
-    for (const card of game.cards) {
-        if(!card.matched)
-            card.cardRef.addEventListener('click', flip);
-    }
+function enableCard(card) {
+    card.addEventListener('click', flip);
 }

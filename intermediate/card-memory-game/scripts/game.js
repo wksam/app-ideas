@@ -10,6 +10,8 @@ class Game {
 
             this._startTime = -1;
             this._endTime = -1;
+
+            this._faceUp = [];
             
             Game.instance = this;
         }
@@ -40,22 +42,35 @@ class Game {
     set cards(cards) { this._cards = cards; }
     get cards() { return this._cards; }
 
-    set faceUp(card) { this._faceUp = card; }
-    get faceUp() { return this._faceUp; }
-
     set difficult(difficult) { this._difficult = difficult; }
     get difficult() { return this._difficult; }
 
-    checkEquality(card) {
-        if(this._faceUp.dataset.id != card.dataset.id) {
-            this._faceUp.classList.remove('flip');
-            card.classList.remove('flip');
+    queueFaceUpSize() {
+        return this._faceUp.length;
+    }
+
+    queueFaceUp(card) {
+        this._faceUp.push(card);
+    }
+
+    dequeueFaceUp() {
+        return this._faceUp.shift();
+    }
+
+    checkEquality() {
+        const first = this.dequeueFaceUp();
+        const second = this.dequeueFaceUp();
+        
+        if(first.dataset.id != second.dataset.id) {
+            first.classList.remove('flip');
+            second.classList.remove('flip');
+            enableCard(first);
+            enableCard(second);
         } else {
-            this._cards.find((el) => el.cardRef === card).matched = true;
-            this._cards.find((el) => el.cardRef === this._faceUp).matched = true;
+            this._cards.find((el) => el.cardRef === first).matched = true;
+            this._cards.find((el) => el.cardRef === second).matched = true;
             if(this.isGameOver()) showRestartMenu();
         }
-        enableCards();
         this.faceUp = null;
     }
 
