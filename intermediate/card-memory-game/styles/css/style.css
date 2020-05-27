@@ -1,3 +1,7 @@
+.cards {
+  margin: auto;
+}
+
 .card-scene-hard {
   perspective: 500px;
   width: 100px;
@@ -58,6 +62,79 @@ img {
 
 .front, .flip {
   transform: rotateY(-180deg);
+}
+
+@media (max-width: 767px) {
+  .card-scene-hard {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card-scene-medium {
+    width: 55px;
+    height: 55px;
+  }
+
+  .card-scene-easy {
+    width: 75px;
+    height: 75px;
+  }
+}
+@media (min-width: 768px) {
+  .card-scene-hard {
+    width: 75px;
+    height: 75px;
+  }
+
+  .card-scene-medium {
+    width: 105px;
+    height: 105px;
+  }
+
+  .card-scene-easy {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media (min-width: 992px) {
+  .cards {
+    width: 600px;
+  }
+
+  .card-scene-hard {
+    width: 65px;
+    height: 65px;
+  }
+
+  .card-scene-medium {
+    width: 90px;
+    height: 90px;
+  }
+
+  .card-scene-easy {
+    width: 125px;
+    height: 125px;
+  }
+}
+@media (min-width: 1200px) {
+  .cards {
+    width: 1000px;
+  }
+
+  .card-scene-hard {
+    width: 115px;
+    height: 115px;
+  }
+
+  .card-scene-medium {
+    width: 150px;
+    height: 150px;
+  }
+
+  .card-scene-easy {
+    width: 240px;
+    height: 240px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

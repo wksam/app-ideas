@@ -1,4 +1,6 @@
-// .card-hard, .card-medium, .card-easy { display: none; }
+.cards {
+    margin: auto;
+}
 
 .card-scene-hard {
     perspective: 500px;
@@ -62,151 +64,79 @@ img {
     transform: rotateY(-180deg);
 }
 
-// @media (min-width: 768px) {
-//     .card-hard {
-//         display: block;
-//         width: 60px;
-//         height: 60px;
-//         padding: 4px;
-//         margin: 2px;
-//         text-align: center;
-//     }
-    
-//     .img-hard {
-//         max-width: 50px;
-//         max-height: 50px;
-//         height: 100%;
-//         margin: auto;
-//     }
 
-//     .card-medium {
-//         display: block;
-//         width: 75px;
-//         height: 75px;
-//         padding: 4px;
-//         margin: 2px;
-//         text-align: center;
-//     }
+@media (max-width: 767px) {
+    .card-scene-hard {
+        width: 40px;
+        height: 40px;
+    }
     
-//     .img-medium {
-//         max-width: 65px;
-//         max-height: 65px;
-//         height: 100%;
-//         margin: auto;
-//     }
+    .card-scene-medium {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .card-scene-easy {
+        width: 75px;
+        height: 75px;
+    }
+}
 
-//     .card-easy {
-//         display: block;
-//         width: 100px;
-//         height: 100px;
-//         padding: 4px;
-//         margin: 2px;
-//         text-align: center;
-//     }
+@media (min-width: 768px) {
+    .card-scene-hard {
+        width: 75px;
+        height: 75px;
+    }
     
-//     .img-easy {
-//         max-width: 90px;
-//         max-height: 90px;
-//         height: 100%;
-//         margin: auto;
-//     }
-// }
+    .card-scene-medium {
+        width: 105px;
+        height: 105px;
+    }
+    
+    .card-scene-easy {
+        width: 150px;
+        height: 150px;
+    }
+}
 
-// @media (min-width: 992px) {
-//     .card-hard {
-//         display: block;
-//         width: 85px;
-//         height: 85px;
-//         padding: 6px;
-//         margin: 3px;
-//         text-align: center;
-//     }
-    
-//     .img-hard {
-//         max-width: 71px;
-//         max-height: 71px;
-//         height: 100%;
-//         margin: auto;
-//     }
+@media (min-width: 992px) {
+    .cards {
+        width: 600px;
+    }
 
-//     .card-medium {
-//         display: block;
-//         width: 100px;
-//         height: 100px;
-//         padding: 6px;
-//         margin: 3px;
-//         text-align: center;
-//     }
+    .card-scene-hard {
+        width: 65px;
+        height: 65px;
+    }
     
-//     .img-medium {
-//         max-width: 86px;
-//         max-height: 86px;
-//         height: 100%;
-//         margin: auto;
-//     }
+    .card-scene-medium {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .card-scene-easy {
+        width: 125px;
+        height: 125px;
+    }
+}
 
-//     .card-easy {
-//         display: block;
-//         width: 145px;
-//         height: 145px;
-//         padding: 6px;
-//         margin: 3px;
-//         text-align: center;
-//     }
-    
-//     .img-easy {
-//         max-width: 131px;
-//         max-height: 131px;
-//         height: 100%;
-//         margin: auto;
-//     }
-// }
+@media (min-width: 1200px) {
+    .cards {
+        width: 1000px;
+    }
 
-// @media (min-width: 1200px) {
-//     .card-scene {
-//         display: block;
-//         width: 100px;
-//         height: 100px;
-//         // backface-visibility: hidden;
-//         // transform: rotateY(180deg);
-//     }
+    .card-scene-hard {
+        width: 115px;
+        height: 115px;
+    }
     
-//     .img-hard {
-//         max-width: 82px;
-//         max-height: 82px;
-//         height: 100%;
-//         margin: auto;
-//     }
-
-//     .card-medium {
-//         display: block;
-//         width: 130px;
-//         height: 130px;
-//         padding: 8px;
-//         margin: 4px;
-//         text-align: center;
-//     }
+    .card-scene-medium {
+        width: 150px;
+        height: 150px;
+    }
     
-//     .img-medium {
-//         max-width: 112px;
-//         max-height: 112px;
-//         height: 100%;
-//         margin: auto;
-//     }
-
-//     .card-easy {
-//         display: block;
-//         width: 175px;
-//         height: 175px;
-//         padding: 8px;
-//         margin: 4px;
-//         text-align: center;
-//     }
-    
-//     .img-easy {
-//         max-width: 157px;
-//         max-height: 157px;
-//         height: 100%;
-//         margin: auto;
-//     }
-// }
+    .card-scene-easy {
+        width: 240px;
+        height: 240px;
+    }
+}

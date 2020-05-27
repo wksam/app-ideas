@@ -36,6 +36,33 @@ class Game {
 
     set endTime(endTime) { this._endTime = endTime; }
     get endTime() { return this._endTime; }
+
+    set cards(cards) { this._cards = cards; }
+    get cards() { return this._cards; }
+
+    set faceUp(card) { this._faceUp = card; }
+    get faceUp() { return this._faceUp; }
+
+    set difficult(difficult) { this._difficult = difficult; }
+    get difficult() { return this._difficult; }
+
+    checkEquality(card) {
+        if(this._faceUp.dataset.id != card.dataset.id) {
+            this._faceUp.classList.remove('flip');
+            card.classList.remove('flip');
+        } else {
+            this._cards.find((el) => el.cardRef === card).matched = true;
+            this._cards.find((el) => el.cardRef === this._faceUp).matched = true;
+            if(this.isGameOver()) showRestartMenu();
+        }
+        enableCards();
+        this.faceUp = null;
+    }
+
+    isGameOver() {
+        const left = this._cards.filter((el) => !el.matched);
+        return left.length === 0;
+    }
 }
 
 const game = new Game();
