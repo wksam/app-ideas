@@ -26,6 +26,7 @@ function execute() {
     }
 
     input.value = '';
+    window.scrollTo(0, document.body.scrollHeight);
 }
 
 function cloneCommand(command) {
@@ -71,7 +72,7 @@ function command(commands) {
                 createCommandLine('\xa0\xa0\xa0 mult \xa0     Perform multiplication operation'),
                 createCommandLine('\xa0\xa0\xa0 div  \xa0\xa0 Perform division operation'),
                 createCommandLine('\xa0\xa0\xa0 pow  \xa0\xa0 Perform exponentiation operation'),
-                createCommandLine('\xa0\xa0\xa0 sqrt \xa0     Perform square root operation, accept only one number'),
+                createCommandLine('\xa0\xa0\xa0 sqrt \xa0     Perform square root operation, accepts only one number'),
                 createCommandLine('\xa0'),
                 createCommandLine('\xa0\xa0Possible sub-commands:'),
                 createCommandLine('\xa0\xa0\xa0 even \xa0     Perform operation with only even numbers'),

@@ -21,6 +21,7 @@ input {
     width: 90%;
     font-size: 100%;
     padding: 0;
+    margin-bottom: 1.25rem;
 }
 
 input:focus {
