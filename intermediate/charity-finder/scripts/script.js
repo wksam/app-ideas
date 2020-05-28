@@ -29,14 +29,17 @@ function fillOrganizations(data) {
     
         const row = document.createElement('div');
         row.setAttribute('class', 'row no-gutters');
-    
+
         const imgContainer = document.createElement('div');
         imgContainer.setAttribute('class', 'col-md-2');
+        const imgLink = document.createElement('a');
+        imgLink.setAttribute('href', d.url);
         const img = document.createElement('img');
         img.setAttribute('src', d.logoUrl);
         img.setAttribute('class', 'card-img');
         img.setAttribute('alt', 'Logo');
-        imgContainer.append(img);
+        imgLink.append(img);
+        imgContainer.append(imgLink);
         row.append(imgContainer);
 
         const bodyContainer = document.createElement('div');
