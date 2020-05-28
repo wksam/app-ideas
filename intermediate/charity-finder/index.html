@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity Finder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="text-center my-4">Charity Finder</h1>
+        <div class="d-flex justify-content-center">
+            <form class="form-inline" hidden>
+                <input type="text" class="form-control mr-2 mb-2" name="key" placeholder="API Key">
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </form>
+        </div>
+        <div class="alert alert-danger" role="alert" hidden>No API Key provided</div>
+        <div class="organizations"></div>
+        <nav aria-label="navigation">
+            <ul class="pagination justify-content-between">
+                <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/pagination.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
