@@ -22,7 +22,7 @@ class GlobalGivingAPI {
 
     get hasPrevious() { return this._organizations.length > 1; }
 
-    getOrganizations(nextOrgId = 1) {
+    fetchOrganizations(nextOrgId = 1) {
         const params = '?api_key=' + this._apikey + '&nextOrgId=' + nextOrgId;
         const url = this._domain + this._paths.organizations + params;
         fetch(url, {
@@ -34,8 +34,11 @@ class GlobalGivingAPI {
         .then(data => {
             this.hasNext = data.organizations.hasNext;
             if(this.hasNext) this._nextOrgId = data.organizations.nextOrgId;
+            endLoading();
             updatePagination();
             fillOrganizations(data.organizations.organization);
+        }).catch(err => {
+            showForm();
         });
     }
 

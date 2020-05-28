@@ -5,7 +5,7 @@ function previous() {
     if(!api.hasPrevious) return;
 
     const id = api.getPreviousId();
-    api.getOrganizations(id);
+    getOrganizations(id);
 }
 
 function next() {
@@ -13,7 +13,7 @@ function next() {
     
     const id = api.getNextId();
     api.addOrganization(id);
-    api.getOrganizations(id);
+    getOrganizations(id);
 }
 
 function updatePagination() {
@@ -24,4 +24,9 @@ function updatePagination() {
 
     if(!api.hasPrevious) document.querySelector('a[aria-label=Previous]').parentElement.classList.add('disabled');
     else document.querySelector('a[aria-label=Previous]').parentElement.classList.remove('disabled');
+}
+
+function disablePagination() {
+    document.querySelector('a[aria-label=Next]').parentElement.classList.add('disabled');
+    document.querySelector('a[aria-label=Previous]').parentElement.classList.add('disabled');
 }

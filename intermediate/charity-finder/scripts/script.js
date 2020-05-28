@@ -4,21 +4,47 @@ function submitApiKey() {
 
 }
 
-getOrganizations();
-function getOrganizations(nextOrgId = 1) {
+init();
+function init() {
     if(api.apikey === undefined) getApiKey();
-    api.getOrganizations(nextOrgId);
+    getOrganizations();
+}
+
+function getOrganizations(nextOrgId = 1) {
+    startLoading();
+    api.fetchOrganizations(nextOrgId);
 }
 
 function getApiKey() {
     try {
         api.apikey = config.APIKEY;
     } catch (error) {
-        document.querySelector('form').hidden = false;
-        document.querySelector('.alert').hidden = false;
+        showForm();
     }
 }
 
+function showForm() {
+    document.querySelector('form').hidden = false;
+    document.querySelector('.alert').hidden = false;
+    document.querySelector('.pagination').hidden = true;
+}
+
+function hideForm() {
+    document.querySelector('form').hidden = false;
+    document.querySelector('.alert').hidden = false;
+}
+
+function startLoading() {
+    document.querySelector('.organizations').textContent = '';
+    document.querySelector('div[role=status]').hidden = false;
+    disablePagination();
+}
+
+function endLoading() {
+    document.querySelector('div[role=status]').hidden = true;
+}
+
+const noPhotoPlaceholder = 'https://via.placeholder.com/200?text=No+photo';
 function fillOrganizations(data) {
     const container = document.querySelector('.organizations');
     container.textContent = '';
@@ -34,8 +60,9 @@ function fillOrganizations(data) {
         imgContainer.setAttribute('class', 'col-md-2');
         const imgLink = document.createElement('a');
         imgLink.setAttribute('href', d.url);
+        imgLink.setAttribute('target', '_blank');
         const img = document.createElement('img');
-        img.setAttribute('src', d.logoUrl);
+        img.setAttribute('src', d.logoUrl != null ? d.logoUrl : noPhotoPlaceholder);
         img.setAttribute('class', 'card-img');
         img.setAttribute('alt', 'Logo');
         imgLink.append(img);
