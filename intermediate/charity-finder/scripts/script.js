@@ -1,7 +1,12 @@
 document.querySelector('form').addEventListener('submit', submitApiKey);
 
-function submitApiKey() {
+function submitApiKey(e) {
+    e.preventDefault();
 
+    const formData = new FormData(e.target);
+    api.apikey = formData.get('key');
+    hideForm();
+    init();
 }
 
 init();
@@ -30,8 +35,8 @@ function showForm() {
 }
 
 function hideForm() {
-    document.querySelector('form').hidden = false;
-    document.querySelector('.alert').hidden = false;
+    document.querySelector('form').hidden = true;
+    document.querySelector('.alert').hidden = true;
 }
 
 function startLoading() {

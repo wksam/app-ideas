@@ -39,6 +39,7 @@ class GlobalGivingAPI {
             fillOrganizations(data.organizations.organization);
         }).catch(err => {
             showForm();
+            endLoading();
         });
     }
 
