@@ -1,0 +1,20 @@
+body {
+    width: 100px;
+}
+
+button {
+    min-width: 100%;
+    border-style: none;
+    border-radius: 4px;
+    padding: 8px;
+    background: #1f4068;
+    color: white;
+}
+
+button:hover {
+    background: #17304e;
+}
+
+button:focus {
+    outline: none;
+}
