@@ -5,25 +5,45 @@ let isDragging = false;
     const bar = document.querySelector('.bar');
     const menu = document.querySelector('.menu');
     
-    if(bar) 
+    if(bar) {
         bar.addEventListener('mousedown', dragStart);
-    else
+        bar.addEventListener('touchstart', dragStart);
+    } else {
         menu.addEventListener('mousedown', dragStart);
+        menu.addEventListener('touchstart', dragStart);
+    }
 
     function dragStart(e) {
         isDragging = true;
-
-        pos.x = e.clientX;
-        pos.y = e.clientY;
+        
+        if(e.touches !== undefined) {
+            pos.x = e.touches[0].clientX;
+            pos.y = e.touches[0].clientY;
+        } else {
+            pos.x = e.clientX;
+            pos.y = e.clientY;
+        }
         
         document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('touchend', dragEnd);
         document.addEventListener('mousemove', dragging);
+        document.addEventListener('touchmove', dragging);
     }
 
     function dragging(e) {
-        const move = { x: pos.x - e.clientX, y: pos.y - e.clientY };
-        pos.x = e.clientX;
-        pos.y = e.clientY;
+        const move = { x: 0, y: 0 };
+
+        if(e.touches !== undefined) {
+            move.x = pos.x - e.touches[0].clientX;
+            move.y = pos.y - e.touches[0].clientY;
+            pos.x = e.touches[0].clientX;
+            pos.y = e.touches[0].clientY;
+        } else {
+            move.x = pos.x - e.clientX;
+            move.y = pos.y - e.clientY;
+            pos.x = e.clientX;
+            pos.y = e.clientY;
+        }
     
         menu.style.top = (menu.offsetTop - move.y) + "px";
         menu.style.left = (menu.offsetLeft - move.x) + "px";
@@ -32,6 +52,8 @@ let isDragging = false;
     function dragEnd() {
         isDragging = false;
         document.removeEventListener('mouseup', dragEnd);
+        document.removeEventListener('touchend', dragEnd);
         document.removeEventListener('mousemove', dragging);
+        document.removeEventListener('touchmove', dragging);
     }
 })();
