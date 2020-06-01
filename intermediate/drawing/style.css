@@ -20,7 +20,7 @@ canvas {
     width: 101px;
     background: white;
     border: 1px solid;
-    padding: 18px 8px 8px;
+    padding: 23px 8px 8px;
 }
 
 .palette {
@@ -92,8 +92,8 @@ label[for=size] {
 
 .bar {
     position: absolute;
-    height: 10px;
-    background: grey;
+    height: 15px;
+    background: #efefef;
     top: 0;
     left: 0;
     right: 0;
