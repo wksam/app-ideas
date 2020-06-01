@@ -17,7 +17,10 @@ canvas {
 
 .menu {
     position: absolute;
-    width: 102px;
+    width: 101px;
+}
+
+.palette {
     border-top: 1px solid;
     border-left: 1px solid;
 }
@@ -59,4 +62,12 @@ button:focus {
 
 .white {
     background: white;
+}
+
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
 }

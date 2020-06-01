@@ -4,6 +4,7 @@ resize();
 
 let pos = { x: 0, y: 0 };
 let color = '#000';
+let size = 5;
 
 window.addEventListener('resize', resize);
 document.addEventListener('mousemove', draw);
@@ -17,6 +18,8 @@ document.addEventListener('touchstart', setPosition);
 document.querySelectorAll('button.color').forEach(function(button) {
     button.addEventListener('click', changeColor);
 });
+
+document.querySelector('input[type=range]').addEventListener('change', changeSize);
 
 function setPosition(x, y) {
     pos.x = x;
@@ -33,7 +36,7 @@ function resize() {
 function draw(e) {
     context.beginPath();
 
-    context.lineWidth = 5;
+    context.lineWidth = size;
     context.lineCap = 'round';
     context.strokeStyle = color;
 
@@ -51,4 +54,8 @@ function draw(e) {
 
 function changeColor(e) {
     color = window.getComputedStyle(e.target, null).getPropertyValue('background-color');
+}
+
+function changeSize(e) {
+    size = e.target.value;
 }
