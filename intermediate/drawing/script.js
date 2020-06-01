@@ -59,3 +59,9 @@ function changeColor(e) {
 function changeSize(e) {
     size = e.target.value;
 }
+
+document.querySelector('.clear').addEventListener('click', clear);
+
+function clear() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}

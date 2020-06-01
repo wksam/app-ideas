@@ -9,7 +9,7 @@ Create digital artwork on a canvas on the web to share online and also export as
 -   [x] User can draw in a `canvas` using the mouse
 -   [x] User can change the color
 -   [x] User can change the size of the tool
--   [ ] User can press a button to clear the `canvas`
+-   [x] User can press a button to clear the `canvas`
 
 ## Bonus features
 
