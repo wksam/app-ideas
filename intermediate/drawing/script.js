@@ -2,7 +2,8 @@ const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
 resize();
 
-var pos = { x: 0, y: 0 };
+let pos = { x: 0, y: 0 };
+let color = '#000';
 
 window.addEventListener('resize', resize);
 document.addEventListener('mousemove', draw);
@@ -12,6 +13,10 @@ document.addEventListener('mouseenter', setPosition);
 document.addEventListener('touchmove', draw);
 document.addEventListener('touchend', setPosition);
 document.addEventListener('touchstart', setPosition);
+
+document.querySelectorAll('button.color').forEach(function(button) {
+    button.addEventListener('click', changeColor);
+});
 
 function setPosition(x, y) {
     pos.x = x;
@@ -30,7 +35,7 @@ function draw(e) {
 
     context.lineWidth = 5;
     context.lineCap = 'round';
-    context.strokeStyle = '#000';
+    context.strokeStyle = color;
 
     context.moveTo(pos.x, pos.y);
     if(e.buttons !== undefined && e.buttons === 1)
@@ -42,4 +47,8 @@ function draw(e) {
     context.lineTo(pos.x, pos.y);
 
     context.stroke();
+}
+
+function changeColor(e) {
+    color = window.getComputedStyle(e.target, null).getPropertyValue('background-color');
 }
