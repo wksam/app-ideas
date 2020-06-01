@@ -18,6 +18,9 @@ canvas {
 .menu {
     position: absolute;
     width: 101px;
+    background: white;
+    border: 1px solid;
+    padding: 18px 8px 8px;
 }
 
 .palette {
@@ -82,13 +85,17 @@ input[type=range][orient=vertical] {
     padding: 4px;
 }
 
-.menu {
-    background: white;
-    border: 1px solid;
-    padding: 8px;
-}
-
 label[for=size] {
     display: inline-block;
     vertical-align: middle;
+}
+
+.bar {
+    position: absolute;
+    height: 10px;
+    background: grey;
+    top: 0;
+    left: 0;
+    right: 0;
+    cursor: move;
 }
