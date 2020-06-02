@@ -83,6 +83,7 @@ input[type=range][orient=vertical] {
 .clear {
     width: 100%;
     padding: 4px;
+    margin: 0 0 4px;
 }
 
 label[for=size] {
@@ -98,4 +99,9 @@ label[for=size] {
     left: 0;
     right: 0;
     cursor: move;
+}
+
+.save {
+    width: 100%;
+    padding: 4px;
 }

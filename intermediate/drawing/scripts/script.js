@@ -67,3 +67,12 @@ document.querySelector('.clear').addEventListener('click', clear);
 function clear() {
     context.clearRect(0, 0, canvas.width, canvas.height);
 }
+
+document.querySelector('.save').addEventListener('click', save);
+
+function save() {
+    const a = document.createElement('a');
+    a.href = canvas.toDataURL();
+    a.download = 'drawing.png';
+    a.click();
+}
