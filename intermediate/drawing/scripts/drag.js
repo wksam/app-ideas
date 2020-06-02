@@ -1,17 +1,10 @@
-
 let isDragging = false;
+
 (function() {
     let pos = { x: 0, y: 0 }
     const bar = document.querySelector('.bar');
-    const menu = document.querySelector('.menu');
-    
-    if(bar) {
-        bar.addEventListener('mousedown', dragStart);
-        bar.addEventListener('touchstart', dragStart);
-    } else {
-        menu.addEventListener('mousedown', dragStart);
-        menu.addEventListener('touchstart', dragStart);
-    }
+    bar.addEventListener('mousedown', dragStart);
+    bar.addEventListener('touchstart', dragStart);
 
     function dragStart(e) {
         isDragging = true;
@@ -24,10 +17,10 @@ let isDragging = false;
             pos.y = e.clientY;
         }
         
-        document.addEventListener('mouseup', dragEnd);
-        document.addEventListener('touchend', dragEnd);
         document.addEventListener('mousemove', dragging);
         document.addEventListener('touchmove', dragging);
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('touchend', dragEnd);
     }
 
     function dragging(e) {
@@ -45,6 +38,7 @@ let isDragging = false;
             pos.y = e.clientY;
         }
     
+        const menu = document.querySelector('.menu');
         menu.style.top = (menu.offsetTop - move.y) + "px";
         menu.style.left = (menu.offsetLeft - move.x) + "px";
     }
