@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emoji Translator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="text-center my-4">Emoji Translator</h1>
+        <form>
+            <div class="form-group">
+                <textarea class="form-control" name="" id="input" rows="10" required></textarea>
+            </div>
+            <div class="form-group float-right">
+                <button type="submit" class="btn btn-primary">Translate</button>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="" id="output" rows="10" style="background: white;" disabled></textarea>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
