@@ -1,10 +1,10 @@
 (function() {
+    const choiceLetter = { 0: 'a) ', 1: 'b) ', 2: 'c) ', 3: 'd) ' };
+
     function getFlashCard() {
 
     }
 
-    createFlashCard(deck[0]);
-    const choiceLetter = { 0: 'a) ', 1: 'b) ', 2: 'c) ', 3: 'd) ' };
     function createFlashCard(cardData) {
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
@@ -35,6 +35,16 @@
     }
 
     function shuffle(array) {
+        let currentIndex = array.length, temporaryValue, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
         return array;
     }
 })();
