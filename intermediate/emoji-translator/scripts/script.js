@@ -14,7 +14,7 @@ function translate(text) {
     while(true) {
         if(words.length === 0 && left.length === 0) break;
         if(emojis[words.join(' ')] !== undefined) {
-            result.push(emojis[words.join(' ')].browser);
+            result.push(emojis[words.join(' ')]);
             words = left;
             left = [];
         } else if (words.length === 0) {
