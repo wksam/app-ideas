@@ -30,11 +30,11 @@ answers. The objective is for the user to select the correct answer(s).
 
 ## Bonus features
 
--   [ ] User can click a 'Results' button to display the tallies of
+-   [x] User can click a 'Results' button to display the tallies of
         correct and incorrect answers.
--   [ ] User can click a 'Reset' button to reset the tallies of correct
+-   [x] User can click a 'Reset' button to reset the tallies of correct
         and incorrect answers.
--   [ ] User can click a 'Shuffle' button to re-randomize the "deck"
+-   [x] User can click a 'Shuffle' button to re-randomize the "deck"
 -   [ ] User can click a 'More Info' button to flip the flash card to see
         additional information. For example, detailed information about the subject
         of the question on the front of the card.

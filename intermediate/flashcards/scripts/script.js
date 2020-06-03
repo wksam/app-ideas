@@ -2,16 +2,33 @@
     const choiceLetter = { 0: 'a) ', 1: 'b) ', 2: 'c) ', 3: 'd) ' };
     let shuffledDeck = shuffle(deck);
     let deckIndex = -1;
+    
+    let correctCount = 0;
+    let wrongCount = 0;
 
     document.querySelector('.next').addEventListener('click', getFlashCard);
+    document.querySelector('.result').addEventListener('click', getResults);
+    document.querySelector('.reset').addEventListener('click', resetResults);
+    document.querySelector('.reshuffle').addEventListener('click', reshuffleButton);
 
     getFlashCard();
     function getFlashCard() {
-        if(deckIndex < shuffledDeck.length) {
-            createFlashCard(shuffledDeck[++deckIndex]);
-        } else {
+        document.querySelector('.results').style.display = 'none';
+        deckIndex++;
+        
+        if(noMoreCards()) reshuffle();
+        if(isLastCard()) document.querySelector('.next').textContent = 'Reshuffle';
+        else document.querySelector('.next').textContent = 'Next';
 
-        }
+        createFlashCard(shuffledDeck[deckIndex]);
+    }
+
+    function noMoreCards() {
+        return (deckIndex + 1) > shuffledDeck.length;
+    }
+
+    function isLastCard() {
+        return (deckIndex + 1) === shuffledDeck.length;
     }
 
     function createFlashCard(cardData) {
@@ -20,7 +37,6 @@
 
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
-        card.setAttribute('style', 'width: 290px;');
 
         const cardBody = document.createElement('div');
         cardBody.setAttribute('class', 'card-body');
@@ -56,11 +72,13 @@
                     btn.classList.add('correct');
                 btn.classList.add('disabled');
             });
+            wrongCount++;
         } else {
             e.target.classList.add('correct');
             document.querySelectorAll('button.list-group-item').forEach(function(btn) {
                 btn.classList.add('disabled');
             });
+            correctCount++;
         }
     }
 
@@ -80,5 +98,33 @@
         }
 
         return array;
+    }
+
+    function reshuffle() {
+        shuffledDeck = shuffle(deck);
+        deckIndex = 0;
+    }
+
+    function getResults() {
+        const results = document.querySelector('.results');
+        if (results.style.display === 'none') {
+            results.style.display = 'block';
+            results.querySelector('.correctCount').textContent = correctCount;
+            results.querySelector('.wrongCount').textContent = wrongCount;
+        } else {
+            results.style.display = 'none';
+        }
+    }
+
+    function resetResults() {
+        correctCount = 0;
+        wrongCount = 0;
+        document.querySelector('.correctCount').textContent = correctCount;
+        document.querySelector('.wrongCount').textContent = wrongCount;
+    }
+
+    function reshuffleButton() {
+        deckIndex = shuffledDeck.length;
+        getFlashCard();
     }
 })();
