@@ -12,11 +12,11 @@ the original text, and words for which there is no corresponding emoji.
 
 ## User Stories
 
--   [ ] User can enter a string of words, numbers, and punctuation into a text
+-   [x] User can enter a string of words, numbers, and punctuation into a text
 box
--   [ ] User can click a 'Translate' button to translate words in the entered
+-   [x] User can click a 'Translate' button to translate words in the entered
 text into their corresponding emojis.
--   [ ] User can see a warning message if 'Translate' was clicked, but the 
+-   [x] User can see a warning message if 'Translate' was clicked, but the 
 input text box was empty or unchanged from the last translation.
 -   [ ] User can see text elements in the entered text translated to their
 equivalent emojis in an output text box. Text elements for which there is no
