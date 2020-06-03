@@ -15,11 +15,11 @@ answers. The objective is for the user to select the correct answer(s).
         at any point in time
 -   [x] User can see a question on the card and a list of four possible answers,
         each of which is identified by a letter.
--   [ ] User can select an answer by clicking on it
--   [ ] User can see an error displayed when the wrong answer is selected
--   [ ] User can see a congratulations message when the correct answer is
+-   [x] User can select an answer by clicking on it
+-   [x] User can see an error displayed when the wrong answer is selected
+-   [x] User can see a congratulations message when the correct answer is
         selected.
--   [ ] User can click a 'Next Question' button to display the next flash card.
+-   [x] User can click a 'Next Question' button to display the next flash card.
 
 ### Additional Info for the Developer
 
