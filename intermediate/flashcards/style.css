@@ -1,0 +1,13 @@
+.list-group-item.correct {
+    z-index: 2;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.list-group-item.wrong {
+    z-index: 2;
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
