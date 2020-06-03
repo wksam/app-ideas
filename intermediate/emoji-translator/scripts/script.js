@@ -1,4 +1,5 @@
 document.querySelector('form').addEventListener('submit', startTranslate);
+document.querySelector('form').addEventListener('reset', reset);
 
 function startTranslate(e) {
     e.preventDefault();
@@ -25,4 +26,8 @@ function translate(text) {
         }
     }
     return result.join(' ');
+}
+
+function reset() {
+    document.querySelector('#output').textContent = '';
 }
