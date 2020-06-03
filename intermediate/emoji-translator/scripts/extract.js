@@ -22,23 +22,24 @@ function convertToJSON(table) {
         if(row.querySelectorAll('td').length === 0) continue;
 
         const name = row.querySelector('td.name').textContent;
-        const browser = { browser: row.querySelector('td.chars').textContent }
-        obj[name] = browser;
+        // const browser = { browser: row.querySelector('td.chars').textContent }
+        // obj[name] = browser;
+        obj[name] = row.querySelector('td.chars').textContent;
 
-        const imgs = row.querySelectorAll('td.andr');
-        for (let i = 0; i < imgs.length; i++) {
-            if(imgs[i].querySelectorAll('img').length === 1) {
-                obj[name][vendors[i]] = imgs[i].querySelector('img').src;
-            } else if(imgs[i].querySelectorAll('img').length > 1) {
-                const arrayImgs = Array.from(imgs[i].querySelectorAll('img'))
-                for (const item of arrayImgs) {
-                    const key = item.title.split(' ')[0].replace(/[\[\]]/g, '').toLowerCase();
-                    obj[name][key] = item.src;
-                }
-            } else {
-                obj[name][vendors[i]] = imgs[i].textContent;
-            }
-        }
+        // const imgs = row.querySelectorAll('td.andr');
+        // for (let i = 0; i < imgs.length; i++) {
+        //     if(imgs[i].querySelectorAll('img').length === 1) {
+        //         obj[name][vendors[i]] = imgs[i].querySelector('img').src;
+        //     } else if(imgs[i].querySelectorAll('img').length > 1) {
+        //         const arrayImgs = Array.from(imgs[i].querySelectorAll('img'))
+        //         for (const item of arrayImgs) {
+        //             const key = item.title.split(' ')[0].replace(/[\[\]]/g, '').toLowerCase();
+        //             obj[name][key] = item.src;
+        //         }
+        //     } else {
+        //         obj[name][vendors[i]] = imgs[i].textContent;
+        //     }
+        // }
     }
     document.body.append(JSON.stringify(obj));
 }
