@@ -20,11 +20,16 @@ function onLoadImage(e) {
 }
 
 function createImage(imgData) {
+    const imgContainer = document.createElement('div');
+    imgContainer.setAttribute('class', 'img-container');
+    imgContainer.addEventListener('click', removeImage);
+
     const img = document.createElement('img');
     img.setAttribute('src', imgData);
     img.setAttribute('class', 'uploaded-image');
-    img.addEventListener('click', removeImage);
-    document.querySelector('.panel').prepend(img);
+    
+    imgContainer.append(img);
+    document.querySelector('.panel').prepend(imgContainer);
 }
 
 function removeImage(e) {

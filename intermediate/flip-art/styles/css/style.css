@@ -69,7 +69,6 @@ h1 {
   flex: 1;
   overflow: auto;
 }
-
 .panel::-webkit-scrollbar {
   display: none;
 }
@@ -93,7 +92,31 @@ input[type=file] {
   width: 100px;
   height: 100px;
   object-fit: contain;
+}
+
+.img-container {
+  position: relative;
   cursor: pointer;
+}
+.img-container:hover::before {
+  content: "";
+  position: absolute;
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  opacity: 0.6;
+}
+.img-container:hover::after {
+  content: "";
+  position: absolute;
+  background: url(../../svg/trash.svg) no-repeat;
+  background-size: 50px;
+  top: 25px;
+  left: 25px;
+  width: 100px;
+  height: 100px;
 }
 
 /*# sourceMappingURL=style.css.map */
