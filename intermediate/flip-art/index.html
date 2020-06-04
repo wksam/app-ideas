@@ -8,7 +8,17 @@
 </head>
 <body>
     <h1>Flip Art</h1>
-    <section class="panel">
+    <section class="animation-display">
+        <div class="display">
+            <img class="animation" src="" alt="">
+        </div>
+    </section>
+    <section class="operation-buttons">
+        <button type="button" class="start">Start Animation</button>
+        <button type="button" class="clear">Clear Configuration</button>
+    </section>
+    <section class="configuration-panel">
+        <div class="timeline"></div>
         <div class="upload">
             <input type="file" accept="image/*" multiple>
             <svg class="bi bi-upload" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -17,6 +27,7 @@
             </svg>
         </div>
     </section>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/operation_buttons.js"></script>
+    <script src="scripts/configuration_panel.js"></script>
 </body>
 </html>

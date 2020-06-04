@@ -34,7 +34,7 @@ frames
 allow an `.jpg` image to be loaded into the thumbnail. 
 -   [x] User can see the '+' button label change to '-' after a thumbnail is
 loaded.
--   [ ] User can click the '-' button to remove or replace a thumbnail.
+-   [x] User can click the '-' button to remove or replace a thumbnail.
 -   [ ] User can see an 'Transition Speed' slider control. 
 -   [ ] User can adjust the 'Transition Speed' slider from slow to fast to
 adjust the transition time between thumbnails in the Animation Display.

@@ -1,0 +1,34 @@
+$startColorButton: #007bff;
+$clearColorButton: #6c757d;
+
+section.operation-buttons {
+    display: flex;
+    justify-content: center;
+    
+    button {
+        border: 0;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .start {
+        background: $startColorButton;
+        margin-right: 8px;
+        &:hover {
+            background: change-color($startColorButton, $lightness: 40%);
+        }
+    }
+
+    .clear {
+        background: $clearColorButton;
+        &:hover {
+            background: change-color($clearColorButton, $lightness: 40%);
+        }
+    }
+}

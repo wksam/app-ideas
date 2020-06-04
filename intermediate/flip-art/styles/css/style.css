@@ -58,7 +58,7 @@ h1 {
   margin: 1.5rem 0;
 }
 
-.panel {
+section.configuration-panel {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -66,14 +66,21 @@ h1 {
   height: 100px;
   background: #342b38;
   display: flex;
-  flex: 1;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-.panel::-webkit-scrollbar {
+section.configuration-panel .timeline {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+section.configuration-panel .timeline::-webkit-scrollbar {
   display: none;
 }
-
-.upload {
+section.configuration-panel::-webkit-scrollbar {
+  display: none;
+}
+section.configuration-panel .upload {
   min-width: 100px;
   height: 100px;
   background-color: #f4f4f4;
@@ -83,22 +90,19 @@ h1 {
   font-size: 2rem;
   cursor: pointer;
 }
-
-input[type=file] {
+section.configuration-panel input[type=file] {
   display: none;
 }
-
-.uploaded-image {
+section.configuration-panel .uploaded-image {
   width: 100px;
   height: 100px;
   object-fit: contain;
 }
-
-.img-container {
+section.configuration-panel .img-container {
   position: relative;
   cursor: pointer;
 }
-.img-container:hover::before {
+section.configuration-panel .img-container:hover::before {
   content: "";
   position: absolute;
   display: block;
@@ -108,7 +112,7 @@ input[type=file] {
   background-color: black;
   opacity: 0.6;
 }
-.img-container:hover::after {
+section.configuration-panel .img-container:hover::after {
   content: "";
   position: absolute;
   background: url(../../svg/trash.svg) no-repeat;
@@ -117,6 +121,52 @@ input[type=file] {
   left: 25px;
   width: 100px;
   height: 100px;
+}
+
+section.animation-display {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+section.animation-display .display {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+section.animation-display .display img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+section.operation-buttons {
+  display: flex;
+  justify-content: center;
+}
+section.operation-buttons button {
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+section.operation-buttons button:focus {
+  outline: none;
+}
+section.operation-buttons .start {
+  background: #007bff;
+  margin-right: 8px;
+}
+section.operation-buttons .start:hover {
+  background: #0062cc;
+}
+section.operation-buttons .clear {
+  background: #6c757d;
+}
+section.operation-buttons .clear:hover {
+  background: #5f666d;
 }
 
 /*# sourceMappingURL=style.css.map */

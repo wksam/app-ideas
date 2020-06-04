@@ -1,0 +1,73 @@
+section.configuration-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: #342b38;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    .timeline {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .upload {
+        min-width: 100px;
+        height: 100px;
+        background-color: #f4f4f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    
+    input[type=file] {
+        display: none;
+    }
+    
+    .uploaded-image {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+    
+    .img-container {
+        position: relative;
+        cursor: pointer;
+        &:hover {
+            &::before {
+                content: '';
+                position: absolute;
+                display: block;
+                margin: auto;
+                width: 100px;
+                height: 100px;
+                background-color: black;
+                opacity: 0.6;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                background: url(../../svg/trash.svg) no-repeat;
+                background-size: 50px;
+                top: 25px;
+                left: 25px;
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+}
