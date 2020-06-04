@@ -13,5 +13,5 @@ function changeImage(data) {
 }
 
 function clearConfiguration() {
-
+    document.querySelector('.timeline').textContent = '';
 }
