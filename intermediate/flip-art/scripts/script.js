@@ -6,7 +6,6 @@ function upload() {
 }
 
 function readURL(input) {
-    console.log(input.target.files)
     if(input.target.files) {
         for (const file of input.target.files) {
             const reader = new FileReader();
@@ -24,5 +23,10 @@ function createImage(imgData) {
     const img = document.createElement('img');
     img.setAttribute('src', imgData);
     img.setAttribute('class', 'uploaded-image');
+    img.addEventListener('click', removeImage);
     document.querySelector('.panel').prepend(img);
+}
+
+function removeImage(e) {
+    e.target.remove();
 }

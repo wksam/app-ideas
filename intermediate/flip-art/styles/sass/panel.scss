@@ -32,4 +32,6 @@ input[type=file] {
 .uploaded-image {
     width: 100px;
     height: 100px;
+    object-fit: contain;
+    cursor: pointer;
 }
