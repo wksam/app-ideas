@@ -7,16 +7,22 @@ function upload() {
 
 function readURL(input) {
     console.log(input.target.files)
-    if(input.target.files && input.target.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.setAttribute('src', e.target.result);
-            img.setAttribute('class', 'uploaded-image');
-            document.querySelector('.panel').prepend(img);
+    if(input.target.files) {
+        for (const file of input.target.files) {
+            const reader = new FileReader();
+            reader.addEventListener('load', onLoadImage);
+            reader.readAsDataURL(file);
         }
-
-        reader.readAsDataURL(input.target.files[0]);
     }
+}
+
+function onLoadImage(e) {
+    createImage(e.target.result)
+}
+
+function createImage(imgData) {
+    const img = document.createElement('img');
+    img.setAttribute('src', imgData);
+    img.setAttribute('class', 'uploaded-image');
+    document.querySelector('.panel').prepend(img);
 }

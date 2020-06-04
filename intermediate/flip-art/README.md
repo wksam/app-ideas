@@ -26,13 +26,13 @@ this app. Instead, try using vanilla Javascript, CSS, and HTML.
     - Animation display panel animations will be presented in
 
 ### Configuration Panel
--   [ ] User can see eight thumbnails that will contain individual animation 
+-   [x] User can see eight thumbnails that will contain individual animation 
 frames
--   [ ] User can see a button under each thumbnail - '+'
--   [ ] User can click the '+' button to add a new image to an empty thumbnail
--   [ ] User can see a file open dialog when the '+' button is clicked to 
+-   [x] User can see a button under each thumbnail - '+'
+-   [x] User can click the '+' button to add a new image to an empty thumbnail
+-   [x] User can see a file open dialog when the '+' button is clicked to 
 allow an `.jpg` image to be loaded into the thumbnail. 
--   [ ] User can see the '+' button label change to '-' after a thumbnail is
+-   [x] User can see the '+' button label change to '-' after a thumbnail is
 loaded.
 -   [ ] User can click the '-' button to remove or replace a thumbnail.
 -   [ ] User can see an 'Transition Speed' slider control. 
