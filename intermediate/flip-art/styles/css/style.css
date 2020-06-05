@@ -84,10 +84,10 @@ section.configuration-panel .upload {
   min-width: 100px;
   height: 100px;
   background-color: #f4f4f4;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
   cursor: pointer;
 }
 section.configuration-panel input[type=file] {
@@ -146,10 +146,15 @@ section.operation-buttons {
 }
 section.operation-buttons button {
   border: 0;
-  padding: 0.75rem 1.5rem;
+  width: 50px;
+  height: 50px;
   border-radius: 4px;
   font-weight: bold;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 section.operation-buttons button:focus {
@@ -162,11 +167,21 @@ section.operation-buttons .start {
 section.operation-buttons .start:hover {
   background: #0062cc;
 }
+section.operation-buttons .start:disabled {
+  background: #3395ff;
+}
 section.operation-buttons .clear {
   background: #6c757d;
 }
 section.operation-buttons .clear:hover {
   background: #5f666d;
+}
+section.operation-buttons .clear:disabled {
+  background: #9299a0;
+}
+
+.invisible {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

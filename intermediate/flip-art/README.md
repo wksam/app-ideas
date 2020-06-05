@@ -40,18 +40,18 @@ loaded.
 adjust the transition time between thumbnails in the Animation Display.
 
 ### Operation Buttons
--   [ ] User can see two buttons - 'Clear Configuration' and 'Start Animation'
--   [ ] User can see the 'Start Animation' button disabled until at least one
+-   [x] User can see two buttons - 'Clear Configuration' and 'Start Animation'
+-   [x] User can see the 'Start Animation' button disabled until at least one
 thumbnail has been added via the Configuration Panel.
--   [ ] User can click the 'Clear Configuration' button to clear all thumbnails
+-   [x] User can click the 'Clear Configuration' button to clear all thumbnails
 from the configuration panel.
--   [ ] User can click the 'Start Animation' button to begin the Animation 
+-   [x] User can click the 'Start Animation' button to begin the Animation 
 Display panel
--   [ ] User can see the 'Start Animation' button label change to 'Stop
+-   [x] User can see the 'Start Animation' button label change to 'Stop
 Animation' once an animation has been started.
--   [ ] User can click the 'Stop Animation' button to halt the animation in
+-   [x] User can click the 'Stop Animation' button to halt the animation in
 the animation display
--   [ ] User can see the 'Stop Animation' button label change to 'Start
+-   [x] User can see the 'Stop Animation' button label change to 'Start
 Animation' when an animation has been stopped.
 
 ### Animation Display Panel

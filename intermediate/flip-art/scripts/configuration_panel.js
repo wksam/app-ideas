@@ -8,16 +8,19 @@
     
     function readURL(input) {
         if(input.target.files) {
+            document.querySelector('.start').disabled = false;
+            document.querySelector('.clear').disabled = false;
             for (const file of input.target.files) {
                 const reader = new FileReader();
                 reader.addEventListener('load', onLoadImage);
                 reader.readAsDataURL(file);
             }
+            input.target.value = '';
         }
     }
     
     function onLoadImage(e) {
-        createImage(e.target.result)
+        createImage(e.target.result);
     }
     
     function createImage(imgData) {

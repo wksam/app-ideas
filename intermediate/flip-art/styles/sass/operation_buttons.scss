@@ -7,10 +7,15 @@ section.operation-buttons {
     
     button {
         border: 0;
-        padding: 0.75rem 1.5rem;
+        width: 50px;
+        height: 50px;
         border-radius: 4px;
         font-weight: bold;
         color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
         cursor: pointer;
         &:focus {
             outline: none;
@@ -23,6 +28,9 @@ section.operation-buttons {
         &:hover {
             background: change-color($startColorButton, $lightness: 40%);
         }
+        &:disabled {
+            background: change-color($startColorButton, $lightness: 60%);
+        }
     }
 
     .clear {
@@ -30,5 +38,12 @@ section.operation-buttons {
         &:hover {
             background: change-color($clearColorButton, $lightness: 40%);
         }
+        &:disabled {
+            background: change-color($clearColorButton, $lightness: 60%);
+        }
     }
+}
+
+.invisible {
+    display: none;
 }
