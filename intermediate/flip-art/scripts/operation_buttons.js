@@ -5,6 +5,7 @@
     let timeoutId;
     let index = 0;
     let isPlaying = false;
+    let isLoop = false;
 
     startButton.addEventListener('click', startAnimation);
     clearButton.addEventListener('click', clearConfiguration);
@@ -20,22 +21,28 @@
     }
 
     function playAnimation() {
+        const speed = document.querySelector('#speed');
+        clearButton.disabled = true;
         if(index < animationImages.length) {
-            const speed = document.querySelector('#speed');
             isPlaying = true;
             changeImage(animationImages[index].getAttribute('src'));
             changeHighlight();
             timeoutId = setTimeout(playAnimation, speed.value);
             index++;
         } else {
-            changeToStart();
             animationImages[index - 1].classList.remove('highlight');
-            isPlaying = false;
             index = 0;
+            if(!isLoop) {
+                changeToStart();
+                isPlaying = false;
+            } else {
+                timeoutId = setTimeout(playAnimation, speed.value);
+            }
         }
     }
 
     function pauseAnimation() {
+        clearButton.disabled = false;
         changeToStart();
         isPlaying = false;
         clearTimeout(timeoutId);
@@ -71,5 +78,10 @@
     function changeToStart() {
         startButton.querySelector('.bi-play-fill').classList.remove('invisible');
         startButton.querySelector('.bi-pause-fill').classList.add('invisible');
+    }
+
+    document.querySelector('#loop').addEventListener('change', changeLoop);
+    function changeLoop(e) {
+        isLoop = e.target.checked;
     }
 })();

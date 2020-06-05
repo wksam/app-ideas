@@ -14,9 +14,15 @@
         </div>
     </section>
     <div class="configuration-panel-extends">
-        <label for="speed">Transition Speed</label>
-        <input type="range" min="5" max="100" step="5" value="50" id="speed">
-        <p class="speed-output">50ms</p>
+        <div class="input-container">
+            <label for="speed">Transition Speed</label>
+            <input type="range" min="5" max="100" step="5" value="50" id="speed">
+            <p class="speed-output">50ms</p>
+        </div>
+        <div class="input-container">
+            <input type="checkbox" id="loop">
+            <label for="loop">Loop</label>
+        </div>
     </div>
     <section class="operation-buttons">
         <button type="button" class="start" disabled>

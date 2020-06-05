@@ -132,16 +132,19 @@ section.configuration-panel .img-container .uploaded-image.highlight {
   height: 96px;
 }
 
-.configuration-panel-extends {
+.configuration-panel-extends .input-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
 }
-.configuration-panel-extends label {
+.configuration-panel-extends .input-container label[for=speed] {
   margin-right: 8px;
 }
-.configuration-panel-extends .speed-output {
+.configuration-panel-extends .input-container label[for=loop] {
+  margin-left: 8px;
+}
+.configuration-panel-extends .input-container .speed-output {
   margin-left: 8px;
 }
 
