@@ -1,5 +1,6 @@
 $startColorButton: #007bff;
 $clearColorButton: #6c757d;
+$downloadColorButton: #28a745;
 
 section.operation-buttons {
     display: flex;
@@ -35,12 +36,24 @@ section.operation-buttons {
 
     .clear {
         background: $clearColorButton;
+        margin-right: 8px;
         &:hover {
             background: change-color($clearColorButton, $lightness: 40%);
         }
         &:disabled {
             background: change-color($clearColorButton, $lightness: 60%);
         }
+    }
+
+    .download {
+        background: $downloadColorButton;
+        &:hover {
+            background: change-color($downloadColorButton, $lightness: 30%);
+        }
+        &:disabled {
+            background: change-color($downloadColorButton, $lightness: 50%);
+        }
+
     }
 }
 

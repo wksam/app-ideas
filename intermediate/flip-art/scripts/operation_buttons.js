@@ -1,14 +1,17 @@
 (function() {
     const startButton = document.querySelector('.start');
     const clearButton = document.querySelector('.clear');
+    const downloadButton = document.querySelector('.download');
+
+    startButton.addEventListener('click', startAnimation);
+    clearButton.addEventListener('click', clearConfiguration);
+    downloadButton.addEventListener('click', download);
+    
     let animationImages;
     let timeoutId;
     let index = 0;
     let isPlaying = false;
     let isLoop = false;
-
-    startButton.addEventListener('click', startAnimation);
-    clearButton.addEventListener('click', clearConfiguration);
     
     function startAnimation() {
         changeToPause();
@@ -23,6 +26,7 @@
     function playAnimation() {
         const speed = document.querySelector('#speed');
         clearButton.disabled = true;
+        downloadButton.disabled = true;
         if(index < animationImages.length) {
             isPlaying = true;
             changeImage(animationImages[index].getAttribute('src'));
@@ -30,11 +34,10 @@
             timeoutId = setTimeout(playAnimation, speed.value);
             index++;
         } else {
-            animationImages[index - 1].classList.remove('highlight');
+            animationImages[animationImages.length - 1].classList.remove('highlight');
             index = 0;
             if(!isLoop) {
-                changeToStart();
-                isPlaying = false;
+                pauseAnimation();
             } else {
                 timeoutId = setTimeout(playAnimation, speed.value);
             }
@@ -43,6 +46,7 @@
 
     function pauseAnimation() {
         clearButton.disabled = false;
+        if(gifshot.isSupported()) downloadButton.disabled = false;
         changeToStart();
         isPlaying = false;
         clearTimeout(timeoutId);
@@ -62,12 +66,15 @@
         document.querySelector('.animation').src = '#';
         startButton.disabled = true;
         clearButton.disabled = true;
+        downloadButton.disabled = true;
 
         changeToStart();
         clearTimeout(timeoutId);
         timeoutId = 0;
         isPlaying = false;
         index = 0;
+        
+        console.log('clear')
     }
 
     function changeToPause() {
@@ -83,5 +90,21 @@
     document.querySelector('#loop').addEventListener('change', changeLoop);
     function changeLoop(e) {
         isLoop = e.target.checked;
+    }
+
+    function download() {
+        gifshot.createGIF({
+            images: Array.from(document.querySelectorAll('.uploaded-image')).map(image => image.src),
+            interval: document.querySelector('#speed').value / 1000,
+            numWorkers: 2
+        },function(obj) {
+            if(!obj.error) {
+                const image = obj.image,
+                animatedImage = document.createElement('a');
+                animatedImage.href = image;
+                animatedImage.download = 'animation.gif'
+                animatedImage.click();
+            }
+        });
     }
 })();

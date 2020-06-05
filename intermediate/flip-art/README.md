@@ -72,7 +72,7 @@ Configuration Panel.
 define the transition effect between thumbnails in the Animation Display - 
 ease, ease-in, ease-out, ease-in-out
 -   [ ] User can drag and drop thumbnails to reorder them
--   [ ] User can save the animation as a `.gif` file.
+-   [x] User can save the animation as a `.gif` file.
 
 ## Useful links and resources
 

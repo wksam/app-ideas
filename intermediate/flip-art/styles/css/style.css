@@ -197,12 +197,22 @@ section.operation-buttons .start:disabled {
 }
 section.operation-buttons .clear {
   background: #6c757d;
+  margin-right: 8px;
 }
 section.operation-buttons .clear:hover {
   background: #5f666d;
 }
 section.operation-buttons .clear:disabled {
   background: #9299a0;
+}
+section.operation-buttons .download {
+  background: #28a745;
+}
+section.operation-buttons .download:hover {
+  background: #1e7b33;
+}
+section.operation-buttons .download:disabled {
+  background: #31ce55;
 }
 
 .invisible {
