@@ -97,11 +97,6 @@ section.configuration-panel .upload {
 section.configuration-panel input[type=file] {
   display: none;
 }
-section.configuration-panel .uploaded-image {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
 section.configuration-panel .img-container {
   position: relative;
   cursor: pointer;
@@ -125,6 +120,16 @@ section.configuration-panel .img-container:hover::after {
   left: 25px;
   width: 100px;
   height: 100px;
+}
+section.configuration-panel .img-container .uploaded-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+section.configuration-panel .img-container .uploaded-image.highlight {
+  border: 2px solid white;
+  width: 96px;
+  height: 96px;
 }
 
 .configuration-panel-extends {

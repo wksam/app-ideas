@@ -19,7 +19,7 @@ this app. Instead, try using vanilla Javascript, CSS, and HTML.
 
 ## User Stories
 
--   [ ] User can see the following primary components in the app window:
+-   [x] User can see the following primary components in the app window:
     - Configuration panel containing elements used to tailor the animation
     process.
     - Operation buttons
@@ -35,8 +35,8 @@ allow an `.jpg` image to be loaded into the thumbnail.
 -   [x] User can see the '+' button label change to '-' after a thumbnail is
 loaded.
 -   [x] User can click the '-' button to remove or replace a thumbnail.
--   [ ] User can see an 'Transition Speed' slider control. 
--   [ ] User can adjust the 'Transition Speed' slider from slow to fast to
+-   [x] User can see an 'Transition Speed' slider control. 
+-   [x] User can adjust the 'Transition Speed' slider from slow to fast to
 adjust the transition time between thumbnails in the Animation Display.
 
 ### Operation Buttons
@@ -55,16 +55,16 @@ the animation display
 Animation' when an animation has been stopped.
 
 ### Animation Display Panel
--   [ ] User can see thumbnails added in the Configuration panel displayed
+-   [x] User can see thumbnails added in the Configuration panel displayed
 when theh 'Start Animation' button is clicked. 
--   [ ] User can see thumbnails transtion from one to the next at the rate
+-   [x] User can see thumbnails transtion from one to the next at the rate
 defined by the 'Transition Speed' slider.
 
 ## Bonus features
 
--   [ ] User can see the border around the thumbnail in the Configuration Panel
+-   [x] User can see the border around the thumbnail in the Configuration Panel
 highlighted when that thumbnail is displayed in the Animation Display panel.
--   [ ] User can dynamically add any number of thumbnails rather than being
+-   [x] User can dynamically add any number of thumbnails rather than being
 restricted to just eight.
 -   [ ] User can hear unique sounds associated with modifying thumbnails in the 
 Configuration Panel.

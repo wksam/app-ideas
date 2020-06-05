@@ -38,12 +38,6 @@ section.configuration-panel {
         display: none;
     }
     
-    .uploaded-image {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
-    }
-    
     .img-container {
         position: relative;
         cursor: pointer;
@@ -67,6 +61,18 @@ section.configuration-panel {
                 left: 25px;
                 width: 100px;
                 height: 100px;
+            }
+        }
+
+        .uploaded-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+
+            &.highlight {
+                border: 2px solid white;
+                width: 96px;
+                height: 96px;
             }
         }
     }

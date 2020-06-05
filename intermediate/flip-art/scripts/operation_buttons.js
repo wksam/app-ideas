@@ -24,10 +24,12 @@
             const speed = document.querySelector('#speed');
             isPlaying = true;
             changeImage(animationImages[index].getAttribute('src'));
+            changeHighlight();
             timeoutId = setTimeout(playAnimation, speed.value);
             index++;
         } else {
             changeToStart();
+            animationImages[index - 1].classList.remove('highlight');
             isPlaying = false;
             index = 0;
         }
@@ -41,6 +43,11 @@
     
     function changeImage(data) {
         document.querySelector('.animation').setAttribute('src', data);
+    }
+
+    function changeHighlight() {
+        animationImages[index].classList.add('highlight');
+        if(index > 0) animationImages[index - 1].classList.remove('highlight');
     }
     
     function clearConfiguration() {
