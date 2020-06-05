@@ -39,7 +39,10 @@
             if(!isLoop) {
                 pauseAnimation();
             } else {
+                changeImage(animationImages[index].getAttribute('src'));
+                changeHighlight();
                 timeoutId = setTimeout(playAnimation, speed.value);
+                index++;
             }
         }
     }
