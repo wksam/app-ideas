@@ -71,3 +71,22 @@ section.configuration-panel {
         }
     }
 }
+
+.configuration-panel-extends {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    label {
+        margin-right: 8px;
+    }
+
+    input[type=range] {
+        
+    }
+
+    .speed-output {
+        margin-left: 8px;
+    }
+}

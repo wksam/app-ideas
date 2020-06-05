@@ -21,9 +21,10 @@
 
     function playAnimation() {
         if(index < animationImages.length) {
+            const speed = document.querySelector('#speed');
             isPlaying = true;
             changeImage(animationImages[index].getAttribute('src'));
-            timeoutId = setTimeout(playAnimation, 50);
+            timeoutId = setTimeout(playAnimation, speed.value);
             index++;
         } else {
             changeToStart();

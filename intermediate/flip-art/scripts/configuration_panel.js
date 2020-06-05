@@ -42,4 +42,9 @@
     function removeImage(e) {
         e.target.remove();
     }
+
+    document.querySelector('#speed').addEventListener('input', updateSpeedValue);
+    function updateSpeedValue(e) {
+        document.querySelector('.speed-output').textContent = e.target.value + 'ms';
+    }
 })();
