@@ -1,0 +1,9 @@
+.dark-mode {
+    background: #343a40;
+    color: #f8f9fa;
+}
+
+.dark-mode li {
+    background: #343a40;
+    border: 1px solid #f8f9fa;
+}

@@ -4,8 +4,11 @@
 
     init();
     function init() {
-        const username = getCookie();
+        const username = getCookie('username');
+        const darkMode = getCookie('dark-mode') === 'true';
         document.querySelector('#username').value = username;
+        document.querySelector('#dark-mode').checked = darkMode;
+        changeDarkMode(darkMode);
         search(username);
     }
 
@@ -16,7 +19,7 @@
         const formData = new FormData(e.target);
         const username = formData.get('username');
 
-        setCookie(username);
+        setCookie('username', username);
         search(username);
     }
 
@@ -111,12 +114,12 @@
         document.querySelector('.alert').hidden = true;
     }
 
-    function setCookie(username) {
-        document.cookie = 'username=' + username;
+    function setCookie(cname, cvalue) {
+        document.cookie = cname + '=' + cvalue;
     }
 
-    function getCookie() {
-        const name = 'username=';
+    function getCookie(cname) {
+        const name = cname + '=';
         const decodedCookie = decodeURIComponent(document.cookie);
         const ca = decodedCookie.split(';');
         for(let i = 0; i < ca.length; i++) {
@@ -128,6 +131,20 @@
                 return c.substring(name.length, c.length);
             }
         }
-        return "";
-      }
+        return '';
+    }
+
+    document.querySelector('#dark-mode').addEventListener('change', onChangeMode);
+    function onChangeMode(e) {
+        setCookie('dark-mode', e.target.checked);
+        changeDarkMode(e.target.checked);
+    }
+
+    function changeDarkMode(isDarkMode) {
+        if(isDarkMode) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+    }
 })();
