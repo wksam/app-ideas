@@ -2,12 +2,22 @@
 (function () {
     document.querySelector('form').addEventListener('submit', onSearch);
 
+    init();
+    function init() {
+        const username = getCookie();
+        document.querySelector('#username').value = username;
+        search(username);
+    }
+
     function onSearch(e) {
         e.preventDefault();
         hideAlert();
-    
+
         const formData = new FormData(e.target);
-        search(formData.get('username'));
+        const username = formData.get('username');
+
+        setCookie(username);
+        search(username);
     }
 
     function search(username) {
@@ -100,4 +110,24 @@
     function hideAlert() {
         document.querySelector('.alert').hidden = true;
     }
+
+    function setCookie(username) {
+        document.cookie = 'username=' + username;
+    }
+
+    function getCookie() {
+        const name = 'username=';
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+      }
 })();
