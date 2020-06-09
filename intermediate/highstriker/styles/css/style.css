@@ -143,15 +143,15 @@
   position: absolute;
   top: 375px;
   left: 50%;
-  width: 80px;
+  width: 125px;
 }
 .score table {
   position: relative;
-  right: 125px;
+  right: 165px;
 }
 .score button {
   position: relative;
-  right: 125px;
+  right: 90px;
 }
 
 /*# sourceMappingURL=style.css.map */

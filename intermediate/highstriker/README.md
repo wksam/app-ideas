@@ -26,7 +26,7 @@ the game.
 -   [x] User can see a score updated for each click of the 'Strike!' button -
 the number of times the bell was struck and the number of attempts.
 -   [x] User can click a 'Clear' button to clear the score.
--   [ ] User can see a congratulations message when a total of 10 points are
+-   [x] User can see a congratulations message when a total of 10 points are
 reached.
 
 ## Bonus features

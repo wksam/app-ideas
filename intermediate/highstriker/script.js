@@ -52,6 +52,7 @@
                 struck++;
                 updateStruck();
                 playSound();
+                if(struck === 10) setTimeout(() => showAlert(), 50);
             }
             setTimeout(() => { puckAnimationDown(); }, 5);
         }
@@ -87,5 +88,10 @@
         struck = 0;
         updateAttempts();
         updateStruck();
+    }
+
+    function showAlert() {
+        clear();
+        alert("You won!");
     }
 })();
