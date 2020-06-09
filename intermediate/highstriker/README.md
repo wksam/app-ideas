@@ -17,12 +17,12 @@ speed and the distance it travels.
 
 ## User Stories
 
--   [ ] User can see an image of the High Striker tower with the bell at the
+-   [x] User can see an image of the High Striker tower with the bell at the
 top, the levered platform at the bottom and the track connecting the two.
--   [ ] User can click the 'Strike!' button under the levered platform to play
+-   [x] User can click the 'Strike!' button under the levered platform to play
 the game.
--   [ ] User can see the puck travel up the rail.
--   [ ] User can hear the bell ring if the puck travels far enough to strike it.
+-   [x] User can see the puck travel up the rail.
+-   [x] User can hear the bell ring if the puck travels far enough to strike it.
 -   [ ] User can see a score updated for each click of the 'Strike!' button -
 the number of times the bell was struck and the number of attempts.
 -   [ ] User can click a 'Clear' button to clear the score.
