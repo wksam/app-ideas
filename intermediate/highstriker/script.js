@@ -3,12 +3,18 @@
     
     let isPlaying = false;
     let isAnimating = false;
+
+    let attempts = 0;
+    let struck = 0;
+
     function startGame() {
         if(!isAnimating) {
             if(!isPlaying) {
                 startStrengthBar();
                 changeText(document.querySelector('.platform>h2'), 'Strike!');
             } else {
+                attempts++;
+                updateAttempts();
                 pauseStrengthBar();
                 changeText(document.querySelector('.platform>h2'), 'Play');
                 setTimeout(() => { puckAnimationUp((getStrengthPercent() * 500) - 25) }, 50);
@@ -42,7 +48,11 @@
             puck.style.bottom = puckHeight + 'px';
             setTimeout(() => { puckAnimationUp(height); }, 5);
         } else {
-            if(puckHeight > 460) playSound();
+            if(puckHeight > 460) {
+                struck++;
+                updateStruck();
+                playSound();
+            }
             setTimeout(() => { puckAnimationDown(); }, 5);
         }
     }
@@ -61,5 +71,21 @@
 
     function playSound() {
         document.querySelector('audio').play();
+    }
+
+    function updateAttempts() {
+        document.querySelector('.attempts').textContent = attempts;
+    }
+
+    function updateStruck() {
+        document.querySelector('.struck').textContent = struck;
+    }
+
+    document.querySelector('.clear').addEventListener('click', clear);
+    function clear() {
+        attempts = 0;
+        struck = 0;
+        updateAttempts();
+        updateStruck();
     }
 })();

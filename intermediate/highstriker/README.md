@@ -23,9 +23,9 @@ top, the levered platform at the bottom and the track connecting the two.
 the game.
 -   [x] User can see the puck travel up the rail.
 -   [x] User can hear the bell ring if the puck travels far enough to strike it.
--   [ ] User can see a score updated for each click of the 'Strike!' button -
+-   [x] User can see a score updated for each click of the 'Strike!' button -
 the number of times the bell was struck and the number of attempts.
--   [ ] User can click a 'Clear' button to clear the score.
+-   [x] User can click a 'Clear' button to clear the score.
 -   [ ] User can see a congratulations message when a total of 10 points are
 reached.
 
