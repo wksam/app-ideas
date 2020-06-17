@@ -5,18 +5,20 @@ function onGenerate(e) {
     const formData = new FormData(e.target);
     const columns = parseInt(formData.get('columns'));
     const rows = parseInt(formData.get('rows'));
-    const table = createTable(columns, rows);
 
-    const tableContainer = document.querySelector('.table-responsive');
+    const tableContainer = document.querySelector('.input-table');
     tableContainer.textContent = '';
-    tableContainer.append(table);
+    tableContainer.append(createTable(columns, rows, false));
 
-    const markdownContainer = document.querySelector('#markdown');
-    markdownContainer.hidden = false;
-    markdownContainer.textContent = createMarkdownTable(columns, rows);
+    document.querySelector('.result').hidden = false;
+    document.querySelector('#markdown').textContent = createMarkdownTable(columns, rows);
+
+    const previewer = document.querySelector('.preview');
+    previewer.textContent = '';
+    previewer.append(createTable(columns, rows, true));
 }
 
-function createTable(columns, rows) {
+function createTable(columns, rows, isPreviewer) {
     const table = document.createElement('table');
     table.setAttribute('class', 'table table-bordered');
     
@@ -25,27 +27,47 @@ function createTable(columns, rows) {
     table.append(thead);
     table.append(tbody);
 
-    for (let row = 1; row <= rows; row++) {
-        const tr = document.createElement('tr');
-        for(let column = 1; column <= columns; column++) {
-            const input = document.createElement('input');
-            input.placeholder = row + ' : ' + column;
-            input.addEventListener('input', onChangeInputTable);
-            if(row === 1) {
-                const th = document.createElement('th');
-                th.setAttribute('scope', 'col');
-                input.placeholder += ' Header';
-                th.append(input);
-                tr.append(th);
-            } else {
-                const td = document.createElement('td');
-                input.placeholder += ' Data';
-                td.append(input);
-                tr.append(td);
+    if(!isPreviewer) {
+        for (let row = 1; row <= rows; row++) {
+            const tr = document.createElement('tr');
+            for(let column = 1; column <= columns; column++) {
+                const input = document.createElement('input');
+                input.placeholder = row + ' : ' + column;
+                input.addEventListener('input', onChangeInputTable);
+                if(row === 1) {
+                    const th = document.createElement('th');
+                    th.setAttribute('scope', 'col');
+                    input.placeholder += ' Header';
+                    th.append(input);
+                    tr.append(th);
+                } else {
+                    const td = document.createElement('td');
+                    input.placeholder += ' Data';
+                    td.append(input);
+                    tr.append(td);
+                }
             }
+            if(row === 0) thead.append(tr);
+            else tbody.append(tr);
         }
-        if(row === 0) thead.append(tr);
-        else tbody.append(tr);
+    } else {
+        for (let row = 0; row < rows; row++) {
+            const tr = document.createElement('tr');
+            for(let column = 0; column < columns; column++) {
+                if(row === 0) {
+                    const th = document.createElement('th');
+                    th.setAttribute('scope', 'col');
+                    th.setAttribute('class', 'cell-' + row + '-' + column);
+                    tr.append(th);
+                } else {
+                    const td = document.createElement('td');
+                    td.setAttribute('class', 'cell-' + row + '-' + column);
+                    tr.append(td);
+                }
+            }
+            if(row === 0) thead.append(tr);
+            else tbody.append(tr);
+        }
     }
     return table;
 }
@@ -55,7 +77,7 @@ function createMarkdownTable(columns, rows) {
     for (let row = 0; row < rows + 1; row++) {
         markdown += '|';
         for (let column = 0; column < columns; column++) {
-            markdown += row !== 1 ? '     |' : ' --- |';
+            markdown += row !== 1 ? '   |' : '---|';
         }
         if(row != rows) markdown += '\n';
     }
@@ -63,17 +85,30 @@ function createMarkdownTable(columns, rows) {
 }
 
 function onChangeInputTable(e) {
-    const markdown = document.querySelector('#markdown');
-    const text = ' ' + e.target.value + ' ';
-    
+    const value = ' ' + e.target.value + ' ';
     let row = parseInt(e.target.placeholder.split(' ')[0]);
     row = row !== 1 ? row : row - 1;
     let column = parseInt(e.target.placeholder.split(' ')[2]);
-    
+
+    changeMarkdown(value, row, column);
+
+    row = parseInt(e.target.placeholder.split(' ')[0]) - 1;
+    column = parseInt(e.target.placeholder.split(' ')[2]) - 1;
+
+    changePreviewer(value, row, column);
+}
+
+function changeMarkdown(value, row, column) {
+    const markdown = document.querySelector('#markdown');
+
     let rowsMarkdown = markdown.value.split('\n');
     let columnMarkdown = rowsMarkdown[row].split('|');
-    columnMarkdown[column] = text;
+    columnMarkdown[column] = value;
 
     rowsMarkdown[row] = columnMarkdown.join('|');
     markdown.value = rowsMarkdown.join('\n');
+}
+
+function changePreviewer(value, row, column) {
+    document.querySelector('.cell-' + row + '-' + column).textContent = value;
 }
