@@ -55,13 +55,25 @@ function createMarkdownTable(columns, rows) {
     for (let row = 0; row < rows + 1; row++) {
         markdown += '|';
         for (let column = 0; column < columns; column++) {
-            markdown += row !== 1 ? '   |' : '---|';
+            markdown += row !== 1 ? '     |' : ' --- |';
         }
-        markdown += '\n';
+        if(row != rows) markdown += '\n';
     }
     return markdown;
 }
 
 function onChangeInputTable(e) {
-    console.log(e.target.value);
+    const markdown = document.querySelector('#markdown');
+    const text = ' ' + e.target.value + ' ';
+    
+    let row = parseInt(e.target.placeholder.split(' ')[0]);
+    row = row !== 1 ? row : row - 1;
+    let column = parseInt(e.target.placeholder.split(' ')[2]);
+    
+    let rowsMarkdown = markdown.value.split('\n');
+    let columnMarkdown = rowsMarkdown[row].split('|');
+    columnMarkdown[column] = text;
+
+    rowsMarkdown[row] = columnMarkdown.join('|');
+    markdown.value = rowsMarkdown.join('\n');
 }
