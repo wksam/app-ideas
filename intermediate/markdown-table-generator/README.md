@@ -6,10 +6,10 @@ Create an application that will convert a regular table with data provided by th
 
 ## User Stories
 
--   [ ] User can create an `HTML table` with a given number of **Rows** and **Columns**
--   [ ] User can insert text in each cell of the `HTML table`
--   [ ] User can generate a `Markdown formatted table` that will contain the data from the `HTML table`
--   [ ] User can preview the `Markdown formatted table`
+-   [x] User can create an `HTML table` with a given number of **Rows** and **Columns**
+-   [x] User can insert text in each cell of the `HTML table`
+-   [x] User can generate a `Markdown formatted table` that will contain the data from the `HTML table`
+-   [x] User can preview the `Markdown formatted table`
 
 ## Bonus features
 

@@ -3,11 +3,20 @@ function onGenerate(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const table = createTable(formData.get('width'), formData.get('height'));
-    document.querySelector('.table-responsive').append(table);
+    const columns = parseInt(formData.get('columns'));
+    const rows = parseInt(formData.get('rows'));
+    const table = createTable(columns, rows);
+
+    const tableContainer = document.querySelector('.table-responsive');
+    tableContainer.textContent = '';
+    tableContainer.append(table);
+
+    const markdownContainer = document.querySelector('#markdown');
+    markdownContainer.hidden = false;
+    markdownContainer.textContent = createMarkdownTable(columns, rows);
 }
 
-function createTable(width, height) {
+function createTable(columns, rows) {
     const table = document.createElement('table');
     table.setAttribute('class', 'table table-bordered');
     
@@ -16,17 +25,22 @@ function createTable(width, height) {
     table.append(thead);
     table.append(tbody);
 
-    for (let row = 0; row < height; row++) {
+    for (let row = 1; row <= rows; row++) {
         const tr = document.createElement('tr');
-        for(let cell = 0; cell < width; cell++) {
-            if(row === 0) {
+        for(let column = 1; column <= columns; column++) {
+            const input = document.createElement('input');
+            input.placeholder = row + ' : ' + column;
+            input.addEventListener('input', onChangeInputTable);
+            if(row === 1) {
                 const th = document.createElement('th');
                 th.setAttribute('scope', 'col');
-                th.textContent = row + ':' + cell;
+                input.placeholder += ' Header';
+                th.append(input);
                 tr.append(th);
             } else {
                 const td = document.createElement('td');
-                td.textContent = row + ':' + cell;
+                input.placeholder += ' Data';
+                td.append(input);
                 tr.append(td);
             }
         }
@@ -34,4 +48,20 @@ function createTable(width, height) {
         else tbody.append(tr);
     }
     return table;
+}
+
+function createMarkdownTable(columns, rows) {
+    let markdown = '';
+    for (let row = 0; row < rows + 1; row++) {
+        markdown += '|';
+        for (let column = 0; column < columns; column++) {
+            markdown += row !== 1 ? '   |' : '---|';
+        }
+        markdown += '\n';
+    }
+    return markdown;
+}
+
+function onChangeInputTable(e) {
+    console.log(e.target.value);
 }
