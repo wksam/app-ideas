@@ -112,3 +112,12 @@ function changeMarkdown(value, row, column) {
 function changePreviewer(value, row, column) {
     document.querySelector('.cell-' + row + '-' + column).textContent = value;
 }
+
+document.querySelector('.clipboard').addEventListener('click', copyToClipboard);
+function copyToClipboard() {
+    const textarea = document.querySelector('#markdown');
+    textarea.disabled = false;
+    textarea.select();
+    document.execCommand('copy');
+    textarea.disabled = true;
+}

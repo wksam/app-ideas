@@ -13,7 +13,7 @@ Create an application that will convert a regular table with data provided by th
 
 ## Bonus features
 
--   [ ] User can copy the `Markdown formatter table` to the clipboard by pressing a button
+-   [x] User can copy the `Markdown formatter table` to the clipboard by pressing a button
 -   [ ] User can insert a new **Row** or **Column** to a specified location
 -   [ ] User can delete a **Row** or a **Column** entirely
 -   [ ] User can align (to the _left_, _right_ or _center_) a **cell**, a **column**, a **row**, or the entire **table**
