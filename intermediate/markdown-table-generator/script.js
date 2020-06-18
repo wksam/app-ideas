@@ -85,7 +85,7 @@ function createMarkdownTable(columns, rows) {
 }
 
 function onChangeInputTable(e) {
-    const value = ' ' + e.target.value + ' ';
+    const value = e.target.value;
     let row = parseInt(e.target.placeholder.split(' ')[0]);
     row = row !== 1 ? row : row - 1;
     let column = parseInt(e.target.placeholder.split(' ')[2]);
@@ -101,12 +101,29 @@ function onChangeInputTable(e) {
 function changeMarkdown(value, row, column) {
     const markdown = document.querySelector('#markdown');
 
-    let rowsMarkdown = markdown.value.split('\n');
-    let columnMarkdown = rowsMarkdown[row].split('|');
-    columnMarkdown[column] = value;
+    const rowsMarkdown = markdown.value.split('\n');
+    const maxLength = getMaxLength(rowsMarkdown, column, value);
 
-    rowsMarkdown[row] = columnMarkdown.join('|');
+    for (const index in rowsMarkdown) {
+        let columnMarkdown = rowsMarkdown[index].split('|');
+        if(index == 1) {
+            columnMarkdown[column] = '-'.repeat(maxLength);
+        } else if(row == index) {
+            columnMarkdown[column] = ' ' + value + ' '.repeat(maxLength - value.length - 1);
+        } else {
+            columnMarkdown[column] = ' ' + columnMarkdown[column].trim() + ' '.repeat(maxLength - columnMarkdown[column].trim().length - 1);
+        }
+        rowsMarkdown[index] = columnMarkdown.join('|');
+    }
     markdown.value = rowsMarkdown.join('\n');
+}
+
+function getMaxLength(rowsMarkdown, column, value) {
+    let copyRowsMarkdown = [...rowsMarkdown];
+    copyRowsMarkdown.splice(1, 1);
+    let maxLength = copyRowsMarkdown.map(item => item.split('|')[column].trim().length).reduce((result, current) => result > current ? result : current);
+    maxLength = maxLength > value.length ? maxLength : value.length;
+    return maxLength + 2 < 3 ? 3 : maxLength + 2;
 }
 
 function changePreviewer(value, row, column) {
