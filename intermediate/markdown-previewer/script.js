@@ -6,30 +6,32 @@ function onChangeText(e) {
 }
 
 function markdown(text) {
-    // Heading
-    for (let i = 1; i <= 6; i++) {
-        const regex = new RegExp('^(#{' + i + '} .*)$', 'gm');
-        if(text.match(regex) != null)
-            text = headings(text, text.match(regex).map(match => match.replace(/[\r\n|\r|\n]/)), i);
-    }
+    const splitted = text.split(/\n{2,})/gm);
+    
+    // for (const index in splitted) {
+    //     splitted[index] = headings(splitted[index]);
+    // }
+    console.log(splitted);
+    return splitted.join('\n');
+}
 
-    // Paragraphs
-    if(text.match(/^[^#{1,6}|\n]+$/gm))
-        text = paragraphs(text, text.match(/^[^#{1,6}|\n]+$/gm));
+function headings(text) {
+    for (let level = 1; level <= 6; level++) {
+        const regex = new RegExp('^(#{' + level + '} .*\n?)$', 'gm');
+        
+        if(text.match(regex)) {
+            text = text.substring(level + 1);
+            text = '<h' + level + '>' + text + '</h' + level + '>';
+        }
+    }
     return text;
 }
 
-function headings(text, matches, level) {
-    for (const match of matches) {
-        text = text.replace(match, '<h' + level + '>' + match.substring(level + 1, text.length) + '</h' + level + '>');
-    }
+function paragraphs(text) {
+    const regex = new RegExp('')
     return text;
 }
 
-function paragraphs(text, matches) {
-    for (const match of matches) {
-        const regex = new RegExp('^' + match + '$', 'gm');
-        text = text.replace(regex, '<p>' + match + '</p>');
-    }
-    return text;
+function lineBreaks(text) {
+    return text.replace(/\r\n|\r|\n/gm, '<br>');
 }
