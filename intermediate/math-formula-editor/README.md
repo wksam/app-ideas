@@ -10,8 +10,8 @@ The app will probably use a math markup system such as LaTeX.
 
 -   [x] User can write to a text document
 -   [x] User can add a math formula to that text document
--   [ ] User can save the document either to a database or as a file locally
--   [ ] User can load the file and all the formulas should be still intact
+-   [x] User can save the document either to a database or as a file locally
+-   [x] User can load the file and all the formulas should be still intact
 
 ## Bonus features
 
