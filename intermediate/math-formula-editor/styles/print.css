@@ -1,0 +1,8 @@
+@media print {
+    h1 {
+        display: none;
+    }
+    .input {
+        display: none;
+    }
+}
