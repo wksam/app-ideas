@@ -1,10 +1,16 @@
 let imageUrl;
-let textTop;
-let textBottom;
+let topText;
+let bottomText;
+
+let width = 400;
+let height = 400;
 
 function setup() {
-    const canvas = createCanvas(400, 400);
+    const canvas = createCanvas(width, height);
     canvas.parent('image-editor');
+
+    textSize(32);
+    noLoop();
 }
 
 function draw() {
@@ -12,15 +18,19 @@ function draw() {
         loadImage(imageUrl, img => {
             resizeCanvas(img.width, img.height);
             image(img, 0, 0);
+            width = img.width;
+            height = img.height;
+        }, err => {
+            imageUrl = null;
+            resizeCanvas(width, height);
         });
-        imageUrl = null;
+    } else {
+        resizeCanvas(width, height);
     }
 
-    // if(textTop) {
-    //     console.log('top')
-    // }
+    textAlign(CENTER, TOP);
+    text(topText, 0, 0, width, height / 2);
 
-    // if(textBottom) {
-    //     console.log('bottom')
-    // }
+    textAlign(CENTER, BOTTOM);
+    text(bottomText, 0, height / 2, width, height / 2);
 }

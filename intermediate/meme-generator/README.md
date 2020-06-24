@@ -7,8 +7,8 @@ Allow users to generate custom memes by adding text over an image.
 ## User Stories
 
 -   [x] User can upload an image that will appear in a canvas
--   [ ] User can add text in the top part of the image
--   [ ] User can add text in the bottom part of the image
+-   [x] User can add text in the top part of the image
+-   [x] User can add text in the bottom part of the image
 -   [ ] User can select the color of the text
 -   [ ] User can select the size of the text
 -   [ ] User can save the resulting meme
