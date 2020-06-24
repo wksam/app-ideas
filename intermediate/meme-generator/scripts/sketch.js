@@ -9,8 +9,8 @@ let p = new p5((sketch) => {
     let bottomTextColor = '#000';
     let bottomTextFontSize = 16;
 
-    let width = 400;
-    let height = 400;
+    let width = 0;
+    let height = 0;
 
     let needRedraw = false;
 
@@ -89,6 +89,10 @@ let p = new p5((sketch) => {
 
             needRedraw = false;
         }
+    }
+
+    sketch.save = () => {
+        sketch.saveCanvas('meme', 'jpg');
     }
 
 }, 'image-editor');

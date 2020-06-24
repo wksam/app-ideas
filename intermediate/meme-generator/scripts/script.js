@@ -33,4 +33,9 @@
     function onChangeBottomTextFontSize() {
         p.setBottomTextFontSize(parseInt(this.value));
     }
+
+    document.querySelector('#save').addEventListener('click', onSave);
+    function onSave() {
+        p.save();
+    }
 })();

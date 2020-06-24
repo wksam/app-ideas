@@ -11,7 +11,7 @@ Allow users to generate custom memes by adding text over an image.
 -   [x] User can add text in the bottom part of the image
 -   [x] User can select the color of the text
 -   [x] User can select the size of the text
--   [ ] User can save the resulting meme
+-   [x] User can save the resulting meme
 
 ## Bonus features
 
