@@ -9,10 +9,44 @@
 <body>
     <div class="container">
         <h1 class="text-center my-4">Meme Generator</h1>
+
+        <form class="mb-4">
+            <input type="url" class="form-control mb-2" id="image-url" placeholder="Image URL">
+            <div class="form-inline mb-2">
+                <div class="form-group">
+                    <label for="top-text" class="sr-only">Top text</label>
+                    <input type="text" class="form-control mr-2" id="top-text" placeholder="Top text">
+                </div>
+                <div class="form-group">
+                    <label for="top-color-text" class="sr-only">Top text color</label>
+                    <input type="color" class="mr-2" id="top-text-color">
+                </div>
+                <div class="form-group">
+                    <label for="top-text-font-size" class="sr-only">Top text font size</label>
+                    <input type="number" class="form-control" id="top-text-font-size" placeholder="Font size">
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="bottol-text" class="sr-only">Bottom text</label>
+                    <input type="text" class="form-control mr-2" id="bottom-text" placeholder="Bottom text">
+                </div>
+                <div class="form-group">
+                    <label for="bottom-color-text" class="sr-only">Bottom text color</label>
+                    <input type="color" class="mr-2" id="bottom-text-color">
+                </div>
+                <div class="form-group">
+                    <label for="bottom-text-font-size" class="sr-only">Bottom text font size</label>
+                    <input type="number" class="form-control" id="bottom-text-font-size" placeholder="Font size">
+                </div>
+            </div>
+        </form>
+        
         <div id="image-editor" class="text-center"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
-    <script src="sketch.js"></script>
+    <script src="scripts/sketch.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
