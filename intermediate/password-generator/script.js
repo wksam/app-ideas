@@ -12,7 +12,6 @@
         const length = parseInt(formData.get('length'));
 
         const password = generatePassword(upper, lower, number, symbol, length);
-
         document.querySelector('#password').value = password;
     }
 
@@ -36,7 +35,7 @@
     }
 
     function generateUppercase() {
-        return String.fromCharCode(randomNumber(65, 132));
+        return String.fromCharCode(randomNumber(65, 90));
     }
 
     function generateLowercase() {
