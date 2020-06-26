@@ -1,4 +1,4 @@
-// (function() {
+(function() {
     document.querySelector('form').addEventListener('submit', onSubmit);
 
     function onSubmit(e) {
@@ -55,4 +55,15 @@
     function randomNumber(min, max) {
         return parseInt(Math.round(Math.random() * (max - min) + min));
     }
-// })();
+
+    document.querySelector('#copy').addEventListener('click', onCopy);
+    function onCopy() {
+        const passwordField = document.querySelector('#password');
+        passwordField.disabled = false;
+
+        passwordField.select();
+        document.execCommand('copy');
+
+        passwordField.disabled = true;
+    }
+})();
