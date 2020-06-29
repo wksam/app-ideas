@@ -12,22 +12,27 @@
         <form class="mb-4">
             <div class="form-row">
                 <div class="form-group col">
-                    <label for="name">Attendee Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Full name" pattern="[a-zA-Z]+ [a-zA-Z ]+" maxlength="100" required>
+                    <label for="name">Attendee Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" pattern="[a-zA-Z]+ [a-zA-Z ]+" maxlength="100" required>
                 </div>
                 <div class="form-group col">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com" maxlength="320" required>
+                    <input type="email" class="form-control" id="email" name="email" maxlength="320" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col">
                     <label for="twitter">Twitter</label>
-                    <input type="text" class="form-control" id="twitter" name="twitter" placeholder="@twitter" pattern="@.+" maxlength="15">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="twitter" name="twitter" maxlength="15">
+                    </div>
                 </div>
                 <div class="form-group col">
                     <label for="github">GitHub</label>
-                    <input type="text" class="form-control" id="github" name="github" placeholder="GitHub name" maxlength="39">
+                    <input type="text" class="form-control" id="github" name="github" maxlength="39">
                 </div>
             </div>
             <div class="clearfix">

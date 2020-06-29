@@ -16,7 +16,7 @@
         badgePanel.querySelector('#qrcode').innerHTML = createQRCode(name);
         badgePanel.querySelector('#badge-name').textContent = name;
         badgePanel.querySelector('#badge-email').textContent = email;
-        badgePanel.querySelector('#badge-twitter').textContent = twitter;
+        badgePanel.querySelector('#badge-twitter').textContent = '@' + twitter;
         badgePanel.querySelector('#badge-github').textContent = github;
     }
 

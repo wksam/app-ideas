@@ -57,7 +57,7 @@ have been validated and the badge is displayed in the badge panel.
 update the contents of the badge panel.
 -   [ ] User can click the 'Print' button to reproduce the badge panel on a
 label or hardcopy.
--   [ ] User can see the '@' symbol automatically prepended to the Twitter
+-   [x] User can see the '@' symbol automatically prepended to the Twitter
 account name so it doesn't have to be manually entered.
 
 ## Useful links and resources
