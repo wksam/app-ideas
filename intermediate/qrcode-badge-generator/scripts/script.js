@@ -11,6 +11,7 @@
         const twitter = formData.get('twitter');
         const github = formData.get('github');
 
+        document.querySelector('#print').disabled = false;
         const badgePanel = document.querySelector('#badge-panel');
         badgePanel.hidden = false;
         badgePanel.querySelector('#qrcode').innerHTML = createQRCode(name);
@@ -39,5 +40,11 @@
     document.querySelector('form').addEventListener('reset', onReset);
     function onReset() {
         document.querySelector('#badge-panel').hidden = true;
+        document.querySelector('#print').disabled = true;
+    }
+
+    document.querySelector('#print').addEventListener('click', onPrint);
+    function onPrint() {
+        window.print();
     }
 })();

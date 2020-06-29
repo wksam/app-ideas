@@ -50,12 +50,12 @@ information, plus a QR code encoded with this information.
 
 ## Bonus features
 
--   [ ] User can see a 'Print' button below the badge panel.
--   [ ] User can see the 'Print' button enabled only after the input fields
+-   [x] User can see a 'Print' button below the badge panel.
+-   [x] User can see the 'Print' button enabled only after the input fields
 have been validated and the badge is displayed in the badge panel.
--   [ ] User can make corrections to the input fields and click 'Create' to
+-   [x] User can make corrections to the input fields and click 'Create' to
 update the contents of the badge panel.
--   [ ] User can click the 'Print' button to reproduce the badge panel on a
+-   [x] User can click the 'Print' button to reproduce the badge panel on a
 label or hardcopy.
 -   [x] User can see the '@' symbol automatically prepended to the Twitter
 account name so it doesn't have to be manually entered.

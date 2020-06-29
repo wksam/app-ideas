@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRCode Badge Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/print.css">
 </head>
 <body>
     <div class="container">
@@ -39,11 +40,12 @@
                 <div class="float-right">
                     <button type="submit" class="btn btn-primary">Create</button>
                     <button type="reset" class="btn btn-secondary">Cancel</button>
+                    <button type="button" class="btn btn-success" id="print" disabled>Print</button>
                 </div>
             </div>
         </form>
         <div class="d-flex justify-content-center">
-            <div id="badge-panel" class="p-2" style="border: 1px solid #ced4da; border-radius: .25rem;" hidden>
+            <div id="badge-panel" class="border rounded p-2" hidden>
                 <div class="d-flex flex-row align-items-center">
                     <div id="qrcode"></div>
                     <div class="p-2">
