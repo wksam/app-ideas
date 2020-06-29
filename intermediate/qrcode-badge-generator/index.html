@@ -9,33 +9,49 @@
 <body>
     <div class="container">
         <h1 class="text-center my-4">QRCode Badge Generator</h1>
-        <form>
+        <form class="mb-4">
             <div class="form-row">
                 <div class="form-group col">
                     <label for="name">Attendee Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Full name" pattern="[a-zA-Z]+ [a-zA-Z]+" required>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Full name" pattern="[a-zA-Z]+ [a-zA-Z ]+" maxlength="100" required>
                 </div>
                 <div class="form-group col">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com" maxlength="320" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col">
                     <label for="twitter">Twitter</label>
-                    <input type="text" class="form-control" id="twitter" name="twitter" placeholder="@twitter" pattern="@.+">
+                    <input type="text" class="form-control" id="twitter" name="twitter" placeholder="@twitter" pattern="@.+" maxlength="15">
                 </div>
                 <div class="form-group col">
                     <label for="github">GitHub</label>
-                    <input type="text" class="form-control" id="github" name="github" placeholder="GitHub name">
+                    <input type="text" class="form-control" id="github" name="github" placeholder="GitHub name" maxlength="39">
                 </div>
             </div>
-            <div class="float-right">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <button type="reset" class="btn btn-secondary">Cancel</button>
+            <div class="clearfix">
+                <div class="float-right">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                </div>
             </div>
         </form>
+        <div class="d-flex justify-content-center">
+            <div id="badge-panel" class="p-2" style="border: 1px solid #ced4da; border-radius: .25rem;" hidden>
+                <div class="d-flex flex-row align-items-center">
+                    <div id="qrcode"></div>
+                    <div class="p-2">
+                        <h5 id="badge-name"></h5>
+                        <p id="badge-email" class="text-muted m-0"></p>
+                        <p id="badge-twitter" class="text-muted m-0"></p>
+                        <p id="badge-github" class="text-muted m-0"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
+    <script src="scripts/qrcode.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
