@@ -33,14 +33,14 @@ Check the app store for your device to find the one that best suites your needs.
 -   [x] User can see an input panel containing input fields for the attendee
 name, email address, Twitter account name, GitHub account name, and 'Cancel'
 and 'Create' buttons.
--   [ ] User can enter data into these input fields. Note that attendee name
+-   [x] User can enter data into these input fields. Note that attendee name
 and email address are required, but the Twitter and GitHub account names are
 optional fields.
--   [ ] User can click the 'Cancel' button to clear all input fields as well as
+-   [x] User can click the 'Cancel' button to clear all input fields as well as
 the badge panel (see below) if it has been created.
 -   [ ] User can click the 'Create' button to generated an image of the 
 attendees name badge.
--   [ ] User can see an error message if any of the following are true:
+-   [x] User can see an error message if any of the following are true:
     - Required fields are empty
     - A first name and last name have not been entered
     - Email input field isn't a properly formatted email address
