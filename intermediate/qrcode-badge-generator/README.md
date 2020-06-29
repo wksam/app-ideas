@@ -30,7 +30,7 @@ Check the app store for your device to find the one that best suites your needs.
 
 ## User Stories
 
--   [ ] User can see an input panel containing input fields for the attendee
+-   [x] User can see an input panel containing input fields for the attendee
 name, email address, Twitter account name, GitHub account name, and 'Cancel'
 and 'Create' buttons.
 -   [ ] User can enter data into these input fields. Note that attendee name
