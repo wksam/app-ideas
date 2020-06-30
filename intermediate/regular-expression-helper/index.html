@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regular Expression Helper</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="text-center my-4">Regular Expression Helper</h1>
-        <form>
+        <form class="mb-4 clearfix">
             <div class="form-group">
                 <label for="regex">Regular Expression</label>
                 <input type="text" class="form-control" name="regex" id="regex" required>
@@ -18,8 +19,14 @@
                 <label for="test">Test String</label>
                 <textarea class="form-control" name="test" id="test" rows="10" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Run</button>
+            <button type="submit" class="btn btn-primary float-right">Run</button>
         </form>
+        <div class="form-group">
+            <label for="result">Result</label>
+            <div id="result" class="overflow-auto rounded">
+                <p>Your regular expression does not match the subject string.</p>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
