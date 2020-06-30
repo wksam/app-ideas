@@ -14,11 +14,11 @@ you use in your apps.
 
 ## User Stories
 
--   [ ] User can enter a regular expression.
--   [ ] User can enter a string the regular expression can be run against.
+-   [x] User can enter a regular expression.
+-   [x] User can enter a string the regular expression can be run against.
 -   [ ] User can click a 'Run' button to test
--   [ ] User can see a warning message if no regular expression was entered.
--   [ ] User can see a warning message if no string was entered.
+-   [x] User can see a warning message if no regular expression was entered.
+-   [x] User can see a warning message if no string was entered.
 -   [ ] User can see the matching text highlighted indicating if `test()` was able to locate the pattern in the string.
 -   [ ] User can see a message if none of the text was matched.
 
