@@ -77,7 +77,7 @@ const productsData = [
         price: 50,
     }, {
         id: 'n5JIibI4Du',
-        description: 'Healing Salvee',
+        description: 'Healing Salve',
         price: 110,
     }
 ];
