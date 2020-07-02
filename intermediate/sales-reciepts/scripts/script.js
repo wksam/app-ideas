@@ -109,4 +109,9 @@
 
         return row;
     }
+
+    document.querySelector('.clear').addEventListener('click', onClear);
+    function onClear() {
+        document.querySelector('.reciept-panel tbody').textContent = '';
+    }
 })();

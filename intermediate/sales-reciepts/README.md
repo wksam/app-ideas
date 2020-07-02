@@ -47,7 +47,7 @@ items are purchased.
 -   [x] User can see a reciept panel displaying the date and time of the sale,
 as well as all items selected for purchase. This includes the item number,
 description, and unit price.
--   [ ] User can click the 'Clear' button to clear all purchases at any time
+-   [x] User can click the 'Clear' button to clear all purchases at any time
 before checking out.
 -   [ ] User can click the 'Checkout' button to complete purchase all selected
 items. The final total purchase amount will be added to the end of the reciept
