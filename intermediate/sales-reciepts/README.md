@@ -52,13 +52,13 @@ before checking out.
 -   [x] User can click the 'Checkout' button to complete purchase all selected
 items. The final total purchase amount will be added to the end of the reciept
 panel and all selected items will be added to the database.
--   [ ] User can see the receipt panel cleared after all items have been added
+-   [x] User can see the receipt panel cleared after all items have been added
 to the database.
--   [ ] User can see a 'Daily Sales' and a 'Clear All' button at the bottom of
+-   [x] User can see a 'Daily Sales' and a 'Clear All' button at the bottom of
 the app window. 
--   [ ] User can click the 'Daily Sales' button to display all items purchased
+-   [x] User can click the 'Daily Sales' button to display all items purchased
 by all customers in the receipt panel along with the total of them all.
--   [ ] User can click the 'Clear All' button to clear the receipt panel and
+-   [x] User can click the 'Clear All' button to clear the receipt panel and
 delete the record of all purchases from the database.
 
 ## Bonus features

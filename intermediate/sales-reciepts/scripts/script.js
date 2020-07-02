@@ -160,7 +160,7 @@ function onGetAll() {
     dailyActived = true;
     clearReciept();
     togglePurchaseButtons(true);
-    
+
     db.getSales();
 }
 
@@ -170,4 +170,9 @@ function fillRecieptPanel(data) {
     for (let i = 0; i < data.length; i++) {
         recieptList.append(createRecieptTableRowItem(i, data[i].product_id, data[i].description, data[i].price, data[i].purchase_data, data[i].amount));
     }
+}
+
+document.querySelector('.clear-all').addEventListener('click', onClearAll);
+function onClearAll() {
+    db.removeSales();
 }
