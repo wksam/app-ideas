@@ -57,13 +57,14 @@ function onPurchase(e) {
     const id = item.querySelector('.badge').textContent;
     const description = item.querySelector('h5').childNodes[0].nodeValue;
     const price = item.querySelector('h3').textContent;
+    const name = document.querySelector('#name').value != '' ? document.querySelector('#name').value : 'Anonymous';
     itemAdded.push(id);
 
-    updateRecieptList(id, description, price);
+    updateRecieptList(id, description, price, name);
 }
 
-function updateRecieptList(itemId, itemDescription, itemPrice) {
-    const item = document.querySelector('#' + itemId);
+function updateRecieptList(itemId, itemDescription, itemPrice, customer) {
+    const item = document.querySelector('#item_' + itemId);
     const recieptPanel = document.querySelector('.reciept-panel');
 
     if(item !== null) {
@@ -73,13 +74,13 @@ function updateRecieptList(itemId, itemDescription, itemPrice) {
         togglePurchaseButtons(false);
         const lastRow = recieptPanel.querySelector('tbody tr:last-child');
         const lastIndex = lastRow !== null ? parseInt(lastRow.querySelector('th[scope=row]').textContent) : 0;
-        recieptPanel.querySelector('tbody').append(createRecieptTableRowItem(lastIndex, itemId, itemDescription, itemPrice));
+        recieptPanel.querySelector('tbody').append(createRecieptTableRowItem(lastIndex, itemId, itemDescription, itemPrice, customer));
     }
 }
 
-function createRecieptTableRowItem(lastIndex, itemId, itemDescription, itemPrice, itemData = null, itemAmount = null) {
+function createRecieptTableRowItem(lastIndex, itemId, itemDescription, itemPrice, itemCustomer, itemData = null, itemAmount = null) {
     const row = document.createElement('tr');
-    row.setAttribute('id', itemId);
+    row.setAttribute('id', 'item_' + itemId);
 
     const index = document.createElement('th');
     index.setAttribute('scope', 'row');
@@ -105,12 +106,17 @@ function createRecieptTableRowItem(lastIndex, itemId, itemDescription, itemPrice
     price.setAttribute('class', 'recieptItemPrice');
     price.textContent = itemPrice;
 
+    const customer = document.createElement('td');
+    customer.setAttribute('class', 'recieptItemCustomer');
+    customer.textContent = itemCustomer;
+
     row.append(index);
     row.append(id);
     row.append(date);
     row.append(amount);
     row.append(description);
     row.append(price);
+    row.append(customer);
 
     return row;
 }
@@ -128,9 +134,9 @@ function togglePurchaseButtons(disable) {
 document.querySelector('.clear-entry').addEventListener('click', onClearEntry);
 function onClearEntry() {
     const lastId = itemAdded.pop();
-    const lastItem = document.querySelector('#' + lastId);
+    const lastItem = document.querySelector('#item_' + lastId);
     const amount = parseInt(lastItem.querySelector('.recieptItemAmount').textContent);
-    
+
     if(amount > 1) {
         lastItem.querySelector('.recieptItemAmount').textContent = amount - 1;
     } else {
@@ -174,6 +180,7 @@ function rowToJson(row) {
     item['amount'] = row.querySelector('.recieptItemAmount').textContent;
     item['description'] = row.querySelector('.recieptItemDescription').textContent;
     item['price'] = row.querySelector('.recieptItemPrice').textContent;
+    item['customer_name'] = row.querySelector('.recieptItemCustomer').textContent;
     return item;
 }
 
@@ -191,7 +198,7 @@ function fillRecieptPanel(data) {
     const recieptList = document.querySelector('.reciept-panel tbody');
 
     for (let i = 0; i < data.length; i++) {
-        recieptList.append(createRecieptTableRowItem(i, data[i].product_id, data[i].description, data[i].price, data[i].purchase_data, data[i].amount));
+        recieptList.append(createRecieptTableRowItem(i, data[i].product_id, data[i].description, data[i].price, data[i].customer_name, data[i].purchase_data, data[i].amount));
     }
 }
 

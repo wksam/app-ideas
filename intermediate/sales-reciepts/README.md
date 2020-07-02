@@ -70,7 +70,7 @@ All' buttons under the purchase panel
 from the receipt panel. This has the effect of unselecting that item.
 -   [x] User can click the 'Cancel All' button to clear all purchases made
 before checking out.
--   [ ] User can see an input field in the input panel the user may enter the
+-   [x] User can see an input field in the input panel the user may enter the
 name of the customer into when a purchase is made. The customer name will be
 added to all items purchased by that customer in the receipt panel and in the
 rows added to the database.

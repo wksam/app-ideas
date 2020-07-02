@@ -11,10 +11,11 @@ class Reciept {
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
             const objectStore = db.createObjectStore('sales', { autoIncrement: true });
-            objectStore.createObjectStore('data', 'data', { unique: false });
-            objectStore.createObjectStore('description', 'description', { unique: false });
-            objectStore.createObjectStore('user_id', 'user_id', { unique: false });
-            objectStore.createObjectStore('product_id', 'product_id', { unique: false });
+            objectStore.createIndex('data', 'data', { unique: false });
+            objectStore.createIndex('description', 'description', { unique: false });
+            objectStore.createIndex('user_id', 'user_id', { unique: false });
+            objectStore.createIndex('product_id', 'product_id', { unique: false });
+            objectStore.createIndex('customer_name', 'customer_name', { unique: false });
         }
     };
 
