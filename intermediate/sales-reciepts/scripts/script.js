@@ -1,5 +1,7 @@
 const db = new Reciept();
 let dailyActived = false;
+let itemAdded = [];
+
 init();
 
 function init() {
@@ -55,6 +57,7 @@ function onPurchase(e) {
     const id = item.querySelector('.badge').textContent;
     const description = item.querySelector('h5').childNodes[0].nodeValue;
     const price = item.querySelector('h3').textContent;
+    itemAdded.push(id);
 
     updateRecieptList(id, description, price);
 }
@@ -118,12 +121,30 @@ function clearReciept() {
 
 function togglePurchaseButtons(disable) {   
     document.querySelector('.checkout').disabled = disable;
-    document.querySelector('.clear').disabled = disable;
+    document.querySelector('.clear-entry').disabled = disable;
+    document.querySelector('.cancel-all').disabled = disable;
 }
 
-document.querySelector('.clear').addEventListener('click', onClear);
-function onClear(e) {
+document.querySelector('.clear-entry').addEventListener('click', onClearEntry);
+function onClearEntry() {
+    const lastId = itemAdded.pop();
+    const lastItem = document.querySelector('#' + lastId);
+    const amount = parseInt(lastItem.querySelector('.recieptItemAmount').textContent);
+    
+    if(amount > 1) {
+        lastItem.querySelector('.recieptItemAmount').textContent = amount - 1;
+    } else {
+        lastItem.remove();
+    }
+
+    if(itemAdded.length > 0) return;
+    togglePurchaseButtons(true);
+}
+
+document.querySelector('.cancel-all').addEventListener('click', onCancelAll);
+function onCancelAll(e) {
     clearReciept();
+    itemAdded = [];
     togglePurchaseButtons(true);
 }
 
@@ -131,6 +152,7 @@ document.querySelector('.checkout').addEventListener('click', onCheckout);
 function onCheckout(e) {
     const items = document.querySelectorAll('.reciept-panel tbody tr');
     const data = rowsToJson(items);
+    itemAdded = [];
     db.addSales(data);
 
     clearReciept();
@@ -158,6 +180,7 @@ function rowToJson(row) {
 document.querySelector('.daily-sales').addEventListener('click', onGetAll);
 function onGetAll() {
     dailyActived = true;
+    itemAdded = [];
     clearReciept();
     togglePurchaseButtons(true);
 

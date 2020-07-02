@@ -64,11 +64,11 @@ delete the record of all purchases from the database.
 ## Bonus features
 
 -   [ ] User can see an thumbnail image of the items on the item buttons.
--   [ ] User can see the 'Clear' button replaced by 'Clear Entry' and 'Cancel
+-   [x] User can see the 'Clear' button replaced by 'Clear Entry' and 'Cancel
 All' buttons under the purchase panel
--   [ ] User can click the 'Clear Entry' button to clear the last selected item
+-   [x] User can click the 'Clear Entry' button to clear the last selected item
 from the receipt panel. This has the effect of unselecting that item.
--   [ ] User can click the 'Cancel All' button to clear all purchases made
+-   [x] User can click the 'Cancel All' button to clear all purchases made
 before checking out.
 -   [ ] User can see an input field in the input panel the user may enter the
 name of the customer into when a purchase is made. The customer name will be
