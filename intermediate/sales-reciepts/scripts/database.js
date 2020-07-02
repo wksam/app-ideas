@@ -19,6 +19,7 @@ class Reciept {
     };
 
     addSales = (salesData) => {
+        const request = indexedDB.open(this.dbName);
         request.onsuccess = (event) => {
             const db = event.target.result;
 

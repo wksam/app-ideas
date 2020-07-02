@@ -66,6 +66,7 @@
             const currentAmount = parseInt(item.querySelector('.recieptItemAmount').textContent);
             item.querySelector('.recieptItemAmount').textContent = currentAmount + 1;
         } else {
+            togglePurchaseButtons(false);
             const lastRow = recieptPanel.querySelector('tbody tr:last-child');
             const lastIndex = lastRow !== null ? parseInt(lastRow.querySelector('th[scope=row]').textContent) : 0;
             recieptPanel.querySelector('tbody').append(createRecieptTableRowItem(lastIndex, itemId, itemDescription, itemPrice));
@@ -110,8 +111,46 @@
         return row;
     }
 
-    document.querySelector('.clear').addEventListener('click', onClear);
-    function onClear() {
+    function clearReciept() {
         document.querySelector('.reciept-panel tbody').textContent = '';
+    }
+
+    function togglePurchaseButtons(disable) {   
+        document.querySelector('.checkout').disabled = disable;
+        document.querySelector('.clear').disabled = disable;
+    }
+
+    document.querySelector('.clear').addEventListener('click', onClear);
+    function onClear(e) {
+        clearReciept();
+        togglePurchaseButtons(true);
+    }
+
+    document.querySelector('.checkout').addEventListener('click', onCheckout);
+    function onCheckout(e) {
+        const items = document.querySelectorAll('.reciept-panel tbody tr');
+        const data = rowsToJson(items);
+        db.addSales(data);
+
+        clearReciept();
+        togglePurchaseButtons(true);
+    }
+
+    function rowsToJson(rows) {
+        const productsPurchased = [];
+        for (const row of rows) {
+            productsPurchased.push(rowToJson(row));
+        }
+        return productsPurchased;
+    }
+
+    function rowToJson(row) {
+        const item = {};
+        item['product_id'] = row.querySelector('.recieptItemId').textContent;
+        item['purchase_data'] = (new Date()).toString();
+        item['amount'] = row.querySelector('.recieptItemAmount').textContent;
+        item['description'] = row.querySelector('.recieptItemDescription').textContent;
+        item['price'] = row.querySelector('.recieptItemPrice').textContent;
+        return item;
     }
 })();

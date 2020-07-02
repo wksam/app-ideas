@@ -49,7 +49,7 @@ as well as all items selected for purchase. This includes the item number,
 description, and unit price.
 -   [x] User can click the 'Clear' button to clear all purchases at any time
 before checking out.
--   [ ] User can click the 'Checkout' button to complete purchase all selected
+-   [x] User can click the 'Checkout' button to complete purchase all selected
 items. The final total purchase amount will be added to the end of the reciept
 panel and all selected items will be added to the database.
 -   [ ] User can see the receipt panel cleared after all items have been added
