@@ -57,7 +57,7 @@ class Reciept {
             
             const objectStoreRequest = objectStore.getAll();
             objectStoreRequest.onsuccess = (event) => {
-                // Add function update UI
+                fillRecieptPanel(event.target.result);
             }
         }
     }
@@ -69,9 +69,6 @@ class Reciept {
             const transaction = db.transaction(['sales'], 'readwrite');
             const objectStore = transaction.objectStore('sales');
             const objectStoreRequest = objectStore.clear();
-            objectStoreRequest.onsuccess = (event) => {
-                // Add function update UI
-            }
         }
     }
 }
