@@ -19,9 +19,9 @@ feel free to choose the in memory solution of your choice.
 
 ## User Stories
 
--   [ ] User can click on a `View Products` button on the Landing Page to 
+-   [x] User can click on a `View Products` button on the Landing Page to 
 display the Products Page.
--   [ ] User can see a card on the Products Page for each
+-   [x] User can see a card on the Products Page for each
 Product showing the product thumbnail, name, price, a short description,
 and a `Select` button.
 -   [ ] User can see a Product Details page displayed when the `Select` button
