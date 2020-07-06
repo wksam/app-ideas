@@ -11,8 +11,8 @@
     }
 
     function fillProduct(product) {
-        console.log(product);
         document.querySelector('#thumbnail').src = product.thumbnail;
+        document.querySelector('#id').textContent = product.id;
         document.querySelector('#name').textContent = product.name;
         document.querySelector('#description').textContent = product.long_description;
         document.querySelector('#price').textContent = '$' + product.price;

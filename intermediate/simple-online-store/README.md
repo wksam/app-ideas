@@ -30,7 +30,7 @@ unique product id, a long description, `Add to Cart` button, and a
 `See More Products` button.
 -   [ ] User can see a confirmation message when the product is added to the
 shopping cart.
--   [ ] User can click on the `See More Products` page to return to the 
+-   [x] User can click on the `See More Products` page to return to the 
 Products Page. 
 -   [ ] User can see a `Shopping Cart` button on both the Landing
 Page or the Products Page. Hint:  a top bar might be a good common location
