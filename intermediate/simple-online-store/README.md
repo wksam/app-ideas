@@ -24,7 +24,7 @@ display the Products Page.
 -   [x] User can see a card on the Products Page for each
 Product showing the product thumbnail, name, price, a short description,
 and a `Select` button.
--   [ ] User can see a Product Details page displayed when the `Select` button
+-   [x] User can see a Product Details page displayed when the `Select` button
 is clicked showing the same information from the product card, but also a 
 unique product id, a long description, `Add to Cart` button, and a 
 `See More Products` button.

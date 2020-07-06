@@ -14,7 +14,9 @@
         container.setAttribute('class', 'col mb-4');
 
         const card = document.createElement('div');
-        card.setAttribute('class', 'card h-100');
+        card.setAttribute('class', 'product card h-100');
+        card.setAttribute('data-id', product.id);
+        card.addEventListener('click', onClickProduct);
 
         const img = document.createElement('img');
         img.setAttribute('class', 'card-img-top');
@@ -44,5 +46,11 @@
         cardBody.append(cardPrice);
 
         return container;
+    }
+
+    function onClickProduct(e) {
+        const id = e.currentTarget.dataset.id;
+        const url = 'product.html?id=' + id;
+        window.location.replace(url);
     }
 })();
