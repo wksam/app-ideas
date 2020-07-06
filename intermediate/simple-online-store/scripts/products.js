@@ -15,8 +15,6 @@
 
         const card = document.createElement('div');
         card.setAttribute('class', 'product card h-100');
-        card.setAttribute('data-id', product.id);
-        card.addEventListener('click', onClickProduct);
 
         const img = document.createElement('img');
         img.setAttribute('class', 'card-img-top');
@@ -36,7 +34,12 @@
 
         const cardPrice = document.createElement('h4');
         cardPrice.setAttribute('class', 'card-text text-secondary');
-        cardPrice.textContent = product.price;
+        cardPrice.textContent = '$' + product.price;
+
+        const link = document.createElement('a');
+        link.setAttribute('href', 'product.html?id=' + product.id);
+        link.setAttribute('class', 'float-right')
+        link.textContent = 'See More';
 
         container.append(card);
         card.append(img);
@@ -44,13 +47,8 @@
         cardBody.append(cardTitle);
         cardBody.append(cardDescription);
         cardBody.append(cardPrice);
+        cardBody.append(link);
 
         return container;
-    }
-
-    function onClickProduct(e) {
-        const id = e.currentTarget.dataset.id;
-        const url = 'product.html?id=' + id;
-        window.location.replace(url);
     }
 })();

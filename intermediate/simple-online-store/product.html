@@ -11,15 +11,16 @@
         <a href="index.html" class="navbar-brand">Simple Online Store</a>
     </nav>
     <div class="container">
-        <img src="https://via.placeholder.com/500" alt="Product Image" class="float-left mr-4 mb-4">
-        <h2>Product 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a pulvinar enim. Duis in tellus arcu. Mauris ac suscipit tortor. Maecenas auctor scelerisque ligula. Nullam semper in lacus at porttitor. Maecenas ultrices viverra ligula, laoreet volutpat augue blandit nec. Sed scelerisque, nunc sit amet commodo porta, nibh justo mollis nulla, sit amet mattis turpis diam ac lacus. Phasellus suscipit nunc sed auctor dignissim. Nulla ultricies suscipit augue, eu dictum augue egestas ut.</p>
-        <h5>Price: <span>$129.00</span></h5>
+        <img src="https://via.placeholder.com/500" alt="Product Image" class="float-left mr-4 mb-4" id="thumbnail">
+        <h2 id="name">Product 1</h2>
+        <p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a pulvinar enim. Duis in tellus arcu. Mauris ac suscipit tortor. Maecenas auctor scelerisque ligula. Nullam semper in lacus at porttitor. Maecenas ultrices viverra ligula, laoreet volutpat augue blandit nec. Sed scelerisque, nunc sit amet commodo porta, nibh justo mollis nulla, sit amet mattis turpis diam ac lacus. Phasellus suscipit nunc sed auctor dignissim. Nulla ultricies suscipit augue, eu dictum augue egestas ut.</p>
+        <h5>Price: <span id="price">$129.00</span></h5>
         <div class="float-right">
-            <button type="button" class="btn btn-success">Add to Card</button>
-            <button type="button" class="btn btn-info">See More Products</button>
+            <button type="button" class="btn btn-success" id="cart">Add to Cart</button>
+            <a href="products.html" class="btn btn-info">See More Products</a>
         </div>
     </div>
+    <script src="scripts/product-list.js"></script>
     <script src="scripts/product.js"></script>
 </body>
 </html>
