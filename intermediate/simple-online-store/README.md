@@ -35,7 +35,7 @@ Products Page.
 -   [x] User can see a `Shopping Cart` button on both the Landing
 Page or the Products Page. Hint:  a top bar might be a good common location
 for this button.
--   [ ] User can click on the `Shopping Cart` button to display the Shopping
+-   [x] User can click on the `Shopping Cart` button to display the Shopping
 Cart page containing the product id, name, price, and quantity
 ordered input box for each product previously added to the Shopping Cart.
 -   [ ] User can see a total purchase amount on the Shopping Card that is

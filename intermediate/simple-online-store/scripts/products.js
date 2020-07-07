@@ -3,11 +3,13 @@
     function init() {
         const productContainer = document.querySelector('.products');
         productContainer.textContent = '';
-
         for (const product of productList) {
             productContainer.append(createProductCard(product));
         }
-        updateCart();
+
+        if (localStorage.getItem('shopping-cart') === null)
+            localStorage.setItem('shopping-cart', JSON.stringify([]));
+        updateCartCount();
     }
 
     function createProductCard(product) {
@@ -53,7 +55,8 @@
         return container;
     }
 
-    function updateCart() {
-        document.querySelector('.cart').textContent = '(' + shoppingCard.length + ')';
+    function updateCartCount() {
+        const shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
+        document.querySelector('.cart-count').textContent = '(' + shoppingCart.length + ')';
     }
 })();
