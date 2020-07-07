@@ -46,10 +46,10 @@ total purchase amount.
 -   [x] User can click a `Place Order` button on the Shopping Cart Page to 
 complete the order. User will see a confirmation number when the order has been
 placed.
--   [ ] User can click a `Cancel Order` button on the Shopping Cart Page to 
+-   [x] User can click a `Cancel Order` button on the Shopping Cart Page to 
 cancel the order. User will see the product quantities and the total purchase
 amount reset to zero.
--   [ ] User can click a `See More Products` button on the Shopping Cart Page
+-   [x] User can click a `See More Products` button on the Shopping Cart Page
 to return to the Products Page. If the order hasn't been placed yet this will
 not clear the products that have already been added to the Products Page.
 

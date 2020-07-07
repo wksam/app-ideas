@@ -150,7 +150,7 @@
         return list;
     }
 
-    function clearLocalStorage() {
+    function clearCart() {
         localStorage.setItem('shopping-cart', JSON.stringify([]));
         document.querySelector('.total').textContent = formatCurrency(0);
         document.querySelectorAll('.cart li:not(:last-child)').forEach(elem => elem.remove());
@@ -159,7 +159,13 @@
 
     document.querySelector('.confirm').addEventListener('click', onPlaceOrder);
     function onPlaceOrder() {
-        clearLocalStorage();
+        clearCart();
         alert('Your confirmation number is: XFAOFJAaN7rirvV30ntz');
+    }
+
+    document.querySelector('.cancel').addEventListener('click', onCancelOrder);
+    function onCancelOrder() {
+        clearCart();
+        document.querySelector('.confirm').classList.add('disabled');
     }
 })();
