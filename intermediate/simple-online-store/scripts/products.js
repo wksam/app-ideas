@@ -37,7 +37,7 @@
 
         const cardPrice = document.createElement('h4');
         cardPrice.setAttribute('class', 'card-text text-secondary');
-        cardPrice.textContent = '$' + product.price;
+        cardPrice.textContent = formatCurrency(product.price);
 
         const link = document.createElement('a');
         link.setAttribute('href', 'product.html?id=' + product.id);
