@@ -7,6 +7,7 @@
         for (const product of productList) {
             productContainer.append(createProductCard(product));
         }
+        updateCart();
     }
 
     function createProductCard(product) {
@@ -50,5 +51,9 @@
         cardBody.append(link);
 
         return container;
+    }
+
+    function updateCart() {
+        document.querySelector('.cart').textContent = '(' + shoppingCard.length + ')';
     }
 })();
