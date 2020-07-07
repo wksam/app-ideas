@@ -26,13 +26,13 @@
 
     function updateCartCount() {
         const shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
-        document.querySelector('.cart-count').textContent = '(' + shoppingCart.length + ')';
+        document.querySelector('.cart-count').textContent = '(' + shoppingCart.map(item => item.quantity).reduce((sum, current) => sum + current) + ')';
     }
 
     document.querySelector('#cart').addEventListener('click', onAddCart);
-    function onAddCart() {
+    function onAddCart(e) {
         const shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
-        const hasItem = shoppingCart.find(item => item.id !== product.id);
+        const hasItem = shoppingCart.find(item => item.id === product.id);
 
         if(!hasItem) {
             product['quantity'] = 1;

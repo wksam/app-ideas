@@ -28,7 +28,7 @@ and a `Select` button.
 is clicked showing the same information from the product card, but also a 
 unique product id, a long description, `Add to Cart` button, and a 
 `See More Products` button.
--   [ ] User can see a confirmation message when the product is added to the
+-   [x] User can see a confirmation message when the product is added to the
 shopping cart.
 -   [x] User can click on the `See More Products` page to return to the 
 Products Page. 
@@ -38,10 +38,10 @@ for this button.
 -   [x] User can click on the `Shopping Cart` button to display the Shopping
 Cart page containing the product id, name, price, and quantity
 ordered input box for each product previously added to the Shopping Cart.
--   [ ] User can see a total purchase amount on the Shopping Card that is
+-   [x] User can see a total purchase amount on the Shopping Card that is
 calculated as the sum of the quantities multiplied by the unit price for each
 product ordered.
--   [ ] User can adjust the quantity ordered for any product to adjust the
+-   [x] User can adjust the quantity ordered for any product to adjust the
 total purchase amount. 
 -   [ ] User can click a `Place Order` button on the Shopping Cart Page to 
 complete the order. User will see a confirmation number when the order has been
