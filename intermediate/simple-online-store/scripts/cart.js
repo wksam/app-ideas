@@ -6,10 +6,14 @@
             localStorage.setItem('shopping-cart', JSON.stringify([]));
         updateCartCount(shoppingCart);
         updateCart(shoppingCart);
+
+        if(shoppingCart.length > 0)
+            document.querySelector('.confirm').classList.remove('disabled');
     }
 
     function updateCartCount(shoppingCart) {
-        document.querySelector('.cart-count').textContent = '(' + shoppingCart.map(item => item.quantity).reduce((sum, current) => sum + current) + ')';
+        const n = shoppingCart.length > 0 ? shoppingCart.map(item => item.quantity).reduce((sum, current) => sum + current) : 0;
+        document.querySelector('.cart-count').textContent = '(' + n + ')';
     }
 
     function updateCart(shoppingCart) {
@@ -144,5 +148,18 @@
 
         list.append(result);
         return list;
+    }
+
+    function clearLocalStorage() {
+        localStorage.setItem('shopping-cart', JSON.stringify([]));
+        document.querySelector('.total').textContent = formatCurrency(0);
+        document.querySelectorAll('.cart li:not(:last-child)').forEach(elem => elem.remove());
+        updateCartCount(JSON.parse(localStorage.getItem('shopping-cart')));
+    }
+
+    document.querySelector('.confirm').addEventListener('click', onPlaceOrder);
+    function onPlaceOrder() {
+        clearLocalStorage();
+        alert('Your confirmation number is: XFAOFJAaN7rirvV30ntz');
     }
 })();

@@ -42,8 +42,8 @@ ordered input box for each product previously added to the Shopping Cart.
 calculated as the sum of the quantities multiplied by the unit price for each
 product ordered.
 -   [x] User can adjust the quantity ordered for any product to adjust the
-total purchase amount. 
--   [ ] User can click a `Place Order` button on the Shopping Cart Page to 
+total purchase amount.
+-   [x] User can click a `Place Order` button on the Shopping Cart Page to 
 complete the order. User will see a confirmation number when the order has been
 placed.
 -   [ ] User can click a `Cancel Order` button on the Shopping Cart Page to 

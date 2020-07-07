@@ -57,6 +57,7 @@
 
     function updateCartCount() {
         const shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
-        document.querySelector('.cart-count').textContent = '(' + shoppingCart.map(item => item.quantity).reduce((sum, current) => sum + current) + ')';
+        const n = shoppingCart.length > 0 ? shoppingCart.map(item => item.quantity).reduce((sum, current) => sum + current) : 0;
+        document.querySelector('.cart-count').textContent = '(' + n + ')';
     }
 })();
