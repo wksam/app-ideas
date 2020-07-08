@@ -1,0 +1,20 @@
+.bracket {
+    display: flex;
+    .round, .game, .team {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+    }
+    .round {
+        .game {
+            position: relative;
+            .team {
+                justify-content: space-around;
+                min-height: 2.5rem;
+                padding: 0 1rem 0;
+                text-align: center;
+            }
+        }
+    }
+}
+

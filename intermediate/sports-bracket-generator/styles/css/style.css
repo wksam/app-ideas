@@ -14,4 +14,22 @@
   font-size: 2rem;
 }
 
+.bracket {
+  display: flex;
+}
+.bracket .round, .bracket .game, .bracket .team {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.bracket .round .game {
+  position: relative;
+}
+.bracket .round .game .team {
+  justify-content: space-around;
+  min-height: 2.5rem;
+  padding: 0 1rem 0;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
