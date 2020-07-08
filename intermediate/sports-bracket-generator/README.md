@@ -23,7 +23,7 @@ hand.
 
 -   [x] User can enter the name of the tournament
 -   [ ] User can enter the starting and ending dates of the tournament
--   [ ] User can enter the number of teams competing in the tournament
+-   [x] User can enter the number of teams competing in the tournament
 -   [ ] User can see a warning if either the starting or ending date is 
 invalid
 -   [ ] User can see a warning if an odd number of competing teams is entered

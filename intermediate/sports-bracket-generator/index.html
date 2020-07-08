@@ -10,7 +10,22 @@
 <body>
     <div class="container">
         <h1 class="text-center my-4">Sports Bracket Generator</h1>
-        <input type="text" class="form-control custom-form form-title" placeholder="Tournament Name">
+        <form>
+            <input type="text" class="form-control custom-form form-title mb-4" placeholder="Tournament Name" required>
+            <div class="form-group">
+                <select class="form-control custom-form" id="number-team" required>
+                    <option value="">Number of Teams</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="16">16</option>
+                    <option value="32">32</option>
+                </select>
+            </div>
+            <div class="float-right">
+                <button type="submit" class="btn btn-primary">Generate</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
