@@ -1,0 +1,17 @@
+.custom-form {
+  border-radius: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.custom-form:focus {
+  box-shadow: none;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+/*# sourceMappingURL=style.css.map */

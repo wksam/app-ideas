@@ -21,7 +21,7 @@ hand.
 
 ## User Stories
 
--   [ ] User can enter the name of the tournament
+-   [x] User can enter the name of the tournament
 -   [ ] User can enter the starting and ending dates of the tournament
 -   [ ] User can enter the number of teams competing in the tournament
 -   [ ] User can see a warning if either the starting or ending date is 
