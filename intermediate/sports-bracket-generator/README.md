@@ -32,7 +32,7 @@ invalid
 
 -   [x] User can enter the competing team names for each match
 -   [x] User can enter the date for each match
--   [ ] User can enter the final score for each match
+-   [x] User can enter the final score for each match
 -   [ ] User can expect that this data will persist across sessions
 
 ## Useful links and resources

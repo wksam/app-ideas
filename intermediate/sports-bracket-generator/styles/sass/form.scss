@@ -12,3 +12,41 @@
 .form-title {
     font-size: 2rem;
 }
+
+.team-form {
+    display: flex;
+    position: relative;
+}
+
+.team-form::after {
+    content: '';
+    position: absolute;
+    border-right: 1px solid #ced4da;
+    left: 70%;
+    height: 20px;
+    top: 9px;
+}
+
+.input-team-name {
+    width: 70%;
+}
+
+.input-score {
+    width: 30%;
+}
+
+.round:last-child {
+    .team-form {
+        .input-team-name {
+            width: 100%;
+        }
+
+        .input-score {
+            display: none;
+        }
+
+        &::after {
+            display: none;
+        }
+    }
+}

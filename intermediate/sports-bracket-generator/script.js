@@ -45,11 +45,23 @@
         const team = document.createElement('div');
         team.setAttribute('class', 'team');
 
-        const input = document.createElement('input');
-        input.setAttribute('type', 'text');
-        input.setAttribute('class', 'form-control custom-form');
+        const teamForm = document.createElement('div');
+        teamForm.setAttribute('class', 'team-form');
 
-        team.append(input);
+        const inputName = document.createElement('input');
+        inputName.setAttribute('type', 'text');
+        inputName.setAttribute('class', 'form-control custom-form input-team-name');
+        inputName.setAttribute('placeholder', 'Team name');
+
+        const inputScore = document.createElement('input');
+        inputScore.setAttribute('type', 'number');
+        inputScore.setAttribute('class', 'form-control custom-form input-score');
+        inputScore.setAttribute('placeholder', 'Score');
+        inputScore.setAttribute('min', '0');
+
+        team.append(teamForm);
+        teamForm.append(inputName);
+        teamForm.append(inputScore);
         return team;
     }
 
