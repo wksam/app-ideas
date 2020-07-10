@@ -13,23 +13,43 @@
   font-size: 2rem;
 }
 
-.bracket {
+.tournament-table {
+  overflow-x: auto;
+}
+.tournament-table .round-date {
+  display: flex;
+  flex: 1 1 auto;
+}
+.tournament-table .round-date input {
+  text-align: center;
+  margin: 0 0.5rem 0;
+  width: 100%;
+  min-width: calc(250px - 1rem);
+}
+.tournament-table .round-date input:last-child {
+  visibility: hidden;
+}
+.tournament-table .bracket {
   display: flex;
 }
-.bracket .round, .bracket .game, .bracket .team {
+.tournament-table .bracket .round, .tournament-table .bracket .game, .tournament-table .bracket .team {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+  min-width: 250px;
 }
-.bracket .round .game {
+.tournament-table .bracket .round .game {
   position: relative;
 }
-.bracket .round .game .team {
+.tournament-table .bracket .round .game .team {
   justify-content: space-around;
   min-height: 2.5rem;
   text-align: center;
 }
-.bracket .round:not(:last-child) .game::after {
+.tournament-table .bracket .round .game .team input {
+  text-align: center;
+}
+.tournament-table .bracket .round:not(:last-child) .game::after {
   content: "";
   position: absolute;
   border-right: 1px solid #ced4da;

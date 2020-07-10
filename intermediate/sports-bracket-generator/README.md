@@ -22,7 +22,7 @@ hand.
 ## User Stories
 
 -   [x] User can enter the name of the tournament
--   [ ] User can enter the starting and ending dates of the tournament
+-   [x] User can enter the starting and ending dates of the tournament
 -   [x] User can enter the number of teams competing in the tournament
 -   [ ] User can see a warning if either the starting or ending date is 
 invalid
@@ -30,8 +30,8 @@ invalid
 
 ## Bonus features
 
--   [ ] User can enter the competing team names for each match
--   [ ] User can enter the date for each match
+-   [x] User can enter the competing team names for each match
+-   [x] User can enter the date for each match
 -   [ ] User can enter the final score for each match
 -   [ ] User can expect that this data will persist across sessions
 

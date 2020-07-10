@@ -3,6 +3,8 @@
     function onChangeNumberOfTeams(e) {
         const bracket = document.querySelector('.bracket');
         bracket.textContent = '';
+        const roundDate = document.querySelector('.round-date');
+        roundDate.textContent = '';
 
         let teams = parseInt(e.target.value);
         let rounds = (Math.log(teams) / Math.log(2)) + 1;
@@ -11,6 +13,7 @@
         for (let r = 0; r < rounds; r++) {
             games = games / 2;
             bracket.append(createRound(games));
+            roundDate.append(createDate());
         }
     }
 
@@ -44,9 +47,16 @@
 
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
-        input.setAttribute('class', 'form-control custom-form text-center');
+        input.setAttribute('class', 'form-control custom-form');
 
         team.append(input);
         return team;
+    }
+
+    function createDate() {
+        const date = document.createElement('input');
+        date.setAttribute('type', 'date');
+        date.setAttribute('class', 'form-control custom-form');
+        return date;
     }
 })();
