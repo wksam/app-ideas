@@ -3,7 +3,7 @@
 
     .round-date {
         display: flex;
-        flex: 1 1 auto;
+        flex: 1 1 0;
 
         input {
             text-align: center;
@@ -23,7 +23,7 @@
         .round, .game, .team {
             display: flex;
             flex-direction: column;
-            flex: 1 1 auto;
+            flex: 1 1 0;
             min-width: 300px;
         }
         
