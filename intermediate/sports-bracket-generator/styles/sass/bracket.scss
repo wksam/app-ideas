@@ -1,20 +1,31 @@
 .bracket {
     display: flex;
+    
     .round, .game, .team {
         display: flex;
         flex-direction: column;
         flex: 1 1 auto;
     }
+    
     .round {
         .game {
             position: relative;
             .team {
                 justify-content: space-around;
                 min-height: 2.5rem;
-                padding: 0 1rem 0;
                 text-align: center;
+            }
+        }
+
+        &:not(:last-child) {
+            .game::after {
+                content: '';
+                position: absolute;
+                border-right: 1px solid #ced4da;
+                width: 100%;
+                height: 50%;
+                bottom: calc(25% - 1.2rem);
             }
         }
     }
 }
-
