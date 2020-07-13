@@ -53,7 +53,7 @@
         const line = {
             moveTo: { x: count, y: 0 },
             lineTo: { x: count, y: canvas.height },
-            color: { r: 0, g: 0, b: 0, a: 1 }
+            color: { r: random(0, 255), g: random(0, 255), b: random(0, 255), a: 1 }
         }
         lines.push(line);
 
@@ -65,5 +65,9 @@
             lines[i].color.a = alpha;
             alpha -= 0.05;
         }
+    }
+
+    function random(min, max) {
+        return Math.random() * (max - min) + min;
     }
 })();
