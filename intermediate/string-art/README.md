@@ -17,10 +17,10 @@ Animation libraries are not allowed. Use only Vanilla HTML/CSS/JavaScript.
 
 ## User Stories
 
--   [ ] Start by drawing a multicolored line at a random position within the boundary of it's enclosing window
--   [ ] Each 20ms draw a new copy of the line at a new position based on a trajectory - the incremental distance from the previous line based on the endpoints
--   [ ] When either endpoint of the line touches the boundary of the enclosing window change it's direction and randomly alter its angle
--   [ ] Progressively fade the intensity of old lines so that only the most recent 10-20 lines are visible to create the sense of movement or "ripple"
+-   [x] Start by drawing a multicolored line at a random position within the boundary of it's enclosing window
+-   [x] Each 20ms draw a new copy of the line at a new position based on a trajectory - the incremental distance from the previous line based on the endpoints
+-   [x] When either endpoint of the line touches the boundary of the enclosing window change it's direction and randomly alter its angle
+-   [x] Progressively fade the intensity of old lines so that only the most recent 10-20 lines are visible to create the sense of movement or "ripple"
 
 ## Bonus features
 
