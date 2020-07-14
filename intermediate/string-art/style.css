@@ -1,3 +1,9 @@
+h1 {
+    font: 2.5rem sans-serif;
+    text-align: center;
+    margin: 1rem auto;
+}
+
 .container {
     width: 100vw;
     height: 100vh;

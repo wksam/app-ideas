@@ -1,11 +1,11 @@
 (function(){
-    let count = 0;
-    let invert = false;
     let intervalId;
     const lines = [];
 
     const canvas = document.querySelector('canvas');
     const context = canvas.getContext('2d');
+
+    window.addEventListener('resize', init);
 
     init();
     function init() {
