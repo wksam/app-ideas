@@ -1,0 +1,9 @@
+.selected img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.container {
+    margin-bottom: 175px;
+}

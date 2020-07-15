@@ -8,9 +8,9 @@ A game in which the user can select their favorite image between two choices.
 
 ## User Stories
 
-- [ ] User can see two images
-- [ ] User can select it's favorite from the two images
-- [ ] After a selection is made, other 2 images are displayed
+- [x] User can see two images
+- [x] User can select it's favorite from the two images
+- [x] After a selection is made, other 2 images are displayed
 
 ## Bonus features
 

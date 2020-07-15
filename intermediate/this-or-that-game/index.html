@@ -5,18 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>This or That Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="text-center my-4">This or That Game</h1>
-        <div class="row">
-            <div class="col">
-                <img src="https://via.placeholder.com/500?text=This" class="img-fluid" alt="Image This">
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category">
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-around align-items-center">
+            <div class="p-2 w-50 d-flex justify-content-center">
+                <img src="https://via.placeholder.com/500?text=This" id="this" class="img-fluid rounded mw-50" alt="Image This">
             </div>
-            <div class="col">
-                <img src="https://via.placeholder.com/500?text=That" class="img-fluid" alt="Image That">
+            <div class="p-2 w-50 d-flex justify-content-center">
+                <img src="https://via.placeholder.com/500?text=That" id="that" class="img-fluid rounded mw-50" alt="Image That">
             </div>
         </div>
+    </div>
+    <div class="selected fixed-bottom d-flex flex-nowrap overflow-auto">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
+        <img src="https://via.placeholder.com/500?text=This" class="m-1 img-thumbnail" alt="Image This">
     </div>
     <script src="script.js"></script>
 </body>
