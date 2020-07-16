@@ -1,0 +1,9 @@
+.list-group input[type=text] {
+    padding: 0;
+    border: 0;
+    height: 100%;
+}
+
+.list-group input[type=text]:focus {
+    box-shadow: none;
+}
