@@ -10,3 +10,8 @@ input[type=text] {
 input[type=text]:focus {
     box-shadow: none;
 }
+
+.checked label {
+    color: #6c757d;
+    text-decoration: line-through;
+}

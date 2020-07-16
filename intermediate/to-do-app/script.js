@@ -29,6 +29,7 @@
         checkbox.setAttribute('class', 'form-check-input');
         checkbox.setAttribute('type', 'checkbox');
         checkbox.setAttribute('id', id);
+        checkbox.addEventListener('change', onCheck);
 
         const label = document.createElement('label');
         label.setAttribute('class', 'form-check-label');
@@ -45,4 +46,9 @@
     function createId() {
         return '_' + Math.random().toString(36).substr(2, 9);
     };
+
+    function onCheck(e) {
+        const formCheck = e.currentTarget.parentElement;
+        formCheck.classList.toggle('checked');
+    }
 })();
