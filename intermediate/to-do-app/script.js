@@ -2,6 +2,7 @@
     init();
     function init() {
         document.querySelector('.tasks').textContent = '';
+        document.querySelector('.completed').textContent = '';
     }
 
     document.querySelector('form').addEventListener('submit', onSubmit);
@@ -14,7 +15,20 @@
 
     function addTask(task) {
         const taskList = document.querySelector('.tasks');
+        if(taskList.childElementCount === 0) taskList.append(createHeader('Tasks'));
         taskList.append(createTask(task));
+    }
+
+    function createHeader(title) {
+        const li = document.createElement('li');
+        li.setAttribute('class', 'list-group-item');
+
+        const header = document.createElement('h5');
+        header.setAttribute('class', 'm-0');
+        header.textContent = title;
+
+        li.append(header);
+        return li;
     }
 
     function createTask(task) {
@@ -57,11 +71,26 @@
 
     function onCheck(e) {
         const formCheck = e.currentTarget.parentElement;
-        formCheck.classList.toggle('checked');
+
+        const taskList = document.querySelector('.tasks');
+        const completedList = document.querySelector('.completed');
+        const task = formCheck.parentElement;
+
+        if(formCheck.classList.toggle('checked')) {
+            if(completedList.childElementCount === 0) completedList.append(createHeader('Completed'));
+            completedList.append(task);
+            if(taskList.childElementCount === 1) taskList.textContent = '';
+        } else {
+            if(taskList.childElementCount === 0) taskList.append(createHeader('Tasks'));
+            taskList.append(task);
+            if(completedList.childElementCount === 1) completedList.textContent = '';
+        }
     }
 
     function onRemove(e) {
+        const list = e.currentTarget.parentElement.parentElement;
         e.currentTarget.parentElement.remove();
+        if(list.childElementCount === 1) list.textContent = '';
     }
 
     function onMouseOver(e) {
