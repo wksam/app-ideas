@@ -18,9 +18,9 @@ speed and accuracy.
 
 ## User Stories
 
--   [ ] User can see the time interval words must be typed in displayed in 
+-   [x] User can see the time interval words must be typed in displayed in 
 the app window.
--   [ ] User can see the number of successful attempts and the number of total
+-   [x] User can see the number of successful attempts and the number of total
 attempts in a score box.
 -   [ ] User can click a 'Start Practice' button to start the practice session.
 -   [ ] User can see the prompt word displayed in a text box.
