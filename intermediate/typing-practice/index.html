@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Practice</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="text-center my-4">Typing Practice</h1>
-        <p>Time Interval: <small>0</small></p>
-        <p>Successful Attempts: <small>0</small></p>
-        <p>Total Attempts: <small>0</small></p>
+        <div class="d-flex mb-4">
+            <div class="p-2">Time Interval: <small>0</small></div>
+            <div class="p-2 mx-2">Successful Attempts: <small>0</small></div>
+            <div class="p-2">Total Attempts: <small>0</small></div>
+        </div>
+        <div class="word text-center border rounded mb-2">Word</div>
+        <input type="text" class="form-control text-center">
     </div>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/script.jss"></script>
 </body>
 </html>

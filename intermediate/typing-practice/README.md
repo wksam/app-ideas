@@ -23,8 +23,8 @@ the app window.
 -   [x] User can see the number of successful attempts and the number of total
 attempts in a score box.
 -   [ ] User can click a 'Start Practice' button to start the practice session.
--   [ ] User can see the prompt word displayed in a text box.
--   [ ] User can begin typing the word in a text input box.
+-   [x] User can see the prompt word displayed in a text box.
+-   [x] User can begin typing the word in a text input box.
 -   [ ] User can see the letters that have been typed flash if an incorrect
 letter is entered and the text input box will be cleared.
 -   [ ] User can see the a message adjacent to the text input box indicating
