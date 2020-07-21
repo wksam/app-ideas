@@ -22,7 +22,7 @@ speed and accuracy.
 the app window.
 -   [x] User can see the number of successful attempts and the number of total
 attempts in a score box.
--   [ ] User can click a 'Start Practice' button to start the practice session.
+-   [x] User can click a 'Start Practice' button to start the practice session.
 -   [x] User can see the prompt word displayed in a text box.
 -   [x] User can begin typing the word in a text input box.
 -   [ ] User can see the letters that have been typed flash if an incorrect
@@ -35,7 +35,7 @@ the user should try again if an incorrect letter is entered.
 small amount if the word is correctly typed.
 -   [ ] User can see the number of successful attempts incremented in the score
 box if the word was correctly typed.
--   [ ] User can click a 'Stop Practice' button to stop the practice session.
+-   [x] User can click a 'Stop Practice' button to stop the practice session.
 
 ## Bonus features
 
