@@ -1,3 +1,7 @@
+:root {
+    --twinkle-color: #343a40;
+}
+
 .word {
     padding: 6px 0;
 }
@@ -6,4 +10,13 @@ input[type=text] {
     font-size: 3.5rem;
     font-weight: 300;
     line-height: 1.2;
+}
+
+.error {
+    color: #dc3545;
+}
+
+.twinkle {
+    background: var(--twinkle-color);
+    color: #f8f9fa;
 }
