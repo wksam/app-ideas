@@ -19,7 +19,7 @@
         const input = document.querySelector('.input');
         input.disabled = true;
         input.value = '';
-        
+
         clearInterval(twinkleId);
     }
 
@@ -52,6 +52,8 @@
         
         clearInterval(twinkleId);
         twinkleId = setInterval(twinkle, 400);
+
+        return word;
     }
 
     function twinkle() {
@@ -68,6 +70,14 @@
                 currentLetter.classList.remove('twinkle');
                 nextLetter.classList.add('current');
             } else {
+                const totalAttempts = document.querySelector('.total .value');
+                totalAttempts.textContent = parseInt(totalAttempts.textContent) + 1;
+
+                if(document.querySelectorAll('.error').length === 0) {
+                    const successfulAttempts = document.querySelector('.successful .value');
+                    successfulAttempts.textContent = parseInt(successfulAttempts.textContent) + 1;
+                }
+
                 createWord();
                 e.target.value = '';
                 e.preventDefault();
