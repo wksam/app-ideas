@@ -1,9 +1,12 @@
 (function() {
+    let startTime;
+
     document.querySelector('.start').addEventListener('click', onStartPractice);
     function onStartPractice(e) {
         toggleVisibility(e.currentTarget);
         toggleVisibility(document.querySelector('.stop'));
 
+        startTime = Date.now();
         createWord();
         const input = document.querySelector('.input');
         input.disabled = false;
@@ -52,8 +55,6 @@
         
         clearInterval(twinkleId);
         twinkleId = setInterval(twinkle, 400);
-
-        return word;
     }
 
     function twinkle() {
@@ -70,13 +71,9 @@
                 currentLetter.classList.remove('twinkle');
                 nextLetter.classList.add('current');
             } else {
-                const totalAttempts = document.querySelector('.total .value');
-                totalAttempts.textContent = parseInt(totalAttempts.textContent) + 1;
-
-                if(document.querySelectorAll('.error').length === 0) {
-                    const successfulAttempts = document.querySelector('.successful .value');
-                    successfulAttempts.textContent = parseInt(successfulAttempts.textContent) + 1;
-                }
+                setTotalAttempts();
+                setSuccessfulAttempts();
+                setTimeInterval();
 
                 createWord();
                 e.target.value = '';
@@ -88,5 +85,24 @@
             currentLetter.classList.add('error');
             e.preventDefault();
         }
+    }
+
+    function setTotalAttempts() {
+        const totalAttempts = document.querySelector('.total .value');
+        totalAttempts.textContent = parseInt(totalAttempts.textContent) + 1;
+    }
+
+    function setSuccessfulAttempts() {
+        if(document.querySelectorAll('.error').length === 0) {
+            const successfulAttempts = document.querySelector('.successful .value');
+            successfulAttempts.textContent = parseInt(successfulAttempts.textContent) + 1;
+        }
+    }
+
+    function setTimeInterval() {
+        const timeInterval = document.querySelector('.timer .value');
+        const currentTime = Date.now();
+        timeInterval.textContent = ((currentTime - startTime) / 1000).toFixed(2);
+        startTime = currentTime;
     }
 })();
