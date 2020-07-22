@@ -19,6 +19,8 @@
         const input = document.querySelector('.input');
         input.disabled = true;
         input.value = '';
+        
+        clearInterval(twinkleId);
     }
 
     function toggleVisibility(element) {
@@ -47,7 +49,8 @@
             wordContainer.append(createSpan(letter, first));
             first = false;
         }
-
+        
+        clearInterval(twinkleId);
         twinkleId = setInterval(twinkle, 400);
     }
 
@@ -60,9 +63,15 @@
         const currentLetter = document.querySelector('.current');
         if(currentLetter.textContent.charCodeAt(0) === e.which) {
             const nextLetter = currentLetter.nextElementSibling;
-            currentLetter.classList.remove('current');
-            currentLetter.classList.remove('twinkle');
-            nextLetter.classList.add('current');
+            if(nextLetter) {
+                currentLetter.classList.remove('current');
+                currentLetter.classList.remove('twinkle');
+                nextLetter.classList.add('current');
+            } else {
+                createWord();
+                e.target.value = '';
+                e.preventDefault();
+            }
             document.documentElement.style.setProperty('--twinkle-color', '#343a40');
         } else {
             document.documentElement.style.setProperty('--twinkle-color', '#dc3545');
