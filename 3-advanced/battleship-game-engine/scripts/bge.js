@@ -14,7 +14,7 @@ class BGE {
     }
 
     _generateBoard(size) {
-        return new Array(size).fill().map(() => Array(size).fill(0));
+        return new Array(size).fill().map(() => Array(size).fill(' '));
     }
 
     _getRandomInt(min, max) {
@@ -56,8 +56,9 @@ class BGE {
     }
 
     _canBePlaced(board, ship, x, y, currentSize, direction) {
+        if((x >= board.length || y >= board.length)) return false;
+        if(board[y][x] !== ' ') return false;
         if(currentSize < ship.size) {
-            if((x >= board.length || y >= board.length) || board[x][y] !== 0) return false;
             currentSize++;
             switch (direction) {
                 case 0:
@@ -67,24 +68,27 @@ class BGE {
                     y++;
                     return this._canBePlaced(board, ship, x, y, currentSize, direction);
             }
-        } else {
-            return true;
         }
+        return true;
+    }
+
+    shoot(x, y) {
+
     }
 }
 
 const ships = [{
     name: 'Destroyer',
     size: 2,
-    id: 11
+    id: 'D'
 }, {
     name: 'Cruiser',
     size: 3,
-    id: 12
+    id: 'C'
 }, {
     name: 'Battleship',
     size: 4,
-    id: 13
+    id: 'B'
 }];
 
 const gameEngine = new BGE(8, ships);
