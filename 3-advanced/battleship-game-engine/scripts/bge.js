@@ -10,7 +10,12 @@ class BGE {
 
     startGame() {
         this._board = this._generateBoard(this._size);
+        this._boardMask = this._generateBoard(this._size);
+        this._board2 = this._generateBoard(this._size);
+        this._board2Mask = this._generateBoard(this._size);
         this._putShips(this._board, this._ships);
+        this._putShips(this._board2, this._ships);
+        return this._board
     }
 
     _generateBoard(size) {
@@ -52,11 +57,10 @@ class BGE {
                 }
             } while (reposition);
         }
-        console.log(board);
     }
 
     _canBePlaced(board, ship, x, y, currentSize, direction) {
-        if((x >= board.length || y >= board.length)) return false;
+        if((x >= this._size || y >= this._size)) return false;
         if(board[y][x] !== ' ') return false;
         if(currentSize < ship.size) {
             currentSize++;
@@ -72,8 +76,18 @@ class BGE {
         return true;
     }
 
-    shoot(x, y) {
+    shoot(player, x, y) {
+        x--;
+        y--;
+        if(x < 0 || x >= this._size || y < 0 || y >= this._size) return;
 
+        if(player === 1) {
+            this._board2Mask[y][x] = this._board2[y][x] !== ' ' ? 'X' : 'O';
+            return this._board2Mask;
+        } else {
+            this._boardMask[y][x] = this._board[y][x] !== ' ' ? 'X' : 'O';
+            return this._boardMask;
+        }
     }
 }
 
@@ -92,4 +106,4 @@ const ships = [{
 }];
 
 const gameEngine = new BGE(8, ships);
-gameEngine.startGame();
+console.log(gameEngine.startGame());
